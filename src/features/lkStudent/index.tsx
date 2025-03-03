@@ -11,23 +11,32 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
-import {useRef, useState} from "react";
+import {JSX, useRef, useState} from "react";
 
+interface ISwiperItem {
+    title: JSX.Element
+    type: number
+    img: string
+    id: number
+}
 
-const swiperData = [
-    {title: <>Каллиграфия <br/> пробный доступ</>, type: 1, img: img_1},
-    {title: <>Каллиграфия <br/> полный доступ</>, type: 2, img: img_2},
-    {title: <>леттеринг <br/> полный доступ</>, type: 3, img: img_3},
-    {title: <>Sketching <br/> акварелью</>, type: 3, img: img_4},
-    {title: <>Каллиграфия <br/> полный доступ</>, type: 2, img: img_2},
-    {title: <>Каллиграфия <br/> пробный доступ</>, type: 1, img: img_1},
-    {title: <>леттеринг <br/> полный доступ</>, type: 3, img: img_3},
+const swiperData: ISwiperItem[] = [
+    {title: <>Каллиграфия <br/> пробный доступ</>, type: 1, img: img_1, id: 1},
+    {title: <>Каллиграфия <br/> полный доступ</>, type: 2, img: img_2, id: 2},
+    {title: <>леттеринг <br/> полный доступ</>, type: 3, img: img_3, id: 3},
+    {title: <>Sketching <br/> акварелью</>, type: 3, img: img_4, id: 4},
+    {title: <>Каллиграфия <br/> полный доступ</>, type: 2, img: img_2, id: 5},
+    {title: <>Каллиграфия <br/> пробный доступ</>, type: 1, img: img_1, id: 6},
+    {title: <>леттеринг <br/> полный доступ</>, type: 3, img: img_3, id: 7},
 ]
 
 const LkStudent = () => {
-    const swiperRef = useRef(null);
+    const swiperRef = useRef<unknown>(null);
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [hiddenLastIndex, setHiddenLastIndex] = useState(null)
+
+    const [leftItem, setLeftItem] = useState<ISwiperItem | null>(null)
+    const [rightItem, setRightItem] = useState<ISwiperItem | null>(null)
+
     const bg = {
         1: "linear-gradient(180deg, #FF3C3C 0%, #F39292 49.48%, #FFD9D9 100%)",
         2: "linear-gradient(180deg, #F3ACD7 0%, #FFC7F6 48.44%, #FBE2FF 100%)",
@@ -35,19 +44,34 @@ const LkStudent = () => {
     }
     const dots = Array.from({length: swiperData.length}, (_, b) => b)
 
-    const handleSlideChange = (swiper: any) => {
-        const visibleSlides = [];
-        const slidesPerView = swiper.params.slidesPerView;
+    const handleSlideChange = (realIndex: number, bp: string) => {
+        const bpNumber = Number(bp)
 
-        for (let i = 0; i < slidesPerView; i++) {
-            const slideIndex = swiper.activeIndex + i;
-            if (slideIndex < swiper.slides.length) {
-                visibleSlides.push(slideIndex);
-            }
-        }
-        setHiddenLastIndex(swiper.isEnd ? visibleSlides[0] - 1 : visibleSlides[visibleSlides.length - 1])
+        const rightIndex =
+            realIndex + 2 > swiperData.length - 1
+                ? (realIndex + 2) - swiperData.length
+                : realIndex + 2;
+        const leftIndex =
+            realIndex - 2 < 0
+                ? swiperData.length + (realIndex - 2)
+                : realIndex - 2;
+
+
+        const rightIndexMobile =
+            realIndex + 1 > swiperData.length - 1
+                ? (realIndex + 1) - swiperData.length
+                : realIndex + 1;
+
+        const leftIndexMobile =
+            realIndex - 1 < 0
+                ? swiperData.length + (realIndex - 1)
+                : realIndex - 1;
+
+        setLeftItem(swiperData[bpNumber > 768 ? leftIndex : leftIndexMobile])
+        setRightItem(swiperData[bpNumber > 768 ? rightIndex : rightIndexMobile]);
 
     };
+
     return (
         <Wrapper className={s.wrapper_LkStudent}>
             <>
@@ -66,40 +90,38 @@ const LkStudent = () => {
                             style={{height: '32px', width: 'auto'}}/></div>
                     </div>
                     <Swiper
-                        onSlideChange={handleSlideChange}
+                        onSlideChange={(swiper) => {
+                            handleSlideChange(swiper?.realIndex, swiper?.currentBreakpoint)
+                        }}
                         onSwiper={(swiper) => {
-                            handleSlideChange(swiper)
-                            //@ts-ignore
+                            handleSlideChange(swiper?.realIndex, swiper?.currentBreakpoint)
                             swiperRef.current = swiper;
                         }}
                         onActiveIndexChange={(e) => {
-                            setCurrentIndex(e?.activeIndex)
+                            handleSlideChange(e?.realIndex, e?.currentBreakpoint)
+                            setCurrentIndex(e?.realIndex)
                         }}
-
+                        centeredSlides={true}
                         spaceBetween={30}
-                        slidesPerView={4.5}
+                        slidesPerView={4.3}
                         speed={1500}
                         breakpoints={{
                             1200: {slidesPerView: 4.5},
                             1024: {slidesPerView: 3.5},
                             768: {slidesPerView: 2.5},
                             480: {slidesPerView: 1.5},
-                            0: {slidesPerView: 1.2},
+                            0: {slidesPerView: 1.35},
                         }}
-                        // autoplay={{
-                        //     delay: 2000,
-                        //     pauseOnMouseEnter: true,
-                        //     disableOnInteraction: false,
-                        // }}
-                        // modules={[Autoplay]}
+                        loop
                     >
                         {swiperData.map((el, i) => {
-                            return <SwiperSlide key={i}
+                            return <SwiperSlide key={`${i} + ${el.id}`}
                             >
                                 <div className={s.item} style={{
                                     //@ts-ignore
                                     background: bg[el.type],
-                                    opacity: hiddenLastIndex === i ? 0.35 : 1
+                                    transition: "0.4s all",
+                                    opacity: (leftItem?.id === el.id || rightItem?.id === el.id) ? 0.35 : 1
                                 }}>
                                     <div className={s.info_box}>
                                         <h3 className={s.title}>{el.title}</h3>
