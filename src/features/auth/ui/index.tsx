@@ -23,6 +23,7 @@ const Login = () => {
             ) {
                 errors.email = 'Невалидный email адрес';
             }
+
             return errors;
         },
         onSubmit: () => {

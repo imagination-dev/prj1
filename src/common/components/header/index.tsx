@@ -9,7 +9,7 @@ import {IconButton, useMediaQuery} from "@mui/material";
 import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-
+import logoGray from '../../assets/logo_gray.jpg'
 const Header = () => {
     const query768 = useMediaQuery('(max-width:768px)');
 
@@ -44,7 +44,9 @@ const Header = () => {
     };
 
     return (
-        <div className={s.header}>
+        <div className={s.header} style={{
+            background: openMenu && '#fff'
+        }}>
             <HeaderBurgerLeft handleLogout={handleExit} type={1}
                               toggleDrawer={toggleDrawerRight}
                               openMenu={openMenu}/>
@@ -52,7 +54,7 @@ const Header = () => {
                 <>
                     <MenuHeader logout={handleExit} open={open} handleClose={handleClose} anchorEl={anchorEl}/>
                     <div className={s.header_left}>
-                        <img src={logo} alt="logo"/>
+                        <img src={openMenu ? logoGray : logo} alt="logo"/>
 
                         <p className={s.title}>Онлайн-школа творческих навыков</p>
                     </div>
