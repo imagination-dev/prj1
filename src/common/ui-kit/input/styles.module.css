@@ -1,5 +1,6 @@
 .container {
     width: 100%;
+    position: relative;
 }
 
 .container input {
@@ -14,4 +15,19 @@
 
 .container label[data-shrink="true"] {
     top: 0;
+}
+
+.error_text {
+    position: absolute;
+    color: #d32f2f;
+    bottom: -20px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+    text-align: left;
+    margin-top: 3px;
+    margin-bottom: 0;
+    margin-left: 14px;
 }

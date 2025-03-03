@@ -10,15 +10,17 @@ interface IProps {
     onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     onBlur: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     name: string
+    type?: string
 }
 
-const Input = ({label, onBlur, error = false, name, helperText = '', value, onChange}: IProps) => {
+const Input = ({label, type = 'text', onBlur, error = false, name, helperText = '', value, onChange}: IProps) => {
 
     return (
         <div className={s.container}>
-            <TextField error={error} onBlur={onBlur} name={name} helperText={helperText} value={value}
+            <TextField type={type} error={error} onBlur={onBlur} name={name} value={value}
                        onChange={onChange}
                        fullWidth id="outlined-basic" label={label} variant="outlined"/>
+            {helperText && <p className={s.error_text}>{helperText}</p>}
         </div>
 
     );

@@ -38,7 +38,7 @@ const Login = () => {
                                                 handleClose={() => setOpenCodeModal(false)}/>}
                 <form className={s.login_form} onSubmit={formik.handleSubmit}>
                     <h3 className={s.title}>Войдите, чтобы получить доступ к урокам</h3>
-                    <Input onBlur={formik.handleBlur}
+                    <Input type={'email'} onBlur={formik.handleBlur}
                            helperText={formik.touched.email ? formik.errors.email : ''}
                            error={Boolean(formik.touched.email && formik.errors.email)}
                            name={'email'} onChange={formik.handleChange}
