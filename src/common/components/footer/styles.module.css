@@ -1,0 +1,139 @@
+.wrapper {
+    padding: 50px 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer_left {
+    display: flex;
+    align-items: flex-start;
+    gap: 85px;
+}
+
+.footer_left_info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer_left_info img {
+    height: 43px;
+    width: 173px;
+}
+
+.description {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    color: rgba(101, 100, 108, 1);
+}
+
+.navigate {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 10px;
+}
+
+.navigate a {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    transition: .4s all;
+}
+
+.navigate a:hover {
+    color: rgb(86, 86, 86);
+}
+
+.root {
+    display: flex;
+    gap: 72px;
+    padding-top: 10px;
+}
+
+.root a {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    color: rgba(101, 100, 108, 1);
+
+    transition: .4s all;
+}
+
+.root a:hover {
+    color: rgb(49, 49, 49);
+}
+
+.description_mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 60px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+    .footer_left {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .description {
+        display: none;
+    }
+
+    .description_mobile {
+        display: block;
+        font-family: Gilroy-Regular, sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14.4px;
+        color: rgba(101, 100, 108, 1);
+    }
+
+    .navigate {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 20px;
+        padding-top: 0px;
+    }
+
+    .navigate a {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19.2px;
+    }
+
+    .root {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 0;
+    }
+
+    .root a {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14.4px;
+    }
+
+    .footer_left_info img {
+        height: 34px;
+        width: 140px;
+    }
+}

@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+}
+
+.container input {
+    height: 50px;
+    padding: 0px 14px;
+}
+
+.container label {
+    height: 50px;
+    top: -2px;
+}
+
+.container label[data-shrink="true"] {
+    top: 0;
+}

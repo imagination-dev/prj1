@@ -1,0 +1,14 @@
+.box {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    z-index: 20;
+}
+
+@media screen and (max-width: 768px) {
+    .box {
+        position: absolute;
+        right: calc(50% - 20px);
+        top: -65px;
+    }
+}

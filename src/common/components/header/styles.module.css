@@ -1,0 +1,45 @@
+.header {
+    height: 100px;
+    background: rgba(248, 248, 248, 1);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 50px;
+}
+
+.title {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(196, 196, 196, 1);
+    max-width: 140px;
+}
+
+.header_left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 60px;
+    }
+    .wrapper {
+        padding: 0 30px;
+    }
+
+    .title{
+        display: none;
+    }
+
+    .header_left img {
+        width: 136px;
+        height: auto;
+    }
+}

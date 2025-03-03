@@ -1,0 +1,55 @@
+.box {
+    background-color: #fff;
+    max-width: 440px;
+    width: 100%;
+    padding: 35px;
+}
+
+.title {
+    font-family: 'Trajan Pro 3', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 31px;
+    text-align: center;
+    color: rgba(0, 0, 0, 1);
+}
+
+.description {
+    margin: 20px 0;
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: rgba(101, 100, 108, 1);
+}
+
+.description span {
+    display: block;
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+.btn_action {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.error {
+    color: rgba(241, 0, 0, 1);
+}
+
+.resend_code {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    text-decoration: underline;
+    color: rgba(101, 100, 108, 1);
+    cursor: pointer;
+}
