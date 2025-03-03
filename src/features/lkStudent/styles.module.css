@@ -1,0 +1,140 @@
+.wrapper_LkStudent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 30px;
+}
+
+.swiper_box {
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.item {
+    border-radius: 10px;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    padding: 30px 30px 0 30px;
+}
+
+.btn {
+    display: flex;
+    height: 43px;
+    min-width: 180px;
+    max-width: 180px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    gap: 12px;
+}
+
+.info_box {
+    position: relative;
+    z-index: 2;
+}
+
+.img {
+    position: absolute;
+    rotation-point: 0;
+}
+
+.main_title {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 55px;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+}
+
+.navigate {
+    position: absolute;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    top: calc(50% - 20px);
+}
+
+.navigate .arrow {
+    position: relative;
+    z-index: 10;
+}
+
+.arrow {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.arrow:hover svg {
+    fill: #fff !important;
+}
+
+.mobile_dots {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navigate {
+        display: none;
+    }
+
+    .swiper_box {
+        padding: 0 30px;
+    }
+
+    .mobile_dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        margin: 0 auto;
+    }
+
+    .dot {
+        height: 9px;
+        width: 9px;
+        border-radius: 50%;
+        margin-top: 25px;
+    }
+
+    .wrapper_LkStudent {
+        gap: 15px;
+    }
+}

@@ -1,12 +1,14 @@
 import {Box, Modal} from "@mui/material";
 import s from './styles.module.css'
 import CodeInput from "./code";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import Button from "../../../../common/ui-kit/button";
 import {classNames} from "../../../../common/utils/classNames.ts";
 import moment from "moment";
 import {useTimer} from "react-timer-hook";
 import CloseModalButton from "../../../../common/components/closeButtonModal";
+import {useNavigate} from "react-router";
+import {AuthContext} from "../../../../app/App.tsx";
 
 interface IProps {
     isOpen: boolean
@@ -30,6 +32,8 @@ const style = {
 };
 
 const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
+    const navigate = useNavigate()
+    const {login} = useContext(AuthContext)
     const [code, setCode] = useState(['', '', '', '', '', '']);
     const [error, setError] = useState('')
 
@@ -55,7 +59,10 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
 
         const isValidCode = code.every((el) => el === '1')
         if (isValidCode) {
-            handleClose()
+            login()
+            console.log('Navigating to /lk_student');
+            navigate('/lk_student')
+
         } else {
             setError('Неверный код')
         }
@@ -69,6 +76,7 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
+
                 <CloseModalButton handleClose={handleClose}/>
                 <h3 className={s.title}>Проверка почты</h3>
                 <p className={classNames(s.description, error && s.error)}>{error ? error : <>Введите код отправленный

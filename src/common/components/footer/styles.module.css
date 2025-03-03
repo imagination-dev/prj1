@@ -23,7 +23,7 @@
 }
 
 .description {
-    font-family: Gilroy-Regular, sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;
@@ -38,7 +38,7 @@
 }
 
 .navigate a {
-    font-family: Gilroy-Regular, sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
@@ -58,7 +58,7 @@
 }
 
 .root a {
-    font-family: Gilroy-Regular, sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 12px;
     line-height: 14.4px;
@@ -98,7 +98,7 @@
 
     .description_mobile {
         display: block;
-        font-family: Gilroy-Regular, sans-serif;
+        font-family: Roboto, sans-serif;
         font-weight: 400;
         font-size: 12px;
         line-height: 14.4px;
