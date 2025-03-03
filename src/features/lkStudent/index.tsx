@@ -7,7 +7,6 @@ import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Wrapper from "../../common/components/wrapper";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
 // @ts-ignore
 import 'swiper/css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
@@ -36,7 +35,7 @@ const LkStudent = () => {
     }
     const dots = Array.from({length: swiperData.length}, (_, b) => b)
 
-    const handleSlideChange = (swiper) => {
+    const handleSlideChange = (swiper: any) => {
         const visibleSlides = [];
         const slidesPerView = swiper.params.slidesPerView;
 

@@ -10,6 +10,7 @@ import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import logoGray from '../../assets/logo_gray.jpg'
+
 const Header = () => {
     const query768 = useMediaQuery('(max-width:768px)');
 
@@ -32,7 +33,7 @@ const Header = () => {
         navigate('login')
     }
 
-    const toggleDrawerRight = (open) => (event) => {
+    const toggleDrawerRight = (open: any) => (event: any) => {
         if (
             event &&
             event.type === 'keydown' &&
@@ -45,7 +46,7 @@ const Header = () => {
 
     return (
         <div className={s.header} style={{
-            background: openMenu && '#fff'
+            background: openMenu ? '#fff' : 'rgba(248, 248, 248, 1)'
         }}>
             <HeaderBurgerLeft handleLogout={handleExit} type={1}
                               toggleDrawer={toggleDrawerRight}
