@@ -25,7 +25,7 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
                             paddingTop: '0px',
                             paddingBottom: '0px',
                         },
-                        // overflow: 'visible',
+                        overflow: 'visible',
                         filter: 'drop-shadow(0px 12px 8px rgba(0,0,0,0.32))',
                         mt: 1.5,
                         maxWidth: '225px',
