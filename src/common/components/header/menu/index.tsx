@@ -18,14 +18,19 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
             onClick={handleClose}
             slotProps={{
                 paper: {
+
                     elevation: 0,
                     sx: {
-                        overflow: 'visible',
+                        '& .MuiList-root': {
+                            paddingTop: '0px',
+                            paddingBottom: '0px',
+                        },
+                        // overflow: 'visible',
                         filter: 'drop-shadow(0px 12px 8px rgba(0,0,0,0.32))',
                         mt: 1.5,
                         maxWidth: '225px',
                         width: '100%',
-                        borderRadius: "10px",
+                        borderRadius: "10px !important",
 
                         '&::before': {
                             content: '""',

@@ -25,7 +25,7 @@
 }
 
 .title {
-    font-family: Roboto, sans-serif;
+    font-family: 'Trajan Pro 3', sans-serif;
     font-weight: 300;
     font-size: 18px;
     line-height: 22px;
@@ -44,8 +44,9 @@
     justify-content: center;
     border-radius: 10px;
     cursor: pointer;
+    margin: 0 auto;
     margin-top: 20px;
-    font-family: Roboto, sans-serif;
+    font-family: 'Gilroy-Regular', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 16px;
@@ -63,7 +64,7 @@
 }
 
 .main_title {
-    font-family: Roboto, sans-serif;
+    font-family: 'Trajan Pro 3', sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 55px;
@@ -116,7 +117,7 @@
     }
 
     .swiper_box {
-        padding: 0 30px;
+        padding: 0 0px;
     }
 
     .mobile_dots {

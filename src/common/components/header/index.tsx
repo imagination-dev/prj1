@@ -4,12 +4,13 @@ import Wrapper from "../wrapper";
 import {NavLink, useNavigate} from "react-router";
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../app/App.tsx";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import {IconButton, useMediaQuery} from "@mui/material";
 import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import logoGray from '../../assets/logo_gray.jpg'
+import {classNames} from "../../utils/classNames.ts";
+import profileIcon from '../../assets/profile_icon.svg'
 
 const Header = () => {
     const query768 = useMediaQuery('(max-width:768px)');
@@ -33,6 +34,12 @@ const Header = () => {
         navigate('login')
     }
 
+    const backToLk = () => {
+        if (isAuth) {
+            navigate('lk_student')
+        }
+    }
+
     const toggleDrawerRight = (open: any) => (event: any) => {
         if (
             event &&
@@ -45,9 +52,7 @@ const Header = () => {
     };
 
     return (
-        <div className={s.header} style={{
-            background: openMenu ? '#fff' : 'rgba(248, 248, 248, 1)'
-        }}>
+        <div className={classNames(s.header, openMenu && s.header_open_menu)}>
             <HeaderBurgerLeft handleLogout={handleExit} type={1}
                               toggleDrawer={toggleDrawerRight}
                               openMenu={openMenu}/>
@@ -55,12 +60,12 @@ const Header = () => {
                 <>
                     <MenuHeader logout={handleExit} open={open} handleClose={handleClose} anchorEl={anchorEl}/>
                     <div className={s.header_left}>
-                        <img src={openMenu ? logoGray : logo} alt="logo"/>
+                        <img onClick={backToLk} src={openMenu ? logoGray : logo} alt="logo"/>
 
                         <p className={s.title}>Онлайн-школа творческих навыков</p>
                     </div>
                     {isAuth && <div className={s.header_right}>
-                        <NavLink to={'curses'}>Мои курсы</NavLink>
+                        <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>
                         <NavLink className={s.chats} data-count={3} to={'curses'}>Мои чаты</NavLink>
 
                         <IconButton
@@ -71,8 +76,7 @@ const Header = () => {
                         >
                             {openMenu ? <CloseOutlinedIcon
                                     sx={{height: '36px', width: "36px", color: "rgba(138, 138, 138, 1)"}}/> :
-                                <AccountCircleOutlinedIcon
-                                    sx={{height: '36px', width: "36px", color: "rgba(138, 138, 138, 1)"}}/>}
+                                <img className={s.profileIcon} src={profileIcon} alt="profileIcon"/>}
                         </IconButton>
                     </div>}
                 </>

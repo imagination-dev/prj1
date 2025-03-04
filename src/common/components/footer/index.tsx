@@ -1,6 +1,6 @@
 import s from './styles.module.css'
 import Wrapper from "../wrapper";
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo_footer.svg'
 import {NavLink} from "react-router";
 
 const navigate = [

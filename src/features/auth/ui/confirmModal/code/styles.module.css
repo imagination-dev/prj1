@@ -13,12 +13,22 @@
     justify-content: center;
     height: 60px;
     width: 100%;
-    font-family: Roboto, sans-serif;
+    font-family: 'Trajan Pro 3', sans-serif;
     font-weight: 400;
-    font-size: 29px;
+    font-size: 30px;
     text-align: center;
     color: rgba(42, 42, 44, 1);
     border-radius: 5px;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .error {
