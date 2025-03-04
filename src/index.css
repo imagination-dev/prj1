@@ -57,6 +57,14 @@ body {
     background: #f4f4f4;
 }
 
+.MuiModal-root {
+    touch-action: none !important;
+}
+
+.MuiModal-root .MuiBackdrop-root {
+    touch-action: none !important;
+}
+
 .no-scroll {
     overflow: hidden;
     position: fixed;
