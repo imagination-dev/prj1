@@ -38,5 +38,6 @@
 @media screen and (max-width: 768px) {
     .input {
         height: 50px;
+        padding: 0 !important;
     }
 }
