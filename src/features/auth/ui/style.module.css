@@ -13,7 +13,7 @@
 
 .btn {
     max-width: 160px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .title {
@@ -23,7 +23,7 @@
     line-height: 31px;
     text-align: center;
     color: rgba(0, 0, 0, 1);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .login_form {

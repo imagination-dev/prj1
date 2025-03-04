@@ -24,6 +24,8 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
                         '& .MuiList-root': {
                             paddingTop: '0px',
                             paddingBottom: '0px',
+                            borderRadius: '10px',
+                            overflow: 'hidden'
                         },
                         overflow: 'visible',
                         filter: 'drop-shadow(0px 12px 8px rgba(0,0,0,0.32))',

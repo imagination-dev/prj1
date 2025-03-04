@@ -1,7 +1,7 @@
 import {Box, Modal} from "@mui/material";
 import s from './styles.module.css'
 import CodeInput from "./code";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Button from "../../../../common/ui-kit/button";
 import {classNames} from "../../../../common/utils/classNames.ts";
 import moment from "moment";
@@ -67,6 +67,21 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
             setError('Неверный код')
         }
     }
+
+    useEffect(() => {
+        if (isOpen) {
+            // Запрещаем скролл страницы
+            document.body.classList.add('no-scroll');
+        } else {
+            // Разрешаем скролл страницы
+            document.body.classList.remove('no-scroll');
+        }
+
+        // Очистка при размонтировании
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, [isOpen]);
 
     return (
         <Modal

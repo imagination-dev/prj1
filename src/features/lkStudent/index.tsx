@@ -12,6 +12,7 @@ import 'swiper/css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import {JSX, useRef, useState} from "react";
+import {useMediaQuery} from "@mui/material";
 
 interface ISwiperItem {
     title: JSX.Element
@@ -31,6 +32,7 @@ const swiperData: ISwiperItem[] = [
 ]
 
 const LkStudent = () => {
+    const query768 = useMediaQuery('(max-width:768px)');
     const swiperRef = useRef<unknown>(null);
     const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -72,6 +74,7 @@ const LkStudent = () => {
 
     };
 
+
     return (
         <Wrapper className={s.wrapper_LkStudent}>
             <>
@@ -90,6 +93,7 @@ const LkStudent = () => {
                             style={{height: '32px', width: 'auto'}}/></div>
                     </div>
                     <Swiper
+                        allowTouchMove={query768}
                         onSlideChange={(swiper) => {
                             handleSlideChange(swiper?.realIndex, swiper?.currentBreakpoint)
                         }}
@@ -115,7 +119,10 @@ const LkStudent = () => {
                         loop
                     >
                         {swiperData.map((el, i) => {
-                            return <SwiperSlide key={`${i} + ${el.id}`}
+                            return <SwiperSlide style={{
+                                // maxWidth: query1440 ? '100%' : '263px',
+                                // width: 'auto',
+                            }} key={`${i} + ${el.id}`}
                             >
                                 <div className={s.item} style={{
                                     //@ts-ignore
