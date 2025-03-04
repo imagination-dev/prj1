@@ -1,0 +1,35 @@
+.btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    transition: .4s all;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Trajan Pro 3', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.4px;
+    text-align: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.btn svg path {
+    transition: .4s all !important;
+}
+
+.btn svg {
+    transition: .4s all !important;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: var(--hover-color);
+}
+
+.btn:hover svg path {
+    stroke: #fff !important;
+}

@@ -7,12 +7,12 @@ import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Wrapper from "../../common/components/wrapper";
 import {Swiper, SwiperSlide} from "swiper/react";
-// @ts-ignore
-import 'swiper/css';
-import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import {JSX, useRef, useState} from "react";
 import {useMediaQuery} from "@mui/material";
+// @ts-ignore
+import 'swiper/css';
+import DotsSwiper from "../../common/components/dotsSwipper";
+import ArrowSwiper from "../../common/components/arrowSwipper";
 
 interface ISwiperItem {
     title: JSX.Element
@@ -81,16 +81,14 @@ const LkStudent = () => {
                 <h2 className={s.main_title}>Программы обучения</h2>
                 <div className={s.swiper_box}>
                     <div className={s.navigate}>
-                        <div className={s.arrow} onClick={() => {
+                        <ArrowSwiper type={'left'} onClick={() => {
                             //@ts-ignore
                             swiperRef?.current?.slidePrev()
-                        }}><ArrowLeftOutlinedIcon
-                            style={{height: '32px', width: 'auto'}}/></div>
-                        <div className={s.arrow} onClick={() => {
+                        }}/>
+                        <ArrowSwiper type={'right'} onClick={() => {
                             //@ts-ignore
                             swiperRef.current?.slideNext()
-                        }}><ArrowRightOutlinedIcon
-                            style={{height: '32px', width: 'auto'}}/></div>
+                        }}/>
                     </div>
                     <Swiper
                         allowTouchMove={query768}
@@ -108,7 +106,7 @@ const LkStudent = () => {
                         centeredSlides={true}
                         spaceBetween={30}
                         slidesPerView={4.3}
-                        speed={1500}
+                        // speed={1500}
                         breakpoints={{
                             1200: {slidesPerView: 4.5},
                             1024: {slidesPerView: 3.5},
@@ -119,10 +117,7 @@ const LkStudent = () => {
                         loop
                     >
                         {swiperData.map((el, i) => {
-                            return <SwiperSlide style={{
-                                // maxWidth: query1440 ? '100%' : '263px',
-                                // width: 'auto',
-                            }} key={`${i} + ${el.id}`}
+                            return <SwiperSlide key={`${i} + ${el.id}`}
                             >
                                 <div className={s.item} style={{
                                     //@ts-ignore
@@ -155,11 +150,7 @@ const LkStudent = () => {
                             </SwiperSlide>
                         })}
                     </Swiper>
-                    <div className={s.mobile_dots}>
-                        {dots.map((el) => <div key={el} style={{
-                            backgroundColor: currentIndex === el ? 'rgba(42, 42, 44, 1)' : 'rgba(42, 42, 44, 0.3)'
-                        }} className={s.dot}/>)}
-                    </div>
+                    {query768 && <DotsSwiper items={dots} active={currentIndex}/>}
                 </div>
             </>
         </Wrapper>

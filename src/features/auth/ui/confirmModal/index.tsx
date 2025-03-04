@@ -9,27 +9,13 @@ import {useTimer} from "react-timer-hook";
 import CloseModalButton from "../../../../common/components/closeButtonModal";
 import {useNavigate} from "react-router";
 import {AuthContext} from "../../../../app/App.tsx";
+import {style} from "../../../../common/styles/modal.style.ts";
 
 interface IProps {
     isOpen: boolean
     handleClose: () => void
     value: string
 }
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 390,
-    bgcolor: 'background.paper',
-    borderRadius: '20px',
-    padding: '35px',
-    '@media screen and (max-width: 768px)': {
-        width: `calc(100% - 60px)`,
-        padding: '35px 20px',
-    }
-};
 
 const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
     const navigate = useNavigate()
@@ -70,14 +56,11 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
 
     useEffect(() => {
         if (isOpen) {
-            // Запрещаем скролл страницы
             document.body.classList.add('no-scroll');
         } else {
-            // Разрешаем скролл страницы
             document.body.classList.remove('no-scroll');
         }
 
-        // Очистка при размонтировании
         return () => {
             document.body.classList.remove('no-scroll');
         };
@@ -87,10 +70,16 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
         <Modal
             open={isOpen}
             onClose={handleClose}
+            sx={{
+                '& .MuiBackdrop-root': {
+                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                }
+            }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
+            <Box sx={style({})}>
+
 
                 <CloseModalButton handleClose={handleClose}/>
                 <h3 className={s.title}>Проверка почты</h3>

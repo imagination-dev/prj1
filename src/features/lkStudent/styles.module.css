@@ -107,9 +107,6 @@
     fill: #fff !important;
 }
 
-.mobile_dots {
-    display: none;
-}
 
 @media screen and (max-width: 768px) {
     .navigate {
@@ -118,21 +115,6 @@
 
     .swiper_box {
         padding: 0 0px;
-    }
-
-    .mobile_dots {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-        margin: 0 auto;
-    }
-
-    .dot {
-        height: 9px;
-        width: 9px;
-        border-radius: 50%;
-        margin-top: 25px;
     }
 
     .wrapper_LkStudent {

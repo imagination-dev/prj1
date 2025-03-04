@@ -8,7 +8,8 @@ import {IconButton, useMediaQuery} from "@mui/material";
 import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import logoGray from '../../assets/logo_gray.jpg'
+// import logoGray from '../../assets/logo_gray.jpg'
+import logoGray from '../../assets/logo_gray.svg'
 import {classNames} from "../../utils/classNames.ts";
 import profileIcon from '../../assets/profile_icon.svg'
 
