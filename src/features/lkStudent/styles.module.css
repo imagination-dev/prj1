@@ -16,7 +16,6 @@
 .item {
     border-radius: 10px;
     width: 100%;
-    /*width: 263px;*/
     height: 400px;
     overflow: hidden;
     display: flex;
