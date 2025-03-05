@@ -1,6 +1,6 @@
 import {IconButton} from "@mui/material";
 import s from './styles.module.css'
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from '../../assets/close.svg?react';
 
 const CloseModalButton = ({handleClose}: { handleClose: () => void }) => {
     return (
@@ -10,12 +10,15 @@ const CloseModalButton = ({handleClose}: { handleClose: () => void }) => {
                     backgroundColor: '#fff'
                 }
             }}>
-                <CloseIcon sx={{
-                    color: 'rgba(159, 159, 159, 1)', height: '28px', width: '28px',
-                    '@media screen and (max-width: 768px)': {
-                        color: 'rgba(0, 0, 0, 1)'
-                    }
-                }}/>
+                <CloseIcon
+                    // sx={{
+                //     color: 'rgba(159, 159, 159, 1)',
+                //     height: '28px', width: '28px',
+                //     '@media screen and (max-width: 768px)': {
+                //         color: 'rgba(0, 0, 0, 1)'
+                //     }
+                // }}
+                />
             </IconButton>
         </div>
     );

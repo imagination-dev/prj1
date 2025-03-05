@@ -3,6 +3,7 @@
     right: -40px;
     top: -40px;
     z-index: 20;
+    /*border: 1px solid red;*/
 }
 
 @media screen and (max-width: 768px) {

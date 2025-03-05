@@ -63,7 +63,8 @@
     align-items: center;
     justify-content: center;
 
-    font-family: 'Gilroy-Black', sans-serif;
+    /*font-family: 'Gilroy-Black', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 0px;

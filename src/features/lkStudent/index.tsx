@@ -145,6 +145,7 @@ const LkStudent = () => {
                                             }
                                         </div>
                                     </div>
+
                                     <img className={s.img} src={el.img} alt="img"/>
                                 </div>
                             </SwiperSlide>
