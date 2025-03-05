@@ -3,7 +3,6 @@ import CloseModalButton from "../../../common/components/closeButtonModal";
 import {Box, Modal, Rating} from "@mui/material";
 import {useState} from "react";
 import s from './styles.module.css'
-import Button from "../../../common/ui-kit/button";
 import {classNames} from "../../../common/utils/classNames.ts";
 
 interface Props {
@@ -27,14 +26,17 @@ const ModalStar = ({isOpen, handleClose}: Props) => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style({width: 440})}>
+            <Box sx={style({width: 616})}>
                 <CloseModalButton handleClose={handleClose}/>
                 <div className={s.rating}>
                     {!isConfirm ? <>
                         <p className={classNames(s.title, s.title_hidden)}>Оцените</p>
                         <Rating
                             sx={{
-                                fontSize: '34px',
+                                fontSize: '36px',
+                                '& .MuiRating-icon': {
+                                    color: 'rgba(251, 209, 103, 1)'
+                                },
                                 '@media screen and (max-width: 768px)': {
                                     fontSize: '50px',
                                 }
@@ -44,13 +46,11 @@ const ModalStar = ({isOpen, handleClose}: Props) => {
                             value={value}
                             onChange={(_, newValue) => {
                                 setValue(newValue);
+                                setIsConfirm(true)
                             }}
                         />
                     </> : <p className={s.title}>Спасибо за вашу оценку!</p>}
                 </div>
-                {!isConfirm && <div className={s.btn}>
-                    <Button onClick={() => setIsConfirm(true)}>Подтвердить</Button>
-                </div>}
             </Box>
         </Modal>
     );

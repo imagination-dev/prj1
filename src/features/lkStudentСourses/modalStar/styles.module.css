@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 25px;
+    height: 130px;
 }
 
 .title {
@@ -28,7 +29,11 @@
         display: none;
     }
 
-    .title{
+    .rating {
+        height: 43px;
+    }
+
+    .title {
         font-weight: 400;
         font-size: 25px;
         line-height: 24px;

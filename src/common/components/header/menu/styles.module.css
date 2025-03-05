@@ -4,7 +4,7 @@
     font-size: 16px;
     line-height: 19.2px;
     color: rgba(138, 138, 138, 1);
-    padding: 16px 25px;
+    padding: 16px 0px;
     transition: .4s all;
     cursor: pointer;
     background-color: #fff;
@@ -12,7 +12,7 @@
 
 .menu_item:hover {
     color: rgba(42, 42, 44, 1);
-    background-color: rgba(206, 206, 206, 0.1);
+    /*background-color: rgba(206, 206, 206, 0.1);*/
 }
 
 .line {

@@ -22,15 +22,16 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
                     elevation: 0,
                     sx: {
                         '& .MuiList-root': {
-                            paddingTop: '0px',
-                            paddingBottom: '0px',
+                            padding: '9px 25px !important',
                             borderRadius: '10px',
                             overflow: 'hidden'
                         },
-                        overflow: 'visible',
-                        filter: 'drop-shadow(0px 12px 8px rgba(0,0,0,0.32))',
+                        overflow: 'hidden',
+                        boxShadow: '0px 5px 20px 0px rgba(0, 0, 0, 0.03)',
+
+                        // filter: 'drop-shadow(0px 12px 8px rgba(0, 0, 0, 0.03))',
                         mt: 1.5,
-                        maxWidth: '225px',
+                        maxWidth: '226px',
                         width: '100%',
                         borderRadius: "10px !important",
 

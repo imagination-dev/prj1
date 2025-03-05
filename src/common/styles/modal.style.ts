@@ -1,10 +1,11 @@
-export const style = ({width = 390}) => {
+export const style = ({width = 390, height = 'fit-content'}: { width?: number | string, height?: number | string }) => {
     return {
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: width,
+        height: height,
         bgcolor: 'background.paper',
         borderRadius: '20px',
         padding: '35px',

@@ -3,13 +3,35 @@ import calendar_icon from '../../../common/assets/calendar.svg'
 import edit_icon from '../../../common/assets/edit.svg'
 import star_icon from '../../../common/assets/star.svg'
 import {Progress as ProgressLine} from '../../../common/components/progress'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Progress = () => {
-    const random = Math.random() * 100
-    const [_, rerender] = useState(false)
+    const random = 76
+    const [count, setCount] = useState<number>(0)
+
+    useEffect(() => {
+        const animationDuration = 1000; // Длительность анимации в мс
+        const startTime = Date.now();
+        const startValue = count; // Начальное значение
+        const endValue = random;
+        const endTime = startTime + animationDuration;
+
+        const animate = () => {
+            const now = Date.now();
+            const progress = Math.min(1, (now - startTime) / animationDuration);
+            const currentValue = startValue + (endValue - startValue) * progress;
+
+            setCount(Math.round(currentValue));
+
+            if (now < endTime) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }, [random]);
     return (
-        <div className={s.box} onClick={() => rerender((prev) => !prev)}>
+        <div className={s.box}>
             <div className={s.box_top}>
                 <div className={s.box_top_item}>
                     <p className={s.title}>
@@ -31,8 +53,8 @@ const Progress = () => {
                 </div>
             </div>
             <div className={s.box_bottom}>
-                <ProgressLine value={random}/>
-                <p className={s.percent}><span>{`${random.toFixed(0)}%`}</span>/ 100%</p>
+                <ProgressLine value={count}/>
+                <p className={s.percent}><span>{`${count.toFixed(0)}%`}</span></p>
             </div>
         </div>
     );

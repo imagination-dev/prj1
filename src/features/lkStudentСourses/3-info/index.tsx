@@ -15,7 +15,9 @@ const Info = ({title, data, children}: Props) => {
 
             <div className={s.items}>
                 {data.map((el: any) => <p className={s.item} key={el?.id}>
-                    <img src={sucsess} alt="sucsess"/>
+                    <div className={s.icon}>
+                        <img src={sucsess} alt="sucsess"/>
+                    </div>
                     {el?.title}
                 </p>)}
             </div>

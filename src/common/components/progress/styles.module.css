@@ -1,6 +1,6 @@
 .progress {
     height: 7px;
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     border-radius: 100px;
     border: 1px solid rgba(196, 196, 196, 1);
@@ -10,10 +10,12 @@
 
 .line {
     background-color: rgba(38, 211, 103, 1);
+    /*border-radius: 0 100px 100px 0px;*/
     border-radius: 100px;
     position: absolute;
-    left: 0;
-    height: 6px;
+    left: -1px;
+    top: -1px;
+    height: 7px;
     z-index: 2;
-    transition: .4s all;
+    transition: width 0.1s linear
 }

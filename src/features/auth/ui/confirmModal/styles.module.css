@@ -15,6 +15,7 @@
 }
 
 .description {
+    height: 36px;
     margin: 20px 0;
     font-family: 'Gilroy-Regular', sans-serif;
     font-weight: 400;

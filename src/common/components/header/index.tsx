@@ -4,7 +4,7 @@ import Wrapper from "../wrapper";
 import {NavLink, useNavigate} from "react-router";
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../app/App.tsx";
-import {IconButton, useMediaQuery} from "@mui/material";
+import {Box, useMediaQuery} from "@mui/material";
 import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
@@ -69,7 +69,8 @@ const Header = () => {
                         <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>
                         <NavLink className={s.chats} data-count={3} to={'curses'}>Мои чаты</NavLink>
 
-                        <IconButton
+                        <Box
+                            style={{cursor: 'pointer'}}
                             onClick={!query768 ? handleClick : toggleDrawerRight(!openMenu)}
                             aria-controls={open ? 'account-menu' : undefined}
                             aria-haspopup="true"
@@ -78,7 +79,7 @@ const Header = () => {
                             {openMenu ? <CloseOutlinedIcon
                                     sx={{height: '36px', width: "36px", color: "rgba(138, 138, 138, 1)"}}/> :
                                 <img className={s.profileIcon} src={profileIcon} alt="profileIcon"/>}
-                        </IconButton>
+                        </Box>
                     </div>}
                 </>
             </Wrapper>
