@@ -9,17 +9,46 @@
 
 .right {
     display: flex;
-    /*max-width: 100%;*/
     width: 100%;
     overflow: hidden;
     flex-direction: column;
     gap: 30px;
 }
 
+.btn_2 svg path {
+    transition: .4s all !important;
+}
+
+.btn_2 svg {
+    transition: .4s all !important;
+}
+
+.btn_2:hover svg path {
+    stroke: #fff !important;
+}
+
+.btn_1 svg path {
+    transition: .4s all !important;
+}
+
+.btn_1 svg {
+    transition: .4s all !important;
+}
+
+.btn_1:hover svg path {
+    fill: #fff !important;
+}
+
 @media screen and (max-width: 768px) {
     .wrapper {
-        padding: 0 30px;
+        /*padding: 0 30px;*/
+        padding: 0 0;
         margin-top: 20px;
         gap: 0px;
     }
+
+    .box {
+        margin: 0 30px;
+    }
+
 }

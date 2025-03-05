@@ -27,32 +27,43 @@ const LkStudentCourses = () => {
     return (
         <Wrapper className={s.wrapper}>
             <>
-
                 {!query768 && <Navigate/>}
 
                 <div className={s.right}>
-                    <Progress/>
-                    <VideoContent/>
-                    <Carousel/>
-                    {query768 && <Navigate/>}
-                    <Info title={'На этом уроке вы'} data={mock[1]}>
-                        <NormalButton onClick={() => {
-                        }} w={!query768 ? 300 : '100%'} bc={'rgba(38, 211, 103, 1)'}>
-                            <>
-                                <DownloadIcon/>
-                                Скачать материалы к уроку
-                            </>
-                        </NormalButton>
-                    </Info>
-                    <Info title={'Домашнее задание:'} data={mock[2]}>
-                        <NormalButton onClick={() => {
-                        }} w={!query768 ? 300 : '100%'} bc={'rgba(118, 146, 255, 1)'}>
-                            <>
-                                <MailIcon/>
-                                Связаться с куратором
-                            </>
-                        </NormalButton>
-                    </Info>
+                    <div className={s.box}>
+                        <Progress/>
+                    </div>
+                    <div className={s.box}>
+                        <VideoContent/>
+                    </div>
+                    <div className={s.box}>
+                        <Carousel/>
+                    </div>
+                    <div className={s.box}>
+                        {query768 && <Navigate/>}
+                    </div>
+                    <div className={s.box}>
+                        <Info title={'На этом уроке вы'} data={mock[1]}>
+                            <NormalButton className={s.btn_1} onClick={() => {
+                            }} w={!query768 ? 300 : '100%'} bc={'rgba(38, 211, 103, 1)'}>
+                                <>
+                                    <DownloadIcon/>
+                                    Скачать материалы к уроку
+                                </>
+                            </NormalButton>
+                        </Info>
+                    </div>
+                    <div className={s.box}>
+                        <Info title={'Домашнее задание:'} data={mock[2]}>
+                            <NormalButton className={s.btn_2} onClick={() => {
+                            }} w={!query768 ? 300 : '100%'} bc={'rgba(118, 146, 255, 1)'}>
+                                <>
+                                    <MailIcon/>
+                                    Связаться с куратором
+                                </>
+                            </NormalButton>
+                        </Info>
+                    </div>
                 </div>
             </>
         </Wrapper>

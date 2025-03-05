@@ -38,8 +38,9 @@ const CodeInput = ({code, setCode, isError = false}: IProps) => {
                     className={classNames(s.input, isError && s.error)}
                     key={index}
                     ref={inputRefs[index]}
-
-                    type="number"
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     maxLength={1}
                     value={value}
                     onChange={(e) => handleChange(e, index)}

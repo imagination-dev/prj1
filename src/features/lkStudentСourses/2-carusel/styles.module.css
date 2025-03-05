@@ -82,6 +82,8 @@
         border-radius: 10px;
         height: 80px;
         padding: 0 35px;
+        width: calc(100% - 60px);
+        margin: 0 auto;
     }
 
     .dots_wrapper {
@@ -95,7 +97,10 @@
 
     .carusel {
         overflow: unset;
+        width: calc(100% + 60px);
+        margin-left: -30px;
         border-radius: 10px;
+        /*padding: 0 30px;*/
     }
 
     .title {

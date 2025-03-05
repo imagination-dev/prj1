@@ -92,6 +92,9 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
 
                 <div className={s.btn_action}>
                     <p onClick={handleResentCode}
+                       style={{
+                           textDecoration:isRunning ? 'none' : 'underline'
+                       }}
                        className={s.resend_code}>{`Отправить код повторно ${totalSeconds ? `(${totalSeconds})` : ''}`}</p>
                     <Button onClick={handleConfirm}>Подтвердить</Button>
                 </div>

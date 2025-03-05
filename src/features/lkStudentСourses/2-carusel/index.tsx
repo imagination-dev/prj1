@@ -55,12 +55,11 @@ const Carousel = () => {
 
             <Swiper
                 className={'test'}
-                spaceBetween={30}
+                spaceBetween={query768 ? 0 : 30}
                 slidesPerView={1}
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                // allowTouchMove={query768}
                 onActiveIndexChange={(e) => {
                     setCurrentIndex(e?.realIndex)
                 }}

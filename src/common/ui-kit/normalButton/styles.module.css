@@ -17,19 +17,7 @@
     cursor: pointer;
 }
 
-.btn svg path {
-    transition: .4s all !important;
-}
-
-.btn svg {
-    transition: .4s all !important;
-}
-
 .btn:hover {
     color: #fff;
     background-color: var(--hover-color);
-}
-
-.btn:hover svg path {
-    stroke: #fff !important;
 }

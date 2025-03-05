@@ -49,6 +49,10 @@
     color: rgba(251, 209, 103, 1);
 }
 
+.sub_title_v2 {
+    margin-left: 18px;
+}
+
 .box_bottom {
     display: flex;
     flex-direction: column;
@@ -91,5 +95,9 @@
 
     .sub_title, .edit_icon {
         text-align: left;
+    }
+
+    .sub_title_v2 {
+        margin-left: 0px;
     }
 }

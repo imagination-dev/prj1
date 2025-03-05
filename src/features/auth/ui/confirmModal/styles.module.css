@@ -50,7 +50,7 @@
     font-size: 16px;
     line-height: 16px;
     text-align: center;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     color: rgba(101, 100, 108, 1);
     cursor: pointer;
 }

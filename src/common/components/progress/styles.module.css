@@ -10,7 +10,6 @@
 
 .line {
     background-color: rgba(38, 211, 103, 1);
-    /*border-radius: 0 100px 100px 0px;*/
     border-radius: 100px;
     position: absolute;
     left: -1px;
@@ -18,4 +17,20 @@
     height: 7px;
     z-index: 2;
     transition: width 0.1s linear
+}
+
+.test {
+    position: relative;
+    z-index: 1;
+}
+
+.test:before {
+    content: '';
+    border: 1px solid rgba(196, 196, 196, 1);
+    position: absolute;
+    left: 0px;
+    top: 0;
+    height: 5px;
+    width: calc(100% - 2px);
+    border-radius: 100px;
 }

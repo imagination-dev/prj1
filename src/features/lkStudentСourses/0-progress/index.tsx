@@ -4,15 +4,16 @@ import edit_icon from '../../../common/assets/edit.svg'
 import star_icon from '../../../common/assets/star.svg'
 import {Progress as ProgressLine} from '../../../common/components/progress'
 import {useEffect, useState} from "react";
+import {classNames} from "../../../common/utils/classNames.ts";
 
 const Progress = () => {
-    const random = 76
+    const random = 74
     const [count, setCount] = useState<number>(0)
 
     useEffect(() => {
-        const animationDuration = 1000; // Длительность анимации в мс
+        const animationDuration = 1000;
         const startTime = Date.now();
-        const startValue = count; // Начальное значение
+        const startValue = count;
         const endValue = random;
         const endTime = startTime + animationDuration;
 
@@ -37,7 +38,7 @@ const Progress = () => {
                     <p className={s.title}>
                         <img src={calendar_icon} alt="calendar_icon"/>
                         Дата старта:</p>
-                    <p className={s.sub_title}>01.01.2024</p>
+                    <p className={classNames(s.sub_title, s.sub_title_v2)}>01.01.2024</p>
                 </div>
                 <div className={s.box_top_item}>
                     <p className={s.title}>
