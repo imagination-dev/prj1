@@ -46,6 +46,15 @@
     margin-bottom: 20px;
 }
 
+.classNameMainWrapper{
+    display: flex;
+    flex-direction: column;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    /*height: 460px;*/
+    border: 1px solid red;
+}
+
 @media (max-width: 767px) {
     .wrapper {
         max-height: 320px;

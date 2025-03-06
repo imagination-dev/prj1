@@ -13,10 +13,12 @@ import {classNames} from "../../utils/classNames.ts";
 const Chat = ({
                   nameOther = 'Иван Иванов',
                   nameUser = 'Петр Петров',
-                  title,
+
                   data = [],
                   classNameWrapper,
+                  classNameMainWrapper,
                   classNameActionWrapper,
+                  children,
                   classNameBoxChat,
                   classNameAction
               }: any) => {
@@ -118,8 +120,8 @@ const Chat = ({
     }, []);
 
     return (
-        <>
-            {title && <h3 className={s.title}>{title}</h3>}
+        <div className={classNames(classNameMainWrapper)}>
+            {children && children}
             <div
                 className={classNames(s.wrapper, classNameWrapper)}
             >
@@ -133,6 +135,7 @@ const Chat = ({
 
                         if (prevDate !== currentDate) {
                             acc.push(<DateMessage key={`date-${message.id}`}
+                                                  isFirst={index === 0}
                                                   isScrolling={isScrolling}
                                                   isSticky={currentDate === stickElement}
                                                   currentDate={currentDate}/>);
@@ -148,7 +151,7 @@ const Chat = ({
             </div>
             <Action sendMessage={sendMessage} classNameActionWrapper={classNameActionWrapper}
                     classNameAction={classNameAction}/>
-        </>
+        </div>
 
     );
 };

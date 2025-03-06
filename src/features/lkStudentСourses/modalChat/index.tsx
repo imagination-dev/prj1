@@ -3,6 +3,8 @@ import CloseModalButton from "../../../common/components/closeButtonModal";
 import {Box, Modal} from "@mui/material";
 import Chat from "../../../common/components/chat";
 import {v4} from "uuid";
+import s from './styles.module.css'
+import CloseIcon from '../../../common/assets/close.svg?react';
 
 interface Props {
     isOpen: boolean
@@ -47,7 +49,9 @@ const ModalChat = ({isOpen, handleClose}: Props) => {
 
                 '& .MuiBackdrop-root': {
                     backgroundColor: 'rgba(217, 217, 217, 0.79)'
-                }
+                },
+
+
             }}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
@@ -60,16 +64,29 @@ const ModalChat = ({isOpen, handleClose}: Props) => {
                 background: "rgba(251, 252, 255, 1)",
                 maxHeight: '690px',
                 '@media screen and (max-width: 768px)': {
-                    width: '90%',
-                    // height: '70%',
-                    padding: '30px 10px 10px 10px'
+                    width: '100vw',
+                    minHeight: '100vh',
+                    maxHeight: '100vh',
+                    height: '100vh',
+                    padding: '20px 10px 10px 10px',
+                    borderRadius: '0px',
+                    // backgroundColor: 'red',
                     // maxHeight: '500px',
-                    // overflow: 'auto'
+                    overflow: 'hidden'
                 }
 
             }}>
-                <CloseModalButton  handleClose={handleClose}/>
-                <Chat title={'Задайте свой вопрос'} data={messagesData}/>
+                <CloseModalButton handleClose={handleClose}/>
+                <Chat classNameMainWrapper={s.classNameMainWrapper} classNameWrapper={s.classNameWrapper}
+                      classNameActionWrapper={s.classNameActionWrapper}
+                      data={messagesData}>
+                    <div className={s.header_modal}>
+                        <h3 className={s.title}>Задайте свой вопрос</h3>
+                        <div className={s.close} onClick={handleClose}>
+                            <CloseIcon/>
+                        </div>
+                    </div>
+                </Chat>
             </Box>
 
         </Modal>
