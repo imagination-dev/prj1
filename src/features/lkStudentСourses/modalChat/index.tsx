@@ -65,9 +65,9 @@ const ModalChat = ({isOpen, handleClose}: Props) => {
                 maxHeight: '690px',
                 '@media screen and (max-width: 768px)': {
                     width: '100vw',
-                    minHeight: '100vh',
-                    maxHeight: '100vh',
-                    height: '100vh',
+                    minHeight: '100dvh',
+                    maxHeight: '100dvh',
+                    height: '100dvh',
                     padding: '20px 10px 10px 10px',
                     borderRadius: '0px',
                     // backgroundColor: 'red',
