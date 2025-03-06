@@ -70,8 +70,6 @@ const ModalChat = ({isOpen, handleClose}: Props) => {
                     height: '100dvh',
                     padding: '20px 10px 10px 10px',
                     borderRadius: '0px',
-                    // backgroundColor: 'red',
-                    // maxHeight: '500px',
                     overflow: 'hidden'
                 }
 

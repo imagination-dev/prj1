@@ -23,15 +23,22 @@ const Chat = ({
                   classNameAction
               }: any) => {
     const [messages, setMessages] = useState(data);
-    const messagesEndRef = useRef<any>(null);
     const [stickElement, setStickElement] = useState<any>(null)
     const boxChatRef = useRef<any>(null);
 
     const [isScrolling, setIsScrolling] = useState(false);
     const scrollTimeoutRef = useRef<any>(null);
+
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({behavior: "smooth"});
+        if (boxChatRef.current) {
+            boxChatRef.current.scrollTo({
+                top: boxChatRef.current.scrollHeight,
+                behavior: "smooth"
+            });
+        }
     }, [messages]);
+
+
 
     const formatDate = (timestamp: number) => {
         return format(new Date(timestamp), "d MMMM", {locale: ru});
@@ -146,7 +153,6 @@ const Chat = ({
 
                         return acc;
                     }, [])}
-                    <div ref={messagesEndRef}/>
                 </div>
             </div>
             <Action sendMessage={sendMessage} classNameActionWrapper={classNameActionWrapper}
