@@ -25,7 +25,7 @@ const mock = {
 
 const LkStudentCourses = () => {
     const query768 = useMediaQuery('(max-width:768px)');
-    const [isOpenModalChat, setIsOpenModalChat] = useState(true)
+    const [isOpenModalChat, setIsOpenModalChat] = useState(false)
 
     return (
         <Wrapper className={s.wrapper}>
