@@ -4,6 +4,7 @@ import UnAuthRouter from "../common/components/unAuthRouter";
 import AuthRouter from "../common/components/authRouter";
 import LkStudent from "../features/lkStudent";
 import LkStudentCourses from "../features/lkStudentСourses";
+import LkStudentChat from "../features/chat";
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
             <Route element={<AuthRouter/>}>
                 <Route path={'/lk_student'} element={<LkStudent/>}></Route>
                 <Route path={'/lk_student_courses'} element={<LkStudentCourses/>}></Route>
+                <Route path={'/lk_student_chat'} element={<LkStudentChat/>}></Route>
                 <Route path="*" element={<Navigate to="/lk_student"/>}/>
             </Route>
 

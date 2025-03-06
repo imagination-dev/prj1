@@ -9,6 +9,8 @@ import NormalButton from "../../common/ui-kit/normalButton";
 import DownloadIcon from '../../common/assets/download.svg?react'
 import MailIcon from "../../common/assets/mail_icon.svg?react";
 import {useMediaQuery} from "@mui/material";
+import {useState} from "react";
+import ModalChat from "./modalChat";
 
 const mock = {
     1: [
@@ -23,10 +25,13 @@ const mock = {
 
 const LkStudentCourses = () => {
     const query768 = useMediaQuery('(max-width:768px)');
+    const [isOpenModalChat, setIsOpenModalChat] = useState(false)
 
     return (
         <Wrapper className={s.wrapper}>
             <>
+                {isOpenModalChat &&
+                    <ModalChat isOpen={isOpenModalChat} handleClose={() => setIsOpenModalChat(false)}/>}
                 {!query768 && <Navigate/>}
 
                 <div className={s.right}>
@@ -55,8 +60,8 @@ const LkStudentCourses = () => {
                     </div>
                     <div className={s.box}>
                         <Info title={'Домашнее задание:'} data={mock[2]}>
-                            <NormalButton className={s.btn_2} onClick={() => {
-                            }} w={!query768 ? 300 : '100%'} bc={'rgba(118, 146, 255, 1)'}>
+                            <NormalButton className={s.btn_2} onClick={() => setIsOpenModalChat(true)}
+                                          w={!query768 ? 300 : '100%'} bc={'rgba(118, 146, 255, 1)'}>
                                 <>
                                     <MailIcon/>
                                     Связаться с куратором

@@ -1,0 +1,84 @@
+.box {
+    background-color: #fff;
+    border-radius: 20px;
+    min-width: 360px;
+    max-width: 360px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.title {
+    padding: 30px 30px 16px 30px;
+
+    font-family: 'Trajan Pro 3', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.item {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 15px 15px 15px 30px;
+    cursor: pointer;
+    transition: .4s all;
+    background-color: #fff;
+}
+
+.item:hover {
+    background-color: rgba(223, 247, 255, 0.4);
+}
+
+.selected_item {
+    background-color: rgba(223, 247, 255, 1);
+}
+
+.selected_item:hover {
+    background-color: rgba(223, 247, 255, 1);
+}
+
+.item_left {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.item_description {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_name {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.last_message {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: rgba(101, 100, 108, 1);
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Ограничение до одной строки */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* Скрываем текст, выходящий за пределы */
+    text-overflow: ellipsis;
+}
+
+.date {
+    font-family: Gilroy-Black, sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: right;
+    color: rgba(167, 167, 167, 1);
+    white-space: nowrap;
+}

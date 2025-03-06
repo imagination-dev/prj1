@@ -1,0 +1,46 @@
+.wrapper {
+    padding: 0 50px;
+    margin-top: 30px;
+}
+
+.main {
+    display: flex;
+    gap: 30px;
+}
+
+.main_right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.classNameWrapper {
+    height: 620px;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 1);
+}
+
+.classNameBoxChat {
+    /*padding: 30px;*/
+    margin-top: 30px;
+}
+
+.classNameActionWrapper {
+    padding: 30px;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+    margin-top: -30px;
+}
+
+.classNameAction {
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 0;
+    border: 1px solid rgba(196, 196, 196, 1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}

@@ -1,0 +1,122 @@
+.box {
+    border: 1px solid rgba(196, 196, 196, 1);
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+    gap: 32px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.text_area {
+    width: 100%;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    background-color: initial;
+    padding: 1px;
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    resize: none;
+    color: rgba(0, 0, 0, 1);
+    overflow: auto;
+    /*height: fit-content;*/
+    max-height: 60px;
+    /*min-height: 58px;*/
+    min-height: 60px;
+
+
+}
+
+.text_area::placeholder {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    color: rgba(101, 100, 108, 1);
+}
+
+.actions {
+    /*padding-top: 9px;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    height: 40px;
+    /*overflow: hidden;*/
+}
+
+.send_message, .media {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background-color: initial;
+    padding: 0;
+}
+
+.send_message svg path {
+    fill: rgba(196, 196, 196, 1);
+    transition: .4s all;
+}
+
+.send_message:hover svg path {
+    fill: rgba(38, 211, 103, 1);
+    transition: .4s all;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.counter {
+    font-family: Gilroy-Black, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    z-index: 2;
+}
+
+@media (max-width: 767px) {
+    .box {
+        padding: 14px 10px;
+
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .text_area::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    .text_area {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+    }
+}

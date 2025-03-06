@@ -67,7 +67,7 @@ const Header = () => {
                     </div>
                     {isAuth && <div className={s.header_right}>
                         <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>
-                        <NavLink className={s.chats} data-count={3} to={'curses'}>Мои чаты</NavLink>
+                        <NavLink className={s.chats} data-count={3} to={'lk_student_chat'}>Мои чаты</NavLink>
 
                         <Box
                             style={{cursor: 'pointer'}}
