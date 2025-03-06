@@ -1,7 +1,8 @@
 import s from './styles.module.css'
-import {Avatar} from "@mui/material";
-import {useState} from "react";
+import {Avatar, useMediaQuery} from "@mui/material";
+import { useState} from "react";
 import {classNames} from "../../../common/utils/classNames.ts";
+import {useNavigate} from "react-router";
 
 const mock = [
     {
@@ -18,14 +19,27 @@ const mock = [
     },
 ]
 const Chats = () => {
+    const query768 = useMediaQuery('(max-width:768px)');
+    const navigate = useNavigate()
     const [selectedChat, setSelectedChat] = useState(1)
+    const handleNavigate = () => {
+        navigate('/lk_student_current_chat')
+    }
+
     return (
         <div className={s.box}>
             <h3 className={s.title}>Мои чаты</h3>
 
             <div className={s.chats}>
                 {mock.map((el: any) => {
-                    return <div className={classNames(s.item,selectedChat === el.id && s.selected_item)} key={el.id} onClick={() => setSelectedChat(el.id)}>
+                    return <div className={classNames(s.item, selectedChat === el.id && s.selected_item)} key={el.id}
+                                onClick={() => {
+                                    setSelectedChat(el.id)
+                                    if (query768) {
+                                        handleNavigate()
+                                    }
+
+                                }}>
                         <div className={s.item_left}>
                             <Avatar sx={{height: '41px', width: '41px', backgroundColor: "rgba(172, 172, 172, 1)"}}/>
                             <div className={s.item_description}>

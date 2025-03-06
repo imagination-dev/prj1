@@ -13,7 +13,7 @@ import {classNames} from "../../utils/classNames.ts";
 const Chat = ({
                   nameOther = 'Иван Иванов',
                   nameUser = 'Петр Петров',
-
+                  classNameActionBtns,
                   data = [],
                   classNameWrapper,
                   classNameMainWrapper,
@@ -153,7 +153,8 @@ const Chat = ({
                     }, [])}
                 </div>
             </div>
-            <Action sendMessage={sendMessage} classNameActionWrapper={classNameActionWrapper}
+            <Action sendMessage={sendMessage} classNameActionBtns={classNameActionBtns}
+                    classNameActionWrapper={classNameActionWrapper}
                     classNameAction={classNameAction}/>
         </div>
 

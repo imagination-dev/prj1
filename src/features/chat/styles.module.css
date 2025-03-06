@@ -29,10 +29,10 @@
 
 .classNameActionWrapper {
     padding: 30px;
-    height: fit-content;
+    /*height: fit-content;*/
     background-color: #fff;
     border-radius: 0 0 20px 20px;
-    margin-top: -30px;
+    /*margin-top: -30px;*/
 }
 
 .classNameAction {
@@ -42,5 +42,65 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
-    padding: 20px;
+    /*padding: 20px;*/
+}
+
+.classNameActionBtns {
+    margin-top: 0;
+}
+
+.btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 0 30px;
+        margin-top: 20px;
+    }
+
+    .classNameWrapper {
+        height: 620px !important;
+        min-height: 620px !important;
+        max-height: 620px !important;
+        border-radius: 10px;
+        border: 1px solid rgba(196, 196, 196, 1);
+    }
+
+    .main_right {
+        padding: 0 30px;
+        margin-top: 20px;
+    }
+
+    .classNameActionWrapper {
+        padding: 0px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 1px solid rgba(196, 196, 196, 1);
+    }
+
+    .classNameAction {
+        margin-top: 0;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 15px 30px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 1);
+        font-family: 'Trajan Pro 3', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        text-align: center;
+        color: rgba(42, 42, 44, 1);
+        width: fit-content;
+        margin: 0 auto;
+        text-decoration: none;
+    }
 }

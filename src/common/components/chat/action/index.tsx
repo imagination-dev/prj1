@@ -5,7 +5,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {Avatar, useMediaQuery} from "@mui/material";
 import {classNames} from "../../../utils/classNames.ts";
 
-const Action = ({sendMessage, classNameAction, classNameActionWrapper}: any) => {
+const Action = ({sendMessage, classNameAction,classNameActionBtns, classNameActionWrapper}: any) => {
     const query768 = useMediaQuery('(max-width:768px)');
 
     const [selectedFiles, setSelectedFiles] = useState<any>([]);
@@ -72,7 +72,7 @@ const Action = ({sendMessage, classNameAction, classNameActionWrapper}: any) => 
                         placeholder={'Напишите сообщение....'} value={value} onChange={handleChange}
                         className={s.text_area}/>
                 </div>
-                <div className={s.actions}>
+                <div className={classNames(s.actions,classNameActionBtns)}>
 
 
                     <div className={s.media}>

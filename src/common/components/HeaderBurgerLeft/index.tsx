@@ -24,7 +24,7 @@ const HeaderBurgerLeft = ({openMenu, toggleDrawer, type, handleLogout}: any) => 
             <div className={s.line}/>
             <div className={s.navigate}>
                 <NavLink className={s.nav_item} to={'lk_student_courses'}>Мои курсы</NavLink>
-                <NavLink className={s.nav_item} to={'/'}>Мои чаты</NavLink>
+                <NavLink className={s.nav_item} to={'lk_student_chat'}>Мои чаты</NavLink>
             </div>
             <div className={s.line}/>
             <div className={s.navigate}>

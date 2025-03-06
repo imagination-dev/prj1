@@ -4,8 +4,9 @@ import Chats from "./chats";
 import Progress from "../lkStudentСourses/0-progress";
 import Chat from "../../common/components/chat";
 import {v4} from "uuid";
+import {useMediaQuery} from "@mui/material";
 
-const messages = [
+export const messages = [
     {id: v4(), name: "Светланна", text: "Все отлично!", sender: "user", timestamp: 1740787200000},
     {id: v4(), name: "Рада", text: "А у тебя?", sender: "other", timestamp: 1740787200000},
     {id: v4(), name: "Светланна", text: "Тоже хорошо!", sender: "user", timestamp: 1740873600000},
@@ -22,16 +23,18 @@ const messages = [
 ];
 
 const LkStudentChat = () => {
+    const query768 = useMediaQuery('(max-width:768px)');
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.main}>
                 <Chats/>
-                <div className={s.main_right}>
+                {!query768 && <div className={s.main_right}>
                     <Progress/>
-                    <Chat nameOther={'Рада'} nameUser={'Светланна'} data={messages}
+                    <Chat classNameActionBtns={s.classNameActionBtns} nameOther={'Рада'} nameUser={'Светланна'}
+                          data={messages}
                           classNameActionWrapper={s.classNameActionWrapper} classNameAction={s.classNameAction}
                           classNameBoxChat={s.classNameBoxChat} classNameWrapper={s.classNameWrapper}/>
-                </div>
+                </div>}
             </div>
         </Wrapper>
     );
