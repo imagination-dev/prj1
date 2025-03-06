@@ -26,20 +26,17 @@
     }
 
     .classNameWrapper {
-        height: auto;
-        max-height: calc(100% - 150px);
-        /*border: 1px solid red;*/
-        /*justify-content: space-between;*/
+        max-height: inherit;
+        min-height: 0;
+        flex: 1;
+        height: initial;
     }
 
     .classNameMainWrapper {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        /*border: 1px solid red;*/
         height: 100%;
-        /*overflow: hidden;*/
-        /*gap: 20px;*/
     }
 
     .close {
