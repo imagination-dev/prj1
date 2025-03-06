@@ -6,7 +6,7 @@ import {NavLink} from "react-router";
 const navigate = [
     {title: "Главная", path: "/", id: 1},
     {title: "Все курсы", path: "/", id: 2},
-    {title: "Помощь", path: "/", id: 3},
+    {title: "Помощь", path: "support", id: 3},
 ]
 
 const Footer = () => {

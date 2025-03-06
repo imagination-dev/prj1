@@ -66,9 +66,31 @@ const LkStudent = () => {
                         onActiveIndexChange={(e) => {
                             setCurrentIndex(e?.realIndex)
                         }}
+                        // centeredSlides={query768}
                         centeredSlides={true}
                         spaceBetween={30}
                         slidesPerView={'auto'}
+                        // slidesPerView={5}
+                        // breakpoints={{
+                        //     // 480: {
+                        //     //     slidesPerView: 1.5, // Для мобильных (ширина экрана ≥ 320px)
+                        //     // },
+                        //     // 640: {
+                        //     //     slidesPerView: 'auto', // Для мобильных (ширина экрана ≥ 320px)
+                        //     // },
+                        //     768: {
+                        //         slidesPerView: 'auto', // Для мобильных (ширина экрана ≥ 320px)
+                        //     },
+                        //     1024: {
+                        //         slidesPerView: 4, // Для планшетов (ширина экрана ≥ 768px)
+                        //     },
+                        //     1200: {
+                        //         slidesPerView: 4.5, // Для десктопов (ширина экрана ≥ 1024px)
+                        //     },
+                        //     1440: {
+                        //         slidesPerView: 5, // Для больших экранов (ширина экрана ≥ 1440px)
+                        //     }
+                        // }}
                         loop
                     >
                         {swiperData.map((el, i) => {

@@ -8,6 +8,7 @@ import CloseIcon from '../../../common/assets/close.svg?react';
 
 interface Props {
     isOpen: boolean
+    title?: string
     handleClose: () => void
 }
 
@@ -41,7 +42,7 @@ const messagesData = [
     {id: v4(), name: "Иван Иванов", text: "До встречи!", sender: "other", timestamp: 1740873600000,},
 ];
 
-const ModalChat = ({isOpen, handleClose}: Props) => {
+const ModalChat = ({isOpen, handleClose, title = 'Задайте свой вопрос'}: Props) => {
     return (
         <Modal
             open={isOpen}
@@ -79,7 +80,7 @@ const ModalChat = ({isOpen, handleClose}: Props) => {
                       classNameActionWrapper={s.classNameActionWrapper}
                       data={messagesData}>
                     <div className={s.header_modal}>
-                        <h3 className={s.title}>Задайте свой вопрос</h3>
+                        <h3 className={s.title}>{title}</h3>
                         <div className={s.close} onClick={handleClose}>
                             <CloseIcon/>
                         </div>

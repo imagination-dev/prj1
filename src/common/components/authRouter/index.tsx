@@ -5,7 +5,6 @@ import {AuthContext} from "../../../app/App.tsx";
 const AuthRouter = () => {
     const {isAuth} = useContext(AuthContext)
     const location = useLocation()
-
     if (!isAuth) {
         return <Navigate to="/login" replace state={{from: location}}/>
     }

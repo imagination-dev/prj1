@@ -1,5 +1,6 @@
 import {Menu} from "@mui/material";
 import s from './styles.module.css'
+import {useNavigate} from "react-router";
 
 interface Interface {
     open: boolean
@@ -9,6 +10,12 @@ interface Interface {
 }
 
 const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
+    const navigate = useNavigate()
+
+    const handleNavigate = (path: string) => {
+        navigate(path)
+        handleClose()
+    }
     return (
         <Menu
             anchorEl={anchorEl}
@@ -53,7 +60,7 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
             transformOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
         >
-            <p onClick={handleClose} className={s.menu_item}>
+            <p onClick={() => handleNavigate('/support')} className={s.menu_item}>
                 Помощь
             </p>
 

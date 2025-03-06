@@ -1,4 +1,3 @@
-
 import {Navigate, Outlet, useLocation} from "react-router";
 import {useContext} from "react";
 import {AuthContext} from "../../../app/App.tsx";

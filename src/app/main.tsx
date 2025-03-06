@@ -6,18 +6,31 @@ import LkStudent from "../features/lkStudent";
 import LkStudentCourses from "../features/lkStudentСourses";
 import LkStudentChat from "../features/chat";
 import CurrentChat from "../features/chat/pageCurrentChat";
+import Support from "../features/support";
+import Cooperation from "../features/cooperation";
+import Questions from "../features/questions";
+import Refund from "../features/refund";
+import Reviews from "../features/reviews";
+import Requests from "../features/requests";
 
 const Main = () => {
     return (
         <Routes>
-            <Route path={'/login'} element={<UnAuthRouter/>}>
-                <Route index element={<Login/>}/>
+            <Route path={'/support'} element={<Support/>}></Route>
+            <Route path={'/reviews'} element={<Reviews/>}></Route>
+            <Route path={'/cooperation'} element={<Cooperation title={'Сотрудничество и предложения'}/>}></Route>
+            <Route element={<UnAuthRouter/>}>
+                <Route path={'/login'} element={<Login/>}/>
+                <Route path={'/question'} element={<Cooperation title={'Другой вопрос'}/>}/>
             </Route>
             <Route element={<AuthRouter/>}>
                 <Route path={'/lk_student'} element={<LkStudent/>}></Route>
                 <Route path={'/lk_student_courses'} element={<LkStudentCourses/>}></Route>
                 <Route path={'/lk_student_chat'} element={<LkStudentChat/>}></Route>
                 <Route path={'/lk_student_current_chat'} element={<CurrentChat/>}></Route>
+                <Route path={'/questions'} element={<Questions/>}></Route>
+                <Route path={'/refund'} element={<Refund/>}></Route>
+                <Route path={'/requests'} element={<Requests/>}></Route>
                 <Route path="*" element={<Navigate to="/lk_student"/>}/>
             </Route>
 

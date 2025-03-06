@@ -24,7 +24,7 @@ const Input = ({label, type = 'text', onBlur, error = false, name, helperText = 
                                fontFamily: 'Gilroy-Regular,sans-serif',
                                fontWeight: 400,
                                fontSize: '16px',
-                               color: "rgba(101, 100, 108, 1)"
+                               color: !error ? "rgba(101, 100, 108, 1)" : "#d32f2f",
 
                            },
                        }}

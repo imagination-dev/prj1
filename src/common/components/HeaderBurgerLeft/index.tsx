@@ -28,7 +28,7 @@ const HeaderBurgerLeft = ({openMenu, toggleDrawer, type, handleLogout}: any) => 
             </div>
             <div className={s.line}/>
             <div className={s.navigate}>
-                <p className={s.nav_item}>Помощь</p>
+                <NavLink to={'support'} className={s.nav_item}>Помощь</NavLink>
                 <p className={s.nav_item}>Настройки</p>
                 <p className={s.nav_item} onClick={handleLogout}>Выйти</p>
             </div>

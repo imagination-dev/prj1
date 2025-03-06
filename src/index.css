@@ -1,6 +1,4 @@
 
-
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,6 +18,20 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+}
+
+.MuiMenu-list {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.MuiFormControl-root .MuiInputLabel-shrink {
+    top: 0 !important;
+}
+
+.swiper-slide {
+    height: auto !important;
+
 }
 
 /* HTML5 display-role reset for older browsers */
