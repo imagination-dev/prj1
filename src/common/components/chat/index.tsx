@@ -38,8 +38,6 @@ const Chat = ({
         }
     }, [messages]);
 
-
-
     const formatDate = (timestamp: number) => {
         return format(new Date(timestamp), "d MMMM", {locale: ru});
     };

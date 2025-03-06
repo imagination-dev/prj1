@@ -1,15 +1,18 @@
 import s from './styles.module.css'
 import SendIcon from '../../../assets/send_icon.svg?react'
 import MediaIcon from '../../../assets/media_btn.svg?react'
-import React, {useRef, useState} from "react";
-import {Avatar} from "@mui/material";
+import React, {useEffect, useRef, useState} from "react";
+import {Avatar, useMediaQuery} from "@mui/material";
 import {classNames} from "../../../utils/classNames.ts";
 
-const Action = ({sendMessage, classNameAction,classNameActionWrapper}: any) => {
+const Action = ({sendMessage, classNameAction, classNameActionWrapper}: any) => {
+    const query768 = useMediaQuery('(max-width:768px)');
+
     const [selectedFiles, setSelectedFiles] = useState<any>([]);
     const [avatarSrc, setAvatarSrc] = useState<any>(null);
     const areaRef = useRef<any>(null)
     const [value, setValue] = useState('')
+
     const handleChange = (e: any) => {
         const textarea = e.target;
         setValue(textarea.value);
@@ -47,15 +50,30 @@ const Action = ({sendMessage, classNameAction,classNameActionWrapper}: any) => {
         }
     };
 
+    useEffect(() => {
+        if (areaRef.current) {
+            areaRef.current.style.height = "auto"; // Сброс высоты, чтобы пересчитать
+            areaRef.current.style.height = Math.min(areaRef.current.scrollHeight, 4 * (query768 ? 14 : 16)) + "px"; // Ограничение 3 строки
+        }
+    }, [value]);
+
     return (
         <div className={classNames(classNameActionWrapper)}>
             <div className={classNames(s.box, classNameAction)}>
-            <textarea
-                onKeyDown={handleKeyDown}
-                ref={areaRef}
-                placeholder={'Напишите сообщение....'} value={value} onChange={handleChange}
-                className={s.text_area}/>
+                <div className={s.teaxt_area_box}>
+                    <textarea
+                        rows={1}
+                        onKeyDown={handleKeyDown}
+                        ref={areaRef}
+                        style={{
+                            minHeight: query768 ? '14px' : "16px", // Высота одной строки
+                            maxHeight: query768 ? '54px' : "64px", // Высота трех строк (3 * 24px)
+                        }}
+                        placeholder={'Напишите сообщение....'} value={value} onChange={handleChange}
+                        className={s.text_area}/>
+                </div>
                 <div className={s.actions}>
+
 
                     <div className={s.media}>
                         {avatarSrc &&

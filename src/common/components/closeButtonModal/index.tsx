@@ -10,15 +10,7 @@ const CloseModalButton = ({handleClose}: { handleClose: () => void }) => {
                     backgroundColor: '#fff'
                 }
             }}>
-                <CloseIcon
-                    // sx={{
-                //     color: 'rgba(159, 159, 159, 1)',
-                //     height: '28px', width: '28px',
-                //     '@media screen and (max-width: 768px)': {
-                //         color: 'rgba(0, 0, 0, 1)'
-                //     }
-                // }}
-                />
+                <CloseIcon/>
             </IconButton>
         </div>
     );
