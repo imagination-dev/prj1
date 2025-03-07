@@ -65,7 +65,7 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
             </p>
 
             <div className={s.line}/>
-            <p onClick={handleClose} className={s.menu_item}>
+            <p onClick={() => handleNavigate('/profile')} className={s.menu_item}>
                 Настройки
             </p>
             <div className={s.line}/>

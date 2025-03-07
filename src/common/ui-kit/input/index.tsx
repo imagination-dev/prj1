@@ -11,13 +11,32 @@ interface IProps {
     onBlur: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     name: string
     type?: string
+    InputProps?: any
+    ref?: any
+    id?: any
 }
 
-const Input = ({label, type = 'text', onBlur, error = false, name, helperText = '', value, onChange}: IProps) => {
+const Input = ({
+                   label,
+                   id = 0,
+                   ref = null,
+                   InputProps = {},
+                   type = 'text',
+                   onBlur,
+                   error = false,
+                   name,
+                   helperText = '',
+                   value,
+                   onChange
+               }: IProps) => {
 
     return (
-        <div className={s.container}>
-            <TextField type={type} error={error}
+        <div className={s.container} onClick={(e) => {
+            // e.preventDefault()
+            e.stopPropagation()
+        }}>
+            <TextField ref={ref} type={type} error={error}
+                       InputProps={InputProps}
                        onBlur={onBlur} name={name}
                        sx={{
                            "& .MuiFormLabel-root": {
@@ -30,7 +49,7 @@ const Input = ({label, type = 'text', onBlur, error = false, name, helperText = 
                        }}
                        value={value}
                        onChange={onChange}
-                       fullWidth id="outlined-basic" label={label} variant="outlined"/>
+                       fullWidth id={"outlined-basic" + id} label={label} variant="outlined"/>
             {helperText && <p className={s.error_text}>{helperText}</p>}
         </div>
 

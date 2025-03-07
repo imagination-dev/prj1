@@ -75,9 +75,6 @@ body {
     touch-action: none !important;
 }
 
-/*.MuiModal-root .MuiBackdrop-root {*/
-/*    background-color: rgba(217, 217, 217, 0.79) ;*/
-/*}*/
 
 .no-scroll {
     overflow: hidden;
@@ -97,6 +94,12 @@ html, body {
 
 *:focus {
     outline: none;
+}
+
+input:-webkit-autofill {
+    background-color: transparent !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: #000 !important;
 }
 
 @media (max-width: 767px) {

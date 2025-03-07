@@ -12,6 +12,8 @@ import Questions from "../features/questions";
 import Refund from "../features/refund";
 import Reviews from "../features/reviews";
 import Requests from "../features/requests";
+import Profile from "../features/profile";
+import SubscriptionAction from "../features/subscriptionAction";
 
 const Main = () => {
     return (
@@ -31,6 +33,8 @@ const Main = () => {
                 <Route path={'/questions'} element={<Questions/>}></Route>
                 <Route path={'/refund'} element={<Refund/>}></Route>
                 <Route path={'/requests'} element={<Requests/>}></Route>
+                <Route path={'/profile'} element={<Profile/>}></Route>
+                <Route path={'/subscription-action'} element={<SubscriptionAction/>}></Route>
                 <Route path="*" element={<Navigate to="/lk_student"/>}/>
             </Route>
 

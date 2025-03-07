@@ -1,0 +1,108 @@
+.wrapper {
+    margin-top: 50px;
+    padding: 0 50px;
+    overflow: hidden;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub_title {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(101, 100, 108, 1);
+}
+
+.items {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+}
+
+.item {
+    min-width: 204px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 100%;
+    min-height: 124px;
+    height: 100px;
+    padding: 20px 20px;
+    flex: 1;
+    position: relative;
+}
+
+.item:before {
+    content: attr(data-count);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Trajan Pro 3', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 31px;
+    letter-spacing: 0%;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(251, 210, 103, 1);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(101, 100, 108, 1);
+    max-width: 164px;
+    width: 100%;
+}
+
+.title a {
+    color: rgba(0, 0, 238, 1);
+    text-decoration: unset;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        margin-top: 50px;
+        padding: 0 30px;
+    }
+
+    .items {
+        width: 100%;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+
+}

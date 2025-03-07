@@ -24,6 +24,7 @@ const Header = () => {
 
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.stopPropagation()
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
@@ -42,6 +43,7 @@ const Header = () => {
     }
 
     const toggleDrawerRight = (open: any) => (event: any) => {
+        event.stopPropagation()
         if (
             event &&
             event.type === 'keydown' &&
