@@ -122,5 +122,6 @@
     .description {
         line-height: 100%;
         padding-bottom: 0px;
+        margin-top: 0;
     }
 }
