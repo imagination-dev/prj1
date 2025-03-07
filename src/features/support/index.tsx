@@ -18,7 +18,9 @@ const pathUnAuth = [
     {title: "Другой вопрос", path: "/question"},
 ]
 const Support = () => {
+    const isIphone = /iPhone|iPod/.test(navigator.userAgent)
     const {isAuth} = useContext(AuthContext)
+    console.log(isIphone)
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.box}>
@@ -28,7 +30,9 @@ const Support = () => {
                         return <NavLink className={classNames(s.item)} to={el.path} key={i}>
                             {el.title}
                             {el?.count && <div className={s.count}>
-                                <p>{el?.count}</p>
+                                <p style={{
+                                    top: isIphone ? 'calc(50% + 2px)' : '50%'
+                                }}> {el?.count}</p>
                             </div>}
                         </NavLink>
                     })}
