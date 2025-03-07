@@ -27,7 +27,9 @@ const Support = () => {
                     {(isAuth ? path : pathUnAuth).map((el: any, i) => {
                         return <NavLink className={classNames(s.item)} to={el.path} key={i}>
                             {el.title}
-                            {el?.count && <p className={s.count}>{el?.count}</p>}
+                            {el?.count && <div className={s.count}>
+                                <p>{el?.count}</p>
+                            </div>}
                         </NavLink>
                     })}
                 </div>
