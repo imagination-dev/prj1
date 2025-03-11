@@ -14,8 +14,10 @@ import Reviews from "../features/reviews";
 import Requests from "../features/requests";
 import Profile from "../features/profile";
 import SubscriptionAction from "../features/subscriptionAction";
+import MyAccesses from "../features/myAccesses";
+import ControlCards from "../features/conrolCards";
 
-const Main = () => {
+const RoutersUser = () => {
     return (
         <Routes>
             <Route path={'/support'} element={<Support/>}></Route>
@@ -31,10 +33,13 @@ const Main = () => {
                 <Route path={'/lk_student_chat'} element={<LkStudentChat/>}></Route>
                 <Route path={'/lk_student_current_chat'} element={<CurrentChat/>}></Route>
                 <Route path={'/questions'} element={<Questions/>}></Route>
+                <Route path={'/my-accesses'} element={<MyAccesses/>}></Route>
+                <Route path={'/control-cards'} element={<ControlCards/>}></Route>
                 <Route path={'/refund'} element={<Refund/>}></Route>
                 <Route path={'/requests'} element={<Requests/>}></Route>
                 <Route path={'/profile'} element={<Profile/>}></Route>
                 <Route path={'/subscription-action'} element={<SubscriptionAction/>}></Route>
+
                 <Route path="*" element={<Navigate to="/lk_student"/>}/>
             </Route>
 
@@ -42,4 +47,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default RoutersUser;

@@ -17,7 +17,7 @@ const Header = () => {
     const query768 = useMediaQuery('(max-width:768px)');
 
     const navigate = useNavigate()
-    const {isAuth, exit} = useContext(AuthContext)
+    const {isAuth, exit, isAdmin} = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -33,11 +33,10 @@ const Header = () => {
 
     const handleExit = () => {
         exit()
-        navigate('login')
     }
 
     const backToLk = () => {
-        if (isAuth) {
+        if (isAuth && !isAdmin) {
             navigate('lk_student')
         }
     }
@@ -68,8 +67,9 @@ const Header = () => {
                         <p className={s.title}>Онлайн-школа творческих навыков</p>
                     </div>
                     {isAuth && <div className={s.header_right}>
-                        <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>
-                        <NavLink className={s.chats} data-count={3} to={'lk_student_chat'}>Мои чаты</NavLink>
+                        {!isAdmin && <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>}
+                        <NavLink className={s.chats} data-count={3} to={isAdmin ? '/admin/panel' : 'lk_student_chat'}>Мои
+                            чаты</NavLink>
 
                         <Box
                             style={{cursor: 'pointer'}}

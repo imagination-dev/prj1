@@ -36,7 +36,8 @@ const Input = ({
             e.stopPropagation()
         }}>
             <TextField ref={ref} type={type} error={error}
-                       InputProps={InputProps}
+                       InputProps={{...InputProps,}}
+                       autoComplete="new-password"
                        onBlur={onBlur} name={name}
                        sx={{
                            "& .MuiFormLabel-root": {

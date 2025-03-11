@@ -10,6 +10,8 @@ import SelectItem from "../../common/ui-kit/select";
 import {TextMaskCustom} from "../../common/ui-kit/numberInput";
 import DateInput from "../../common/ui-kit/dateInput";
 import dayjs from "dayjs";
+import {useNavigate} from "react-router";
+import {useState} from "react";
 
 const sex = [
     {title: 'Женский', id: 1},
@@ -27,6 +29,7 @@ type ValuesType = {
 
 
 const Profile = () => {
+    const navigate = useNavigate()
     const query768 = useMediaQuery('(max-width:768px)');
     const formik = useFormik({
         initialValues: {
@@ -83,19 +86,41 @@ const Profile = () => {
             // setOpenModal(true)
         }
     })
+    const [avatar, setAvatar] = useState<string | null>(null);
 
+    const handleAvatarClick = () => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.onchange = (event: Event) => {
+            const file = (event.target as HTMLInputElement).files?.[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    setAvatar(reader.result as string);
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        input.click();
+    };
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.main}>
                 <div className={classNames(s.box, s.box_left)}>
-                    <NormalButton w={'100%'} onClick={() => {
-                    }} bc={'rgba(251, 209, 103, 1)'}>
+                    <NormalButton w={'100%'} onClick={() => navigate('/my-accesses')} bc={'rgba(251, 209, 103, 1)'}>
                         Управление доступами
                     </NormalButton>
                 </div>
                 <div className={classNames(s.box, s.box_right)}>
                     {query768 && <TitleSupport align={'center'} title={'Мой профиль'}/>}
-                    <Avatar sx={{width: !query768 ? '165px' : '135px', height: !query768 ? '165px' : '135px'}}/>
+
+                    <Avatar onClick={handleAvatarClick} src={avatar || ''}
+                            sx={{
+                                cursor: 'pointer',
+                                width: !query768 ? '165px' : '135px', height: !query768 ? '165px' : '135px'
+                            }}/>
+
                     <div className={s.box_right_content}>
                         {!query768 && <TitleSupport align={'left'} title={'Мой профиль'}/>}
 
