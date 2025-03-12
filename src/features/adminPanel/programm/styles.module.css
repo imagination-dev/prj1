@@ -1,0 +1,82 @@
+.topic {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.topic_sub_title {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(42, 42, 44, 1);
+}
+
+.title_topic {
+    font-family: 'Trajan Pro 3', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0%;
+    color: rgba(0, 0, 0, 1);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topics {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.btn {
+    max-width: 123px;
+}
+
+.box_topics {
+    padding: 30px;
+    max-height: 460px;
+    height: fit-content;
+    overflow: auto;
+}
+
+.box_topics::-webkit-scrollbar {
+    width: 4px;
+}
+
+.box_topics::-webkit-scrollbar-thumb {
+    background: rgba(196, 196, 196, 1);
+    border-radius: 2px;
+}
+
+.box_topics::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.rating {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(196, 196, 196, 1);
+}
+
+.rating span {
+    color: rgba(38, 211, 103, 1);
+    font-family: Gilroy-Black, sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: center;
+
+
+}

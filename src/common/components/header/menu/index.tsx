@@ -7,9 +7,10 @@ interface Interface {
     handleClose: () => void
     anchorEl: null | HTMLElement
     logout: () => void
+    isAdmin: boolean
 }
 
-const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
+const MenuHeader = ({open, isAdmin, logout, handleClose, anchorEl}: Interface) => {
     const navigate = useNavigate()
 
     const handleNavigate = (path: string) => {
@@ -60,14 +61,14 @@ const MenuHeader = ({open, logout, handleClose, anchorEl}: Interface) => {
             transformOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
         >
-            <p onClick={() => handleNavigate('/support')} className={s.menu_item}>
+            <p onClick={() => !isAdmin && handleNavigate('/support')} className={s.menu_item}>
                 Помощь
             </p>
 
             <div className={s.line}/>
-            <p onClick={() => handleNavigate('/profile')} className={s.menu_item}>
+            {!isAdmin && <p onClick={() => handleNavigate('/profile')} className={s.menu_item}>
                 Настройки
-            </p>
+            </p>}
             <div className={s.line}/>
             <p onClick={logout} className={s.menu_item} style={{
                 color: '#9f4444'

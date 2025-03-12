@@ -9,7 +9,7 @@ import RoutersAdmin from "./routersAdmin.tsx";
 export const AuthContext = createContext<any>(null)
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false)
+    const [isAuth, setIsAuth] = useState(true)
     const location = useLocation()
     const isAdminRouters = location.pathname.split('/')[1] === 'admin'
 

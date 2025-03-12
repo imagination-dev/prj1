@@ -1,0 +1,110 @@
+.wrapper {
+    margin-top: 50px;
+    padding: 0 50px;
+    overflow: hidden;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+
+}
+
+.sub_box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+}
+
+.sub_box_width {
+    max-width: 264px;
+}
+
+.classNameActionBtns {
+    margin-top: 0;
+}
+
+.classNameActionWrapper {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.classNameChats {
+    max-height: 720px;
+    overflow: auto;
+}
+
+
+.classNameChats::-webkit-scrollbar {
+    width: 4px;
+}
+
+.classNameChats::-webkit-scrollbar-thumb {
+    background: rgba(196, 196, 196, 1);
+    border-radius: 2px;
+}
+
+.classNameChats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.chats {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.classNameAction {
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: 0;
+    border: 1px solid rgba(196, 196, 196, 1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    /*padding: 20px;*/
+}
+
+.classNameBoxChat {
+    /*padding: 30px;*/
+    margin-top: 30px;
+}
+
+.classNameWrapper {
+    height: 770px;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 1);
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        margin-top: 50px;
+        padding: 0 0;
+        overflow: hidden;
+    }
+
+    .classNameActionWrapper {
+        padding: 0px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 1px solid rgba(196, 196, 196, 1);
+    }
+
+    .classNameAction {
+        margin-top: 0;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .classNameWrapper {
+        height: 620px !important;
+        min-height: 620px !important;
+        max-height: 620px !important;
+        border-radius: 10px;
+        border: 1px solid rgba(196, 196, 196, 1);
+    }
+
+}

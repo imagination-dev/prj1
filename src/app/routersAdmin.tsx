@@ -2,6 +2,7 @@ import {Navigate, Route, Routes} from "react-router";
 import UnAuthRouter from "../common/components/unAuthRouter";
 import AuthRouter from "../common/components/authRouter";
 import AuthAdmin from "../features/authAdmin";
+import AdminPanel from "../features/adminPanel";
 
 const RoutersAdmin = () => {
 
@@ -11,7 +12,7 @@ const RoutersAdmin = () => {
                 <Route path={'login'} element={<AuthAdmin/>}/>
             </Route>
             <Route path={'/admin/*'} element={<AuthRouter isAdmin={true}/>}>
-                <Route path={'panel'} element={<h3>Admin panel</h3>}></Route>
+                <Route path={'panel'} element={<AdminPanel/>}></Route>
                 <Route path="*" element={<Navigate to="/admin/panel"/>}/>
             </Route>
 

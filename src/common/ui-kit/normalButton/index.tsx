@@ -8,14 +8,16 @@ interface IProps {
     bc: string
     w?: string | number
     className?: string
+    isStaticBg?: boolean
 }
 
-const NormalButton = ({children, onClick, bc, w = '100%', className = ''}: IProps) => {
+const NormalButton = ({children, isStaticBg = false, onClick, bc, w = '100%', className = ''}: IProps) => {
 
     return (
         <div onClick={onClick} className={classNames(s.btn, className)} data-hover={bc} style={{
             borderColor: bc,
             maxWidth: w,
+            backgroundColor: isStaticBg ? bc : '',
             // @ts-ignore
             '--hover-color': bc,
         }}>

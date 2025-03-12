@@ -7,11 +7,12 @@ import {classNames} from "../../../common/utils/classNames.ts";
 
 interface Props {
     isOpen: boolean
+    rating?: number
     handleClose: () => void
 }
 
-const ModalStar = ({isOpen, handleClose}: Props) => {
-    const [value, setValue] = useState<null | number>(0)
+const ModalStar = ({isOpen, rating = 0, handleClose}: Props) => {
+    const [value, setValue] = useState<null | number>(rating)
     const [isConfirm, setIsConfirm] = useState(false)
 
     return (

@@ -55,12 +55,12 @@ const Header = () => {
 
     return (
         <div className={classNames(s.header, openMenu && s.header_open_menu)}>
-            <HeaderBurgerLeft handleLogout={handleExit} type={1}
+            <HeaderBurgerLeft isAdmin={isAdmin} handleLogout={handleExit} type={1}
                               toggleDrawer={toggleDrawerRight}
                               openMenu={openMenu}/>
             <Wrapper className={s.wrapper}>
                 <>
-                    <MenuHeader logout={handleExit} open={open} handleClose={handleClose} anchorEl={anchorEl}/>
+                    <MenuHeader isAdmin={isAdmin} logout={handleExit} open={open} handleClose={handleClose} anchorEl={anchorEl}/>
                     <div className={s.header_left}>
                         <img onClick={backToLk} src={openMenu ? logoGray : logo} alt="logo"/>
 

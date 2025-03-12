@@ -8,7 +8,7 @@ interface IProps {
     helperText?: string
     value: string
     onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
-    onBlur: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    onBlur?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     name: string
     type?: string
     InputProps?: any

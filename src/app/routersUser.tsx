@@ -16,6 +16,7 @@ import Profile from "../features/profile";
 import SubscriptionAction from "../features/subscriptionAction";
 import MyAccesses from "../features/myAccesses";
 import ControlCards from "../features/conrolCards";
+import CertificateActivation from "../features/certificateActivation";
 
 const RoutersUser = () => {
     return (
@@ -29,6 +30,7 @@ const RoutersUser = () => {
             </Route>
             <Route element={<AuthRouter/>}>
                 <Route path={'/lk_student'} element={<LkStudent/>}></Route>
+                <Route path={'/certificate-activation'} element={<CertificateActivation/>}></Route>
                 <Route path={'/lk_student_courses'} element={<LkStudentCourses/>}></Route>
                 <Route path={'/lk_student_chat'} element={<LkStudentChat/>}></Route>
                 <Route path={'/lk_student_current_chat'} element={<CurrentChat/>}></Route>

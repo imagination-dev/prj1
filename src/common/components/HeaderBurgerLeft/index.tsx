@@ -3,7 +3,7 @@ import {Box, SwipeableDrawer} from "@mui/material";
 import s from './styles.module.css'
 import {NavLink} from "react-router";
 
-const HeaderBurgerLeft = ({openMenu, toggleDrawer, type, handleLogout}: any) => {
+const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, type, handleLogout}: any) => {
     const iOS =
         typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -23,13 +23,13 @@ const HeaderBurgerLeft = ({openMenu, toggleDrawer, type, handleLogout}: any) => 
         >
             <div className={s.line}/>
             <div className={s.navigate}>
-                <NavLink className={s.nav_item} to={'lk_student_courses'}>Мои курсы</NavLink>
-                <NavLink className={s.nav_item} to={'lk_student_chat'}>Мои чаты</NavLink>
+                {!isAdmin && <NavLink className={s.nav_item} to={'lk_student_courses'}>Мои курсы</NavLink>}
+                <NavLink className={s.nav_item} to={isAdmin ? '/admin/panel' : 'lk_student_chat'}>Мои чаты</NavLink>
             </div>
             <div className={s.line}/>
             <div className={s.navigate}>
-                <NavLink to={'support'} className={s.nav_item}>Помощь</NavLink>
-                <NavLink to={'profile'} className={s.nav_item}>Настройки</NavLink>
+                <NavLink to={isAdmin ? '/' : 'support'} className={s.nav_item}>Помощь</NavLink>
+                {!isAdmin && <NavLink to={'profile'} className={s.nav_item}>Настройки</NavLink>}
                 <p className={s.nav_item} onClick={handleLogout}>Выйти</p>
             </div>
 

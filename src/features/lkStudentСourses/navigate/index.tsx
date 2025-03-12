@@ -5,6 +5,7 @@ import completed_icon from '../../../common/assets/completed_icon.svg'
 import lock_icon from '../../../common/assets/lock_icon.svg'
 import {useRef, useState} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
+import NavigateProgram from "../../../common/components/navigateProgram";
 
 const topic: any = {
     1: {
@@ -38,8 +39,8 @@ const topic: any = {
 type IconType = Record<string, string>
 const Navigate = () => {
     const lengthTopic = Object.keys(topic).length
+
     const [chooseTopic, setChooseTopic] = useState(1)
-    // const [chooseTopicNumber, setChooseTopicNumber] = useState(1)
     const swiperRef = useRef<any>(null);
 
     const [currentIndex, setCurrentIndex] = useState<number>(0)
@@ -51,23 +52,8 @@ const Navigate = () => {
         2: lock_icon,
     }
     return (
-        <div className={s.box}>
-            <div className={s.box_title_nav}>
-                <h3 className={s.title}>Программа <br/> обучения</h3>
-
-                <div className={s.navigate_buttons}>
-                    <div
-                        onClick={() => currentIndex === 1 ? undefined : swiperRef?.current?.slidePrev()}
-                        className={classNames(s.btn_nav, currentIndex === 1 && s.btn_nav_disabled)}>
-                        {currentIndex === 1 ? 'Назад' : `Тема #${currentIndex - 1}`}
-                    </div>
-                    <div className={classNames(s.btn_nav, currentIndex + 1 > lengthTopic && s.btn_nav_disabled)}
-                         onClick={() => currentIndex + 1 > lengthTopic ? undefined : swiperRef.current?.slideNext()}>{currentIndex + 1 > lengthTopic ? 'Вперед' : `Тема #${currentIndex + 1}`}</div>
-                </div>
-            </div>
-
+        <NavigateProgram currentIndex={currentIndex} swiperRef={swiperRef} lengthItems={lengthTopic}>
             <Swiper
-                className={'test'}
                 spaceBetween={30}
                 slidesPerView={1}
                 onSwiper={(swiper) => {
@@ -77,7 +63,6 @@ const Navigate = () => {
                 onActiveIndexChange={(e) => {
                     setCurrentIndex(e?.realIndex + 1)
                 }}
-                // loop
             >
                 {Object.keys(topic).map((key) => {
                     const topicItem = topic[key]
@@ -98,8 +83,8 @@ const Navigate = () => {
                     </SwiperSlide>
                 })}
             </Swiper>
+        </NavigateProgram>
 
-        </div>
     );
 };
 

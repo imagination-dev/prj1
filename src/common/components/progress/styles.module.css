@@ -34,3 +34,17 @@
     width: calc(100% - 2px);
     border-radius: 100px;
 }
+
+.percent {
+    font-family: Gilroy-Regular, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(101, 100, 108, 1);
+}
+
+.percent span {
+    color: rgba(0, 0, 0, 1);
+}

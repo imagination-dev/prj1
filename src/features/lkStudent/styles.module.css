@@ -1,10 +1,9 @@
 .wrapper_LkStudent {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    overflow: hidden;
     gap: 30px;
+    overflow: hidden;
+    margin-top: 100px;
 }
 
 .wrap_main {
@@ -16,10 +15,56 @@
     transform: translate(0%, -50%);
 }
 
-.swiper_box {
-    max-width: 100%;
+.swiper_wrapper_container {
+    overflow-x: hidden;
     position: relative;
-    overflow: hidden;
+}
+
+.swiper_wrapper_container:before {
+    content: '';
+    position: absolute;
+    height: 400px;
+    z-index: 20;
+    width: 120px;
+    /*border: 1px solid red;*/
+    left: 0;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(270deg, rgba(244, 244, 244, 0.23) -12.82%, #F4F4F4 96.58%);
+
+}
+
+.swiper_wrapper_container:after {
+    content: '';
+    position: absolute;
+    height: 400px;
+    z-index: 20;
+    border-radius: 10px 0 0 10px;
+    top: 0;
+    width: 120px;
+    right: 0;
+    background: linear-gradient(270deg, #F4F4F4 -12.82%, rgba(244, 244, 244, 0.23) 96.58%);
+}
+
+.main {
+    margin-right: -10%;
+    margin-left: -10%;
+}
+
+.progress_box {
+    position: absolute;
+    bottom: 12px;
+    width: 140px;
+}
+
+.progress_label {
+    margin-top: 3px !important;
+}
+
+.progress_label span {
+    font-family: Gilroy-Black, sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 16px !important;
+    color: rgba(255, 255, 255, 1) !important;
 }
 
 .item {
@@ -49,12 +94,15 @@
 .btn {
     display: flex;
     height: 43px;
-    min-width: 180px;
-    max-width: 180px;
+    min-width: 185px;
+    max-width: 185px;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 22px;
     border-radius: 10px;
+    background-color: #fff;
+    color: rgba(42, 42, 44, 1);
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
@@ -63,11 +111,37 @@
     font-size: 16px;
     line-height: 16px;
     gap: 12px;
+    transition: .4s all;
+}
+
+.icon_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: #e3e3e3;
+}
+
+.btn_lock {
+    background-color: rgba(42, 42, 44, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn_lock:hover {
+    background-color: rgba(38, 211, 103, 1);
 }
 
 .info_box {
     position: relative;
     z-index: 2;
+}
+
+.swiper_slide {
+    width: 264px !important;
+    max-width: 264px !important;
+    min-width: 264px !important;
 }
 
 .img {
@@ -88,11 +162,11 @@
 
 .navigate {
     position: absolute;
-
-    width: 100%;
+    width: calc(80% - 30px);
     display: flex;
+    left: calc(10% + 15px);
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     top: calc(50% - 20px);
 }
 
@@ -121,17 +195,32 @@
     fill: #fff !important;
 }
 
+@media screen and (max-width: 1439px) {
+    .main {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .wrapper_LkStudent {
+        padding: 0 50px;
+    }
+
+    .swiper_wrapper_container:after, .swiper_wrapper_container:before {
+        display: none;
+    }
+
+
+}
 
 @media screen and (max-width: 768px) {
     .navigate {
         display: none;
     }
 
-    .swiper_box {
-        padding: 0 0px;
-    }
 
     .wrapper_LkStudent {
         gap: 15px;
+        margin-top: 30px;
+        padding: 0;
     }
 }
