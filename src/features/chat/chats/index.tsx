@@ -25,10 +25,10 @@ const Chats = ({
     const query768 = useMediaQuery('(max-width:768px)');
 
     useEffect(() => {
-        if (data[0].id) {
+        if (data[0].id && !query768) {
             setSelectedChat(data[0].id)
         }
-    }, [data])
+    }, [data, query768])
 
     return (
         <div className={classNames(s.box, classNameBox)}>

@@ -4,7 +4,7 @@
     padding-bottom: 30px;
 }
 
-.items{
+.items {
     width: 100%;
 }
 
@@ -15,4 +15,10 @@
     line-height: 23px;
     color: rgba(101, 100, 108, 1);
     margin: 30px 30px 6px 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .box {
+        border-radius: 10px;
+    }
 }

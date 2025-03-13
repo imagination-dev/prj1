@@ -49,7 +49,7 @@ const SelectItem = ({
     return (
         <div className={s.box}>
             <input className={s.unfocus} ref={inputRef} type="text"/>
-            <FormControl fullWidth sx={{
+            <FormControl size={'small'} variant={'filled'} fullWidth sx={{
                 "& .MuiFormLabel-root": {
                     fontFamily: 'Gilroy-Regular,sans-serif',
                     fontWeight: 400,
@@ -65,12 +65,13 @@ const SelectItem = ({
                     id="demo-simple-select"
                     value={value}
                     error={error}
+
                     onBlur={onBlur}
                     name={name}
-
+                    // size={'small'}
                     sx={{
-                        minHeight: '50px',
-                        height: '50px',
+                        // minHeight: '50px',
+                        // height: '50px',
                         // display: 'flex',
                         // alignItems: 'center',
                         // justifyContent: 'center',

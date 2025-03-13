@@ -79,11 +79,44 @@
     border-bottom: 1px solid rgba(196, 196, 196, 1);
 }
 
+@media screen and (max-width: 1439px) {
+    .box {
+        flex-wrap: wrap;
+    }
+
+    .sub_box_width {
+        max-width: 100%;
+    }
+}
+
 @media screen and (max-width: 768px) {
+
+    .box {
+        flex-direction: column;
+    }
+
+    .all_chats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 15px 30px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 1);
+        font-family: 'Trajan Pro 3', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        text-align: center;
+        color: rgba(42, 42, 44, 1);
+        width: fit-content;
+        margin: 0 auto;
+        text-decoration: none;
+    }
+
     .wrapper {
-        margin-top: 50px;
-        padding: 0 0;
-        overflow: hidden;
+        margin-top: 20px;
+        padding: 0 30px;
     }
 
     .classNameActionWrapper {
@@ -100,9 +133,9 @@
     }
 
     .classNameWrapper {
-        height: 620px !important;
-        min-height: 620px !important;
-        max-height: 620px !important;
+        height: 460px !important;
+        min-height: 460px !important;
+        max-height: 460px !important;
         border-radius: 10px;
         border: 1px solid rgba(196, 196, 196, 1);
     }

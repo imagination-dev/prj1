@@ -1,5 +1,6 @@
 import {TextField} from "@mui/material";
 import s from './styles.module.css'
+
 import {ChangeEventHandler} from "react";
 
 interface IProps {
@@ -16,6 +17,7 @@ interface IProps {
     id?: any
 }
 
+
 const Input = ({
                    label,
                    id = 0,
@@ -27,7 +29,7 @@ const Input = ({
                    name,
                    helperText = '',
                    value,
-                   onChange
+                   onChange,
                }: IProps) => {
 
     return (
@@ -36,8 +38,11 @@ const Input = ({
             e.stopPropagation()
         }}>
             <TextField ref={ref} type={type} error={error}
-                       InputProps={{...InputProps,}}
+                       InputProps={{
+                           ...InputProps,
+                       }}
                        autoComplete="new-password"
+                       size={'small'}
                        onBlur={onBlur} name={name}
                        sx={{
                            "& .MuiFormLabel-root": {
@@ -50,7 +55,9 @@ const Input = ({
                        }}
                        value={value}
                        onChange={onChange}
-                       fullWidth id={"outlined-basic" + id} label={label} variant="outlined"/>
+                       fullWidth id={"outlined-basic" + id} label={label}
+                       variant="filled"
+            />
             {helperText && <p className={s.error_text}>{helperText}</p>}
         </div>
 

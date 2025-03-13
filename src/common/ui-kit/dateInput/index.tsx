@@ -35,10 +35,8 @@ const DateInput = ({
                     overflow: 'unset'
                 }} components={['DatePicker']}>
                     <DatePicker
-
                         name={name}
                         sx={{
-                            // background:'red',
                             width: '100%',
                             "& .MuiFormLabel-root": {
                                 fontFamily: 'Gilroy-Regular,sans-serif',
@@ -53,9 +51,10 @@ const DateInput = ({
                         label={label}
                         slotProps={{
                             textField: {
-                                // helperText: helperText,
                                 onBlur: onBlur,
-                                error: error
+                                error: error,
+                                variant: 'filled',
+                                size: 'small'
                             },
                         }} format={'DD.MM.YYYY'}/>
                 </DemoContainer>

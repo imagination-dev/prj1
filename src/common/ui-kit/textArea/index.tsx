@@ -37,8 +37,10 @@ const TextArea = ({
                 maxRows={4}
                 error={error}
                 onBlur={onBlur} name={name}
-                variant="outlined"
+                // variant="outlined"
+                variant="filled"
                 sx={{
+                    // background: '#fff',
                     "& .MuiFormLabel-root": {
                         fontFamily: 'Gilroy-Regular,sans-serif',
                         fontWeight: 400,
