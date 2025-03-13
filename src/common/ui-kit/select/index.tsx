@@ -49,7 +49,9 @@ const SelectItem = ({
     return (
         <div className={s.box}>
             <input className={s.unfocus} ref={inputRef} type="text"/>
-            <FormControl size={'small'} variant={'filled'} fullWidth sx={{
+            <FormControl size={'small'}
+
+                         variant={'filled'} fullWidth sx={{
                 "& .MuiFormLabel-root": {
                     fontFamily: 'Gilroy-Regular,sans-serif',
                     fontWeight: 400,
@@ -60,6 +62,24 @@ const SelectItem = ({
             }}>
                 <InputLabel id="demo-simple-select-label">{placeholder}</InputLabel>
                 <Select
+                    MenuProps={{
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        },
+                        transformOrigin: {
+                            vertical: "top",
+                            horizontal: "left"
+                        },
+                        PaperProps: {
+                            sx: {
+                                maxHeight: 200, // Максимальная высота меню
+                                overflowY: "auto",
+                            },
+                        },
+                        // getContentAnchorEl: null
+                    }}
+
                     fullWidth
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -68,20 +88,10 @@ const SelectItem = ({
 
                     onBlur={onBlur}
                     name={name}
-                    // size={'small'}
                     sx={{
-                        // minHeight: '50px',
-                        // height: '50px',
-                        // display: 'flex',
-                        // alignItems: 'center',
-                        // justifyContent: 'center',
                         fontFamily: 'Gilroy-Regular,sans-serif',
                         fontWeight: 400,
                         fontSize: '16px',
-                        // overflow: "hidden", // предотвращает расширение
-                        // whiteSpace: "nowrap", // не переносит текст
-                        // textOverflow: "ellipsis", // добавляет '...' при обрезке
-
                     }}
 
                     label={placeholder}
