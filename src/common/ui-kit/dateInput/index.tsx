@@ -53,7 +53,7 @@ const DateInput = ({
                             textField: {
                                 onBlur: onBlur,
                                 error: error,
-                                variant: 'filled',
+                                variant: 'standard',
                                 size: 'small'
                             },
                         }} format={'DD.MM.YYYY'}/>

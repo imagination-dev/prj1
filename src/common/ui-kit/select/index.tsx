@@ -51,7 +51,7 @@ const SelectItem = ({
             <input className={s.unfocus} ref={inputRef} type="text"/>
             <FormControl size={'small'}
 
-                         variant={'filled'} fullWidth sx={{
+                         variant={'standard'} fullWidth sx={{
                 "& .MuiFormLabel-root": {
                     fontFamily: 'Gilroy-Regular,sans-serif',
                     fontWeight: 400,
