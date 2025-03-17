@@ -1,0 +1,44 @@
+.wrapper {
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    max-width: 615px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.btn {
+    max-width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        padding: 0 30px;
+        margin-top: 30px;
+    }
+
+    .inputs {
+        margin-top: -10px;
+    }
+
+    .box {
+        border-radius: 10px;
+    }
+}

@@ -17,12 +17,14 @@ import SubscriptionAction from "../features/subscriptionAction";
 import MyAccesses from "../features/myAccesses";
 import ControlCards from "../features/conrolCards";
 import CertificateActivation from "../features/certificateActivation";
+import About from "../features/about";
 
 const RoutersUser = () => {
     return (
         <Routes>
             <Route path={'/support'} element={<Support/>}></Route>
             <Route path={'/reviews'} element={<Reviews/>}></Route>
+            <Route path={'/about'} element={<About/>}></Route>
             <Route path={'/cooperation'} element={<Cooperation title={'Сотрудничество и предложения'}/>}></Route>
             <Route element={<UnAuthRouter/>}>
                 <Route path={'/login'} element={<Login/>}/>

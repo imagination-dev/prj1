@@ -1,10 +1,10 @@
 import s from './styles.module.css'
 import {classNames} from "../../utils/classNames.ts";
-import {JSX} from "react";
+import {ReactNode} from "react";
 
 interface IProps {
     className?: string
-    children: JSX.Element
+    children: ReactNode
 }
 
 const Wrapper = ({children, className = ''}: IProps) => {
