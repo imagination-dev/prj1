@@ -16,7 +16,7 @@ const ModalSuccess = ({open, handleClose}: Props) => {
             onClose={handleClose}
             sx={{
                 '& .MuiBackdrop-root': {
-                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                    backgroundColor: 'rgba(217, 217, 217, 0.9)'
                 }
             }}
             aria-labelledby="modal-modal-title"
@@ -30,7 +30,7 @@ const ModalSuccess = ({open, handleClose}: Props) => {
                 <div className={s.content}>
                     <h3 className={s.title}>спасибо за обращение</h3>
                     <p className={s.description}>В ближайшее время мы ознакомимся с письмом и дадим обратную связь.</p>
-                    <Button onClick={handleClose}>Продолжить</Button>
+                    <Button height={50} mw={202} onClick={handleClose}>Продолжить</Button>
                 </div>
             </Box>
         </Modal>

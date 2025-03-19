@@ -12,7 +12,10 @@
 
 .menu_item:hover {
     color: rgba(42, 42, 44, 1);
-    /*background-color: rgba(206, 206, 206, 0.1);*/
+}
+
+.menu_item_logout:hover {
+    color: #e82626 !important;
 }
 
 .line {

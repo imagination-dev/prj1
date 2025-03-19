@@ -72,7 +72,7 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
             onClose={handleClose}
             sx={{
                 '& .MuiBackdrop-root': {
-                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                    backgroundColor: 'rgba(217, 217, 217, 0.9)'
                 }
             }}
             aria-labelledby="modal-modal-title"
@@ -93,10 +93,10 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
                 <div className={s.btn_action}>
                     <p onClick={handleResentCode}
                        style={{
-                           textDecoration:isRunning ? 'none' : 'underline'
+                           textDecoration: isRunning ? 'none' : 'underline'
                        }}
                        className={s.resend_code}>{`Отправить код повторно ${totalSeconds ? `(${totalSeconds})` : ''}`}</p>
-                    <Button onClick={handleConfirm}>Подтвердить</Button>
+                    <Button mw={202} height={50} onClick={handleConfirm}>Подтвердить</Button>
                 </div>
             </Box>
         </Modal>

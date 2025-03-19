@@ -2,9 +2,10 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    background-image: url("../common/assets/background_v2.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    /*background-image: url("../common/assets/background_v2.png");*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
+    /*background-repeat: no-repeat;*/
+    background-color: rgba(244, 244, 244, 1);
     /*background-color: red;*/
 }

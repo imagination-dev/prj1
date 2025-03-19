@@ -42,7 +42,7 @@ const Input = ({
                            ...InputProps,
                        }}
                        autoComplete="new-password"
-                       size={'small'}
+                       // size={'small'}
                        onBlur={onBlur} name={name}
                        sx={{
                            "& .MuiFormLabel-root": {
@@ -56,7 +56,7 @@ const Input = ({
                        value={value}
                        onChange={onChange}
                        fullWidth id={"outlined-basic" + id} label={label}
-                       variant="standard"
+                       variant="outlined"
             />
             {helperText && <p className={s.error_text}>{helperText}</p>}
         </div>

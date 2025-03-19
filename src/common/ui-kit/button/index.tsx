@@ -9,13 +9,32 @@ interface IProps {
     onClick?: () => void
     disabled?: boolean
     variant?: 1 | 2
+    mw?: number
+    height?: number
 }
 
-const Button = ({children, onClick, variant = 1, className = '', type = 'button', disabled = false}: IProps) => {
+const Button = ({
+                    children,
+                    height = 40,
+                    onClick,
+                    variant = 1,
+                    className = '',
+                    type = 'button',
+                    mw = 200,
+                    disabled = false
+                }: IProps) => {
     return (
-        <div className={classNames(s.btn_box, variant === 2 && s.btn_box_v2, className, disabled && s.disabled)}>
+        <div
+            style={{height: `${height}px`, maxWidth: `${mw}px`}}
+            className={classNames(s.btn_box, variant === 2 && s.btn_box_v2, className, disabled && s.disabled)}>
             <button disabled={disabled} onClick={onClick && onClick} type={type}
-                    className={classNames(s.btn)}>{children}</button>
+                    className={classNames(s.btn)}
+                    style={{height: `${height - 2}px`}}
+            >
+                <div className={s.text}>
+                    {children}
+                </div>
+            </button>
         </div>
 
     );

@@ -16,7 +16,7 @@ const ModalConfirm = ({open, handleClose}: Props) => {
             onClose={handleClose}
             sx={{
                 '& .MuiBackdrop-root': {
-                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                    backgroundColor: 'rgba(217, 217, 217, 0.9)'
                 }
             }}
             aria-labelledby="modal-modal-title"
@@ -31,8 +31,8 @@ const ModalConfirm = ({open, handleClose}: Props) => {
                     <h3 className={s.title}>отписка</h3>
                     <p className={s.description}>Вы действительно хотите отписаться?</p>
                     <div className={s.btns}>
-                        <Button className={s.btn} onClick={handleClose}>Да</Button>
-                        <Button variant={2} className={s.btn} onClick={handleClose}>Нет</Button>
+                        <Button mw={126} className={s.btn} onClick={handleClose}>Да</Button>
+                        <Button mw={126} variant={2} className={s.btn} onClick={handleClose}>Нет</Button>
                     </div>
 
                 </div>

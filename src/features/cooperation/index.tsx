@@ -8,7 +8,7 @@ import TextArea from "../../common/ui-kit/textArea";
 import {useState} from "react";
 import ModalSuccess from "../../common/modals/modalSucssess";
 
-const Cooperation = ({title}:{title:string}) => {
+const Cooperation = ({title}: { title: string }) => {
     const [openModal, setOpenModal] = useState(false)
     const formik = useFormik({
         initialValues: {email: "", text: ""},
@@ -56,7 +56,7 @@ const Cooperation = ({title}:{title:string}) => {
                               name={'text'} onChange={formik.handleChange}
                               value={formik.values.text}/>
                 </div>
-                <Button type={'submit'} onClick={() => {
+                <Button mw={160} type={'submit'} onClick={() => {
                 }}>Отправить</Button>
             </form>
         </Wrapper>

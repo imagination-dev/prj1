@@ -37,7 +37,6 @@
     height: 34px;
     display: flex;
     align-items: center;
-    justify-content: center;
     border: 1px solid rgba(0, 0, 0, 1);
     border-radius: 5px;
     font-family: 'Trajan Pro 3', sans-serif;
@@ -54,6 +53,10 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.btn_nav:hover svg {
+    color: rgba(255, 255, 255, 1);
+}
+
 .btn_nav_disabled {
     cursor: not-allowed;
     color: rgba(196, 196, 196, 1);
@@ -65,12 +68,31 @@
     background-color: initial;
 }
 
+.btn_nav_disabled:hover svg {
+    color: rgba(196, 196, 196, 1) !important;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    margin: 0 4.5px;
+    user-select: none;
+    user-focus-pointer: none;
+}
+
+
 @media screen and (max-width: 768px) {
     .box {
         max-width: 100%;
         min-width: 100%;
         width: 100%;
         border-radius: 10px;
+    }
+
+    .btn_nav {
+        justify-content: center !important;
+        width: 100%;
+        padding: 0 !important;
     }
 
     .title br {

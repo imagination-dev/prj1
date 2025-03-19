@@ -63,6 +63,7 @@ const Navigate = () => {
                 onActiveIndexChange={(e) => {
                     setCurrentIndex(e?.realIndex + 1)
                 }}
+                allowTouchMove={false}
             >
                 {Object.keys(topic).map((key) => {
                     const topicItem = topic[key]

@@ -3,10 +3,6 @@
     background: rgba(248, 248, 248, 1);
 }
 
-.header_open_menu {
-    background: #fff !important;
-}
-
 .wrapper {
     display: flex;
     align-items: center;
@@ -41,40 +37,38 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
-    text-decoration: underline;
+    text-decoration: none;
     color: rgba(0, 0, 0, 1);
+}
+
+.header_right a:hover {
+    text-decoration: underline;
 }
 
 .chats {
     position: relative;
     margin-right: 20px;
-}
-
-.chats:after {
-    content: attr(data-count);
-    position: absolute;
-    right: -25px;
-    top: 0;
-    background-color: rgba(38, 211, 103, 1);
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /*font-family: 'Gilroy-Black', sans-serif;*/
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 0px;
-    color: rgba(255, 255, 255, 1);
+    width: fit-content;
 }
 
-.profileIcon {
-    width: 34px;
-    height: 34px;
+.profileIcon{
+    position: relative;
 }
+
+.profileIcon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.profileIcon svg path {
+    transition: .4s all;
+}
+
+.profileIcon:hover svg path {
+    stroke: rgba(42, 42, 44, 1);
+}
+
 
 @media screen and (max-width: 768px) {
     .header {

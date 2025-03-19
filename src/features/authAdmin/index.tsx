@@ -57,7 +57,7 @@ const AuthAdmin = () => {
                            value={formik.values.password} label={'Пароль'}/>
                 </div>
 
-                <Button className={s.btn} type={'submit'}>Войти</Button>
+                <Button className={s.btn} mw={160} type={'submit'}>Войти</Button>
             </form>
         </Wrapper>
     );

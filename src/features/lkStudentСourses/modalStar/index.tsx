@@ -9,9 +9,10 @@ interface Props {
     isOpen: boolean
     rating?: number
     handleClose: () => void
+    changeScore: (s:number) => void
 }
 
-const ModalStar = ({isOpen, rating = 0, handleClose}: Props) => {
+const ModalStar = ({isOpen, rating = 0, handleClose,changeScore}: Props) => {
     const [value, setValue] = useState<null | number>(rating)
     const [isConfirm, setIsConfirm] = useState(false)
 
@@ -20,7 +21,7 @@ const ModalStar = ({isOpen, rating = 0, handleClose}: Props) => {
             open={isOpen}
             sx={{
                 '& .MuiBackdrop-root': {
-                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                    backgroundColor: 'rgba(217, 217, 217, 0.9)'
                 }
             }}
             onClose={handleClose}
@@ -47,6 +48,7 @@ const ModalStar = ({isOpen, rating = 0, handleClose}: Props) => {
                             value={value}
                             onChange={(_, newValue) => {
                                 setValue(newValue);
+                                changeScore(newValue || 0);
                                 setIsConfirm(true)
                             }}
                         />

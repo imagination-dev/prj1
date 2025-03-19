@@ -87,7 +87,7 @@ const CertificateActivation = () => {
                         onBlur={formik.handleBlur}
                         name={'mobile'}/>
 
-                    <Button className={s.btn} type={'submit'}>Активировать</Button>
+                    <Button mw={160} className={s.btn} type={'submit'}>Активировать</Button>
                 </form>
 
 

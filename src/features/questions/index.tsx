@@ -131,7 +131,7 @@ const Questions = () => {
                                   error={Boolean(formik.touched.text && formik.errors.text)}
                                   name={'text'} onChange={formik.handleChange}
                                   value={formik.values.text}/>
-                        <Button type={'submit'} onClick={() => {
+                        <Button mw={160} type={'submit'} onClick={() => {
                         }}>Отправить</Button>
                     </form>
                 </div>

@@ -7,11 +7,9 @@ import {AuthContext} from "../../../app/App.tsx";
 import {Box, useMediaQuery} from "@mui/material";
 import MenuHeader from "./menu";
 import HeaderBurgerLeft from "../HeaderBurgerLeft";
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-// import logoGray from '../../assets/logo_gray.jpg'
-import logoGray from '../../assets/logo_gray.svg'
 import {classNames} from "../../utils/classNames.ts";
-import profileIcon from '../../assets/profile_icon.svg'
+import ProfileIcon from '../../assets/profile_icon.svg?react'
+import CircleCount from "../circleCount";
 
 const Header = () => {
     const query768 = useMediaQuery('(max-width:768px)');
@@ -54,22 +52,23 @@ const Header = () => {
     };
 
     return (
-        <div className={classNames(s.header, openMenu && s.header_open_menu)}>
+        <div className={classNames(s.header)}>
             <HeaderBurgerLeft isAdmin={isAdmin} handleLogout={handleExit} type={1}
                               toggleDrawer={toggleDrawerRight}
                               openMenu={openMenu}/>
             <Wrapper className={s.wrapper}>
                 <>
-                    <MenuHeader isAdmin={isAdmin} logout={handleExit} open={open} handleClose={handleClose} anchorEl={anchorEl}/>
+                    <MenuHeader isAdmin={isAdmin} logout={handleExit} open={open} handleClose={handleClose}
+                                anchorEl={anchorEl}/>
                     <div className={s.header_left}>
-                        <img onClick={backToLk} src={openMenu ? logoGray : logo} alt="logo"/>
+                        <img onClick={backToLk} src={logo} alt="logo"/>
 
                         <p className={s.title}>Онлайн-школа творческих навыков</p>
                     </div>
                     {isAuth && <div className={s.header_right}>
                         {!isAdmin && <NavLink to={'lk_student_courses'}>Мои курсы</NavLink>}
-                        <NavLink className={s.chats} data-count={3} to={isAdmin ? '/admin/panel' : 'lk_student_chat'}>Мои
-                            чаты</NavLink>
+                        <NavLink className={s.chats} to={isAdmin ? '/admin/panel' : 'lk_student_chat'}>Мои
+                            чаты <CircleCount value={3} right={-25}/></NavLink>
 
                         <Box
                             style={{cursor: 'pointer'}}
@@ -78,9 +77,11 @@ const Header = () => {
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}
                         >
-                            {openMenu ? <CloseOutlinedIcon
-                                    sx={{height: '36px', width: "36px", color: "rgba(138, 138, 138, 1)"}}/> :
-                                <img className={s.profileIcon} src={profileIcon} alt="profileIcon"/>}
+                            <div className={s.profileIcon}>
+                                {query768 && <CircleCount value={3} left={-11} top={-4}/>}
+                                <ProfileIcon/>
+                            </div>
+
                         </Box>
                     </div>}
                 </>

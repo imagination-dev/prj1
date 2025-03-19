@@ -29,7 +29,7 @@ const Progress = () => {
                 </div>
             </div>
             <div className={s.box_bottom}>
-                <ProgressLine value={23}/>
+                <ProgressLine value={63}/>
             </div>
         </div>
     );

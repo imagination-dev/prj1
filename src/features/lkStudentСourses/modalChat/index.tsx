@@ -49,7 +49,7 @@ const ModalChat = ({isOpen, handleClose, title = 'Задайте свой воп
             sx={{
 
                 '& .MuiBackdrop-root': {
-                    backgroundColor: 'rgba(217, 217, 217, 0.79)'
+                    backgroundColor: 'rgba(217, 217, 217, 0.9)'
                 },
 
 

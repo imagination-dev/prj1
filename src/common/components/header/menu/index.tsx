@@ -1,6 +1,7 @@
 import {Menu} from "@mui/material";
 import s from './styles.module.css'
 import {useNavigate} from "react-router";
+import {classNames} from "../../../utils/classNames.ts";
 
 interface Interface {
     open: boolean
@@ -70,7 +71,7 @@ const MenuHeader = ({open, isAdmin, logout, handleClose, anchorEl}: Interface) =
                 Настройки
             </p>}
             <div className={s.line}/>
-            <p onClick={logout} className={s.menu_item} style={{
+            <p onClick={logout} className={classNames(s.menu_item, s.menu_item_logout)} style={{
                 color: '#9f4444'
             }}>
                 Выйти

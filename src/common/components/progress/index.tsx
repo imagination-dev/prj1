@@ -1,6 +1,6 @@
 import s from './styles.module.css'
 import {LinearProgress, linearProgressClasses, styled} from "@mui/material";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {classNames} from "../../utils/classNames.ts";
 
 interface IProps {
@@ -13,6 +13,7 @@ export const Progress = ({value = 0, classNameLabel = '', isWhiteBackground = fa
     const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
         height: 7,
         borderRadius: 5,
+        transition: '0.4s all',
         [`&.${linearProgressClasses.colorPrimary}`]: {
             backgroundColor: isWhiteBackground ? '#fff' : 'rgba(255,255,255,0)',
             ...theme.applyStyles('dark', {
@@ -29,27 +30,33 @@ export const Progress = ({value = 0, classNameLabel = '', isWhiteBackground = fa
     }));
 
     const [count, setCount] = useState<number>(0)
+    const animationRef = useRef<number | null>(null);
 
     useEffect(() => {
         const animationDuration = 1000;
         const startTime = Date.now();
         const startValue = count;
         const endValue = value;
-        const endTime = startTime + animationDuration;
 
         const animate = () => {
             const now = Date.now();
             const progress = Math.min(1, (now - startTime) / animationDuration);
             const currentValue = startValue + (endValue - startValue) * progress;
 
-            setCount(Math.round(currentValue));
+            setCount(currentValue);
 
-            if (now < endTime) {
-                requestAnimationFrame(animate);
+            if (progress < 1) {
+                animationRef.current = requestAnimationFrame(animate);
             }
         };
 
-        requestAnimationFrame(animate);
+        animationRef.current = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationRef.current) {
+                cancelAnimationFrame(animationRef.current);
+            }
+        };
     }, [value]);
     return (
         <div className={classNames(s.test)}>

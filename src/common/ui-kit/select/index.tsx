@@ -49,9 +49,10 @@ const SelectItem = ({
     return (
         <div className={s.box}>
             <input className={s.unfocus} ref={inputRef} type="text"/>
-            <FormControl size={'small'}
-
-                         variant={'standard'} fullWidth sx={{
+            <FormControl
+                variant={'outlined'} fullWidth sx={{
+                minHeight: '50px',
+                height: '50px',
                 "& .MuiFormLabel-root": {
                     fontFamily: 'Gilroy-Regular,sans-serif',
                     fontWeight: 400,
@@ -92,6 +93,8 @@ const SelectItem = ({
                         fontFamily: 'Gilroy-Regular,sans-serif',
                         fontWeight: 400,
                         fontSize: '16px',
+                        minHeight: '50px',
+                        height: '50px',
                     }}
 
                     label={placeholder}
