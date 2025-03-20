@@ -9,10 +9,10 @@ interface Props {
     isOpen: boolean
     rating?: number
     handleClose: () => void
-    changeScore: (s:number) => void
+    changeScore?: (s: number) => void
 }
 
-const ModalStar = ({isOpen, rating = 0, handleClose,changeScore}: Props) => {
+const ModalStar = ({isOpen, rating = 0, handleClose, changeScore}: Props) => {
     const [value, setValue] = useState<null | number>(rating)
     const [isConfirm, setIsConfirm] = useState(false)
 
@@ -48,8 +48,8 @@ const ModalStar = ({isOpen, rating = 0, handleClose,changeScore}: Props) => {
                             value={value}
                             onChange={(_, newValue) => {
                                 setValue(newValue);
-                                changeScore(newValue || 0);
                                 setIsConfirm(true)
+                                changeScore && changeScore(newValue || 0);
                             }}
                         />
                     </> : <p className={s.title}>Спасибо за вашу оценку!</p>}
