@@ -27,6 +27,7 @@ const TextArea = ({
 
     const [mouseEnter, setMouseEnter] = useState(false)
     const [focus, setFocus] = useState(false)
+
     return (
         <div className={s.container} onClick={(e) => {
             e.preventDefault()

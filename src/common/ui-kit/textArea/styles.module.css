@@ -59,6 +59,7 @@
     position: absolute;
     top: 0;
     transform: translate3d(0, 14px, 0);
+    -webkit-transform: translate3d(0, 14px, 0);
     left: 14px;
     z-index: 3;
     background-color: rgba(244, 244, 244, 1);
@@ -68,22 +69,26 @@
     font-size: 16px;
     line-height: 26px;
     color: rgba(101, 100, 108, 1);
+    min-width: 1px;
+    display: inline-block;
     will-change: transform, font-size, color;
-    backface-visibility: hidden;
+    -webkit-will-change: transform, font-size, color;
     perspective: 1000px;
     transition: transform 0.2s ease-out, font-size 0.2s ease-out, color 0.2s ease-out;
-}
-
-.label_error {
-    color: #d32f2f !important;
+    -webkit-transition: transform 0.2s ease-out, font-size 0.2s ease-out, color 0.2s ease-out;
 }
 
 .label_focus {
     color: #1976d2;
     transform: translate3d(0, -13px, 0);
+    -webkit-transform: translate3d(0, -13px, 0);
     font-size: 12px;
     padding: 0 5px;
     left: 9px;
+}
+
+.label_error {
+    color: #d32f2f !important;
 }
 
 .label_width_value {
