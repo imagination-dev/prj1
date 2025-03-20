@@ -24,6 +24,7 @@ const VideoContent = () => {
                 <NormalButton w={123} onClick={() => setOpenModalStar(true)}
                               bc={'rgba(251, 209, 103, 1)'}>{userScore === 0 ? 'Оценить' : 'Изменить'}</NormalButton>
             </div>
+
         </div>
     );
 };
