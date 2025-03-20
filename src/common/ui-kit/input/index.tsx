@@ -56,7 +56,7 @@ const Input = ({
                        value={value}
                        onChange={onChange}
                        fullWidth id={"outlined-basic" + id} label={label}
-                       variant="outlined"
+                       variant="standard"
             />
             {helperText && <p className={s.error_text}>{helperText}</p>}
         </div>

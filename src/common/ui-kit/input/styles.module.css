@@ -4,12 +4,12 @@
 }
 
 .container input {
-    height: 50px;
-    padding: 0px 14px;
+    /*height: 50px;*/
+    /*padding: 0px 14px;*/
 }
 
 .container label {
-    top: -4px;
+    /*top: -4px;*/
 }
 
 .container label[data-shrink="true"] {

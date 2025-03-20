@@ -1,7 +1,7 @@
 import s from "./styles.module.css";
-import {ChangeEventHandler, useState} from "react";
+import {ChangeEventHandler} from "react";
 import UploadIcon from '../../assets/upload.svg?react'
-import {classNames} from "../../utils/classNames.ts";
+import {TextField} from "@mui/material";
 
 interface IProps {
     error?: boolean
@@ -25,41 +25,41 @@ const TextArea = ({
                       onChange
                   }: IProps) => {
 
-    const [mouseEnter, setMouseEnter] = useState(false)
-    const [focus, setFocus] = useState(false)
 
     return (
         <div className={s.container} onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
         }}>
-            <textarea
-                onMouseEnter={() => setMouseEnter(true)}
-                onMouseLeave={() => setMouseEnter(false)}
-                onFocus={() => setFocus(true)}
-                onTouchMove={(e) => {
-                    e.preventDefault();
-                }}
-                onBlur={(e) => {
-                    onBlur(e)
-                    setFocus(false)
-                }} name={name}
+            <TextField
+                id="outlined-multiline-flexible"
+                label={placeholder}
+                multiline
 
+                maxRows={4}
+                error={error}
+                onBlur={onBlur} name={name}
+                // variant="outlined"
+                variant="filled"
+                sx={{
+                    // background: '#fff',
+                    "& .MuiFormLabel-root": {
+                        fontFamily: 'Gilroy-Regular,sans-serif',
+                        fontWeight: 400,
+                        fontSize: '16px',
+                        color: !error ? "rgba(101, 100, 108, 1)" : "#d32f2f",
+                    },
+                    "& .MuiInputBase-input": {
+                        paddingBottom: '20px',
+                        minHeight: "140px",
+                        resize: "vertical",
+                    },
+                }}
                 value={value}
                 onChange={onChange}
-                className={classNames(
-                    s.text_area,
-                    mouseEnter && s.text_area_enter,
-                    error && s.text_area_error,
-                )}
+                fullWidth
             />
 
-            <p className={classNames(
-                s.label,
-                error && s.label_error,
-                focus && s.label_focus,
-                value && s.label_width_value,
-            )}>{placeholder}</p>
             {withTools && <div className={s.tools}>
                 <UploadIcon/>
             </div>}
