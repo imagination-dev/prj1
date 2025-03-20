@@ -6,6 +6,13 @@
     justify-content: center;
 }
 
+.item_title {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
 .box {
     display: flex;
     flex-direction: column;
