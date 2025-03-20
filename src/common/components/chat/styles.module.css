@@ -34,6 +34,8 @@
     flex-direction: column;
     border: 1px solid rgba(196, 196, 196, 1);
     background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box !important;
+    overflow: hidden;
 }
 
 .title {
