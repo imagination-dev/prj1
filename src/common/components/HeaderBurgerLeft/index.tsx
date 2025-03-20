@@ -14,7 +14,7 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
         <Box
             sx={{
                 width: '100vw',
-                minHeight: 'calc(100vh - 103px)',
+                minHeight: 'calc(100dvh - 103px)',
                 display: "flex",
                 flexDirection: 'column',
                 paddingLeft: '30px',
@@ -25,8 +25,6 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
         >
-
-            {/*<div className={s.line}/>*/}
 
             <div className={s.navigate}>
                 {!isAdmin && <NavLink className={s.nav_item} to={'lk_student_courses'}>Мои курсы</NavLink>}
@@ -61,7 +59,8 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
                         borderRadius: "30px 30px 0 0",
                         overflowY: "unset",
                         // marginTop: '60px',
-                        boxShadow: 'none'
+                        boxShadow: 'none',
+                        maxHeight: "calc(100dvh - env(safe-area-inset-top))"
                     },
                 }}
                 disableBackdropTransition={!iOS}
@@ -71,10 +70,11 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
                 disableSwipeToOpen={true}
                 onClose={toggleDrawer(false)}
                 onOpen={toggleDrawer(true)}
+                ModalProps={{
+                    keepMounted: true, // Улучшает производительность на мобильных устройствах
+                }}
             >
-                {/*<div className={s.close_btn}>*/}
                 <CloseModalButton handleClose={toggleDrawer(false)}/>
-                {/*</div>*/}
                 {list()}
             </SwipeableDrawer>
         </React.Fragment>
