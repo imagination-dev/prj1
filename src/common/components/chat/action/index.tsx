@@ -1,7 +1,7 @@
 import s from './styles.module.css'
 import SendIcon from '../../../assets/send_icon.svg?react'
 import MediaIcon from '../../../assets/upload.svg?react'
-import React, {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import {Avatar, TextField, useMediaQuery} from "@mui/material";
 import {classNames} from "../../../utils/classNames.ts";
 
@@ -43,7 +43,7 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
         }
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const handleKeyDown = (e: any) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault(); // Prevent new line
         }
