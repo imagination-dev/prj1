@@ -19,9 +19,9 @@ export const messages = [
     {id: v4(), name: "Рада", text: "Поговорим позже?", sender: "other", timestamp: 1740873600000},
     {id: v4(), name: "Светланна", text: "Конечно!", sender: "user", timestamp: 1740873600000},
     {id: v4(), name: "Рада", text: "Удачи!", sender: "other", timestamp: 1740873600000},
-    {id: v4(), name: "Светланна", text: "Спасибо, и тебе!", sender: "user", timestamp: 1740873600000},
-    {id: v4(), name: "Светланна", text: "Спасибо, и тебе!", sender: "user", timestamp: 1740873600000},
-    {id: v4(), name: "Рада", text: "До встречи!", sender: "other", timestamp: 1740873600000},
+    {id: v4(), name: "Светланна", text: "Спасибо, и тебе!", sender: "user", timestamp: 1679030400000},
+    {id: v4(), name: "Светланна", text: "Спасибо, и тебе!", sender: "user", timestamp: 1679030400000},
+    {id: v4(), name: "Рада", text: "До встречи!", sender: "other", timestamp: 1679030400000},
 ];
 
 const mock = [

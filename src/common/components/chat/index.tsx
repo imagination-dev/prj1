@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import s from './styles.module.css'
-import {format} from "date-fns";
-import {ru} from "date-fns/locale";
+// import {format} from "date-fns";
+// import {ru} from "date-fns/locale";
 import Message from "./message";
 import DateMessage from "./date";
 import {v4} from "uuid";
@@ -38,9 +38,46 @@ const Chat = ({
         }
     }, [messages]);
 
-    const formatDate = (timestamp: number) => {
-        return format(new Date(timestamp), "d MMMM", {locale: ru});
-    };
+    // const formatDate = (timestamp: number) => {
+    //     return format(new Date(timestamp), "d MMMM", {locale: ru});
+    // };
+
+    function formatDateMessage(timestamp: number) {
+        const inputDate = new Date(timestamp); // Преобразуем timestamp в объект Date
+        const today = new Date(); // Текущая дата
+        const currentYear = today.getFullYear(); // Текущий год
+
+        // Проверяем, совпадает ли дата с сегодняшним днем
+        if (
+            inputDate.getDate() === today.getDate() &&
+            inputDate.getMonth() === today.getMonth() &&
+            inputDate.getFullYear() === today.getFullYear()
+        ) {
+            return "Сегодня";
+        }
+
+        // Проверяем, совпадает ли год с текущим
+        if (inputDate.getFullYear() === currentYear) {
+            // Форматируем дату в формате "17 марта"
+            const monthNames = [
+                "января", "февраля", "марта", "апреля", "мая", "июня",
+                "июля", "августа", "сентября", "октября", "ноября", "декабря"
+            ];
+            const day = inputDate.getDate();
+            const month = monthNames[inputDate.getMonth()];
+            return `${day} ${month}`;
+        }
+
+        // Если год не совпадает, возвращаем дату в формате "17 марта 2023"
+        const monthNames = [
+            "января", "февраля", "марта", "апреля", "мая", "июня",
+            "июля", "августа", "сентября", "октября", "ноября", "декабря"
+        ];
+        const day = inputDate.getDate();
+        const month = monthNames[inputDate.getMonth()];
+        const year = inputDate.getFullYear();
+        return `${day} ${month} ${year}`;
+    }
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -135,8 +172,8 @@ const Chat = ({
                     ref={boxChatRef}
                 >
                     {messages.reduce((acc: any, message: any, index: number) => {
-                        const prevDate = index > 0 ? formatDate(messages[index - 1].timestamp) : null;
-                        const currentDate = formatDate(message.timestamp);
+                        const prevDate = index > 0 ? formatDateMessage(messages[index - 1].timestamp) : null;
+                        const currentDate = formatDateMessage(message.timestamp);
 
                         if (prevDate !== currentDate) {
                             acc.push(<DateMessage key={`date-${message.id}`}

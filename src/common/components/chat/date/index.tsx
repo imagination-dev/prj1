@@ -2,6 +2,7 @@ import s from './styles.module.css'
 import {classNames} from "../../../utils/classNames.ts";
 
 const DateMessage = ({currentDate, isSticky, isScrolling, isFirst}: any) => {
+    console.log(currentDate)
     return (
         <div data-sticky={'sticky'}
              style={{

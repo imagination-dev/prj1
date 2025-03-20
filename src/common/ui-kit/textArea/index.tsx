@@ -37,6 +37,9 @@ const TextArea = ({
                 onMouseEnter={() => setMouseEnter(true)}
                 onMouseLeave={() => setMouseEnter(false)}
                 onFocus={() => setFocus(true)}
+                onTouchMove={(e) => {
+                    e.preventDefault();
+                }}
                 onBlur={(e) => {
                     onBlur(e)
                     setFocus(false)

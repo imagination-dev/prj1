@@ -7,6 +7,7 @@ import DotsSwiper from "../../../common/components/dotsSwipper";
 import ArrowSwiper from "../../../common/components/arrowSwipper";
 import {classNames} from "../../../common/utils/classNames.ts";
 import {useMediaQuery} from "@mui/material";
+import {Autoplay} from "swiper/modules";
 
 const mock = [
     {
@@ -60,13 +61,19 @@ const Carousel = () => {
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                 }}
+                autoplay={{
+                    delay: 10000,
+                    disableOnInteraction: false
+                }}
                 onActiveIndexChange={(e) => {
                     setCurrentIndex(e?.realIndex)
                 }}
+                modules={[Autoplay]}
                 loop
             >
                 {mock.map((el, i) => {
                     return <SwiperSlide
+
                         key={`${i} + ${el.id}`}
                     >
                         <div className={s.item} style={{

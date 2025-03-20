@@ -1,11 +1,11 @@
 import s from './styles.module.css'
 import SendIcon from '../../../assets/send_icon.svg?react'
-import MediaIcon from '../../../assets/media_btn.svg?react'
+import MediaIcon from '../../../assets/upload.svg?react'
 import React, {useEffect, useRef, useState} from "react";
-import {Avatar, useMediaQuery} from "@mui/material";
+import {Avatar, TextField, useMediaQuery} from "@mui/material";
 import {classNames} from "../../../utils/classNames.ts";
 
-const Action = ({sendMessage, classNameAction,classNameActionBtns, classNameActionWrapper}: any) => {
+const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameActionWrapper}: any) => {
     const query768 = useMediaQuery('(max-width:768px)');
 
     const [selectedFiles, setSelectedFiles] = useState<any>([]);
@@ -44,35 +44,78 @@ const Action = ({sendMessage, classNameAction,classNameActionBtns, classNameActi
     };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.key === "Enter" && !e.shiftKey) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevent new line
+        }
+
+        if (e.key === "Enter" && !e.shiftKey && value) {
             e.preventDefault(); // Предотвращаем перенос строки
             sendMessage(value, clear);
         }
     };
 
-    useEffect(() => {
-        if (areaRef.current) {
-            areaRef.current.style.height = "auto"; // Сброс высоты, чтобы пересчитать
-            areaRef.current.style.height = Math.min(areaRef.current.scrollHeight, 4 * (query768 ? 14 : 16)) + "px"; // Ограничение 3 строки
-        }
-    }, [value]);
-
     return (
         <div className={classNames(classNameActionWrapper)}>
             <div className={classNames(s.box, classNameAction)}>
-                <div className={s.teaxt_area_box}>
-                    <textarea
-                        rows={1}
-                        onKeyDown={handleKeyDown}
-                        ref={areaRef}
-                        style={{
-                            minHeight: query768 ? '14px' : "16px", // Высота одной строки
-                            maxHeight: query768 ? '54px' : "64px", // Высота трех строк (3 * 24px)
+                <div className={s.teaxt_area_box} onClick={() => areaRef.current.focus()}>
+                    <TextField
+                        id="outlined-multiline-flexible"
+                        multiline
+                        inputRef={areaRef}
+                        maxRows={query768 ? 8 : 4}
+                        sx={{
+                            border: "none",
+                            '& .MuiOutlinedInput-root': {
+                                '&:hover fieldset': {
+                                    borderColor: 'transparent',
+                                },
+                                '& fieldset': {
+                                    borderColor: 'transparent',
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: 'transparent',
+                                },
+                            },
+
+                            '& .MuiInputBase-root': {
+                                padding: '4px',
+                                '&:hover': {
+                                    backgroundColor: 'transparent',
+                                },
+                                '&.Mui-focused': {
+                                    backgroundColor: 'transparent',
+                                },
+                            },
+                            '& .MuiInputBase-input::placeholder': {
+                                fontFamily: 'Gilroy-Regular, sans-serif',
+                                fontWeight: 400,
+                                fontSize: '16px',
+                                lineHeight: '20px',
+                                color: 'rgba(101, 100, 108, 1)',
+                                '@media screen and (max-width: 768px)': {
+                                    fontSize: '14px',
+                                    lineHeight: '18px',
+                                }
+                            },
+                            '& .MuiInputBase-input': {
+                                fontFamily: 'Gilroy-Regular, sans-serif',
+                                fontWeight: 400,
+                                fontSize: '16px',
+                                lineHeight: '20px',
+                                color: 'rgba(101, 100, 108, 1)',
+                                '@media screen and (max-width: 768px)': {
+                                    fontSize: '14px',
+                                    lineHeight: '18px',
+                                }
+                            },
                         }}
+                        onKeyPress={handleKeyDown}
+                        fullWidth
                         placeholder={'Напишите сообщение....'} value={value} onChange={handleChange}
-                        className={s.text_area}/>
+                    />
                 </div>
-                <div className={classNames(s.actions,classNameActionBtns)}>
+
+                <div className={classNames(s.actions, classNameActionBtns)}>
 
 
                     <div className={s.media}>
@@ -82,6 +125,7 @@ const Action = ({sendMessage, classNameAction,classNameActionBtns, classNameActi
                                 <Avatar src={avatarSrc} sx={{borderRadius: "10px", width: '40px', height: '40px'}}/>
                             </div>}
                         {!avatarSrc && <button
+                            className={s.btn_upload}
                             onClick={() => document.getElementById('fileInput')!.click()} // Кликаем по скрытому input
                             style={{
 
@@ -101,7 +145,8 @@ const Action = ({sendMessage, classNameAction,classNameActionBtns, classNameActi
 
                     </div>
 
-                    <div className={s.send_message} onClick={() => sendMessage(value, clear)}>
+                    <div className={classNames(s.send_message, value && s.send_message_sussess)}
+                         onClick={() => value && sendMessage(value, clear)}>
                         <SendIcon style={{marginRight: 8}}/>
                     </div>
 
