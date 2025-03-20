@@ -11,7 +11,7 @@ const CircleCount = ({value, top, left, right}: { value: number, top?: number, l
     if (right) styles.right = right
     return (
         <div className={s.circle} style={{...styles}}>
-            <p className={s.text} style={{top:iOS ? 'calc(50% + 1px)' : '50%'}}>
+            <p className={s.text} style={{top: iOS ? 'calc(50% + 2px)' : '50%'}}>
                 {value}
             </p>
         </div>

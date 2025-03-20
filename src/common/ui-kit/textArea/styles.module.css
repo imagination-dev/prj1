@@ -57,8 +57,8 @@
 
 .label {
     position: absolute;
-    top: 14px;
-    transition: .2s all;
+    top: 0;
+    transform: translate3d(0, 14px, 0);
     left: 14px;
     z-index: 3;
     background-color: rgba(244, 244, 244, 1);
@@ -68,7 +68,10 @@
     font-size: 16px;
     line-height: 26px;
     color: rgba(101, 100, 108, 1);
-    will-change: transform;
+    will-change: transform, font-size, color;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transition: transform 0.2s ease-out, font-size 0.2s ease-out, color 0.2s ease-out;
 }
 
 .label_error {
@@ -77,7 +80,7 @@
 
 .label_focus {
     color: #1976d2;
-    top: -13px;
+    transform: translate3d(0, -13px, 0);
     font-size: 12px;
     padding: 0 5px;
     left: 9px;
