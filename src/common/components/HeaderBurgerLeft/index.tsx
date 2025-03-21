@@ -35,7 +35,13 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
             </div>
             <div className={s.line}/>
             <div className={s.navigate}>
-                <NavLink to={isAdmin ? '/' : 'support'} className={s.nav_item}>Помощь</NavLink>
+                <NavLink to={isAdmin ? '/' : 'support'} className={s.nav_item}>
+                    <p style={{position: 'relative'}}>
+                        Помощь
+                        <CircleCount value={2} right={-25}/>
+                    </p>
+
+                </NavLink>
                 {!isAdmin && <NavLink to={'profile'} className={s.nav_item}>Настройки</NavLink>}
                 <p className={classNames(s.nav_item, s.nav_item_logout)} onClick={handleLogout}>Выйти</p>
             </div>

@@ -27,12 +27,12 @@ interface ISwiperItem {
 
 const swiperData: ISwiperItem[] = [
     {title: <>Каллиграфия <br/> пробный доступ</>, type: 'lock', img: img_1, id: 1},
-    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock',progress:42, img: img_2, id: 2},
+    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock', progress: 42, img: img_2, id: 2},
     {title: <>леттеринг <br/> полный доступ</>, type: 'lock', img: img_3, id: 3},
     {title: <>Sketching <br/> акварелью</>, type: 'unlock', img: img_4, id: 4},
-    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock',progress:87, img: img_5, id: 5},
+    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock', progress: 87, img: img_5, id: 5},
     {title: <>Каллиграфия <br/> пробный доступ</>, type: 'unlock', img: img_6, id: 6},
-    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock',progress:20, img: img_5, id: 1},
+    {title: <>Каллиграфия <br/> полный доступ</>, type: 'lock', progress: 20, img: img_5, id: 1},
     {title: <>Каллиграфия <br/> пробный доступ</>, type: 'lock', img: img_6, id: 2},
     {title: <>леттеринг <br/> полный доступ</>, type: 'lock', img: img_3, id: 3},
 ]
@@ -41,7 +41,6 @@ const LkStudent = () => {
     const query768 = useMediaQuery('(max-width:768px)');
     const swiperRef = useRef<any>(null);
     const [currentIndex, setCurrentIndex] = useState(0)
-
 
     const dots = Array.from({length: swiperData.length}, (_, b) => b)
 
@@ -78,7 +77,8 @@ const LkStudent = () => {
                             {swiperData.map((el, i) => {
                                 return <SwiperSlide className={s.swiper_slide} key={`${i} + ${el.id}`}
                                 >
-                                    <SlideItem progress={el.progress} type={el.type} title={el.title} img={el.img}/>
+                                    <SlideItem active={currentIndex === i} progress={el.progress} type={el.type}
+                                               title={el.title} img={el.img}/>
 
                                 </SwiperSlide>
                             })}

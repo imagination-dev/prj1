@@ -10,6 +10,14 @@
     background-color: #fff;
 }
 
+.menu_item_title{
+    width: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .menu_item:hover {
     color: rgba(42, 42, 44, 1);
 }

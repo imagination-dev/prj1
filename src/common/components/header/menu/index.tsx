@@ -2,6 +2,7 @@ import {Menu} from "@mui/material";
 import s from './styles.module.css'
 import {useNavigate} from "react-router";
 import {classNames} from "../../../utils/classNames.ts";
+import CircleCount from "../../circleCount";
 
 interface Interface {
     open: boolean
@@ -63,7 +64,11 @@ const MenuHeader = ({open, isAdmin, logout, handleClose, anchorEl}: Interface) =
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
         >
             <p onClick={() => !isAdmin && handleNavigate('/support')} className={s.menu_item}>
-                Помощь
+                <p className={s.menu_item_title} style={{position: 'relative', width: 'fit-content'}}>
+                    Помощь
+                    <CircleCount value={2} right={-25}/>
+                </p>
+
             </p>
 
             <div className={s.line}/>
