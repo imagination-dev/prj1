@@ -123,7 +123,8 @@
         padding: 0px;
         border-radius: 10px;
         margin-top: 10px;
-        border: 1px solid rgba(196, 196, 196, 1);
+        background: none;
+        /*border: 1px solid rgba(196, 196, 196, 1);*/
     }
 
     .classNameAction {

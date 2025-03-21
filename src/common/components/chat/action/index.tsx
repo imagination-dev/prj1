@@ -2,8 +2,9 @@ import s from './styles.module.css'
 import SendIcon from '../../../assets/send_icon.svg?react'
 import MediaIcon from '../../../assets/upload.svg?react'
 import {useRef, useState} from "react";
-import {Avatar, TextField, useMediaQuery} from "@mui/material";
+import {TextField, useMediaQuery} from "@mui/material";
 import {classNames} from "../../../utils/classNames.ts";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameActionWrapper}: any) => {
     const query768 = useMediaQuery('(max-width:768px)');
@@ -29,16 +30,18 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
             areaRef.current.focus()
         }
     }
-    const handleFileChange = (e: any) => {
-        const files: any = e.target.files;
-        if (files) {
-            const imageFiles = Array.from(files).filter((file: any) => file.type.startsWith('image/'));
-            setSelectedFiles(imageFiles);
 
-            if (imageFiles.length > 0) {
-                const lastFile: any = imageFiles[imageFiles.length - 1];
-                const objectURL = URL.createObjectURL(lastFile);
-                setAvatarSrc(objectURL);
+    console.log(selectedFiles)
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0]; // Берем только один файл
+        if (file && (file.type.startsWith("image/") || file.type === "application/pdf" || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
+            setSelectedFiles([file]); // Храним как массив из одного файла
+
+            if (file.type.startsWith("image/")) {
+                const objectURL = URL.createObjectURL(file);
+                setAvatarSrc(objectURL); // Показываем превью только для изображений
+            } else {
+                setAvatarSrc(null); // Для документов превью не показываем
             }
         }
     };
@@ -119,29 +122,31 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
 
 
                     <div className={s.media}>
-                        {avatarSrc &&
-                            <div className={s.avatar} onClick={() => document.getElementById('fileInput')!.click()}>
-                                {selectedFiles.length > 1 && <p className={s.counter}>+{selectedFiles.length - 1}</p>}
-                                <Avatar src={avatarSrc} sx={{borderRadius: "10px", width: '40px', height: '40px'}}/>
+                        {selectedFiles.length !== 0 &&
+                            <div className={s.avatar} onClick={() => {
+                                setSelectedFiles([])
+                                setAvatarSrc(null)
+                            }}>
+                                <DeleteOutlineIcon
+                                    sx={{width: '34px', height: 'auto', color: 'rgb(159, 68, 68)'}}/>
+                                {/*<Avatar src={avatarSrc} sx={{borderRadius: "10px", width: '40px', height: '40px'}}/>*/}
                             </div>}
-                        {!avatarSrc && <button
+                        {selectedFiles.length === 0 && <button
                             className={s.btn_upload}
                             onClick={() => document.getElementById('fileInput')!.click()} // Кликаем по скрытому input
                             style={{
-
                                 cursor: 'pointer'
                             }}
                         >
                             <MediaIcon/>
                         </button>}
                         <input
-                            key={new Date().getMilliseconds()}
                             id="fileInput"
                             type="file"
-                            accept="image/*"
-                            multiple
+                            accept="image/*,.pdf,.doc,.docx"
                             onChange={handleFileChange}
-                            style={{display: 'none'}}/>
+                            style={{display: "none"}}
+                        />
 
                     </div>
 
