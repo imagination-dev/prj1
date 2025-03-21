@@ -21,7 +21,7 @@ const VideoContent = () => {
 
             <div className={s.review}>
                 <p className={s.rating}>(<span>{4.5}</span>/5)</p>
-                <NormalButton w={123} onClick={() => setOpenModalStar(true)}
+                <NormalButton w={123} isStaticBg={userScore === 0} onClick={() => setOpenModalStar(true)}
                               bc={'rgba(251, 209, 103, 1)'}>{userScore === 0 ? 'Оценить' : 'Изменить'}</NormalButton>
             </div>
 
