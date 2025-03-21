@@ -46,8 +46,9 @@ const MyAccesses = () => {
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.box}>
-                <TitleSupport title={title}/>
-
+                <div className={s.title}>
+                    <TitleSupport title={title} align={query768 ? 'left' : 'center'}/>
+                </div>
                 {query768 ?
                     <SwiperContent rows={rows} headers={headers}/> :
                     <TableContent headers={headers} rows={rows}/>}

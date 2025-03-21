@@ -3,6 +3,10 @@
     padding: 0 50px;
 }
 
+.title {
+    width: 100%;
+}
+
 .box {
     display: flex;
     flex-direction: column;
@@ -44,6 +48,10 @@
         margin-top: 50px;
         padding: 0 0;
         overflow: hidden;
+    }
+
+    .title {
+        padding-left: 30px;
     }
 
     .box {

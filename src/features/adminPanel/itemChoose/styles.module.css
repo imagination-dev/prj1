@@ -1,17 +1,27 @@
 .item {
     width: 100%;
-    padding: 8px 30px;
+    padding: 7px 30px 8px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: .4s all;
+    height: 39px;
     background-color: #fff;
     cursor: pointer;
     gap: 15px;
+    /*border: .1px solid red;*/
 }
 
 .item:hover {
     background-color: rgba(223, 247, 255, .5);
+}
+
+.item_stupid {
+    /*padding: 0 30px 0 30px;*/
+}
+
+.item_stupid:hover {
+    background-color: #fff;
 }
 
 
@@ -22,6 +32,15 @@
 .item_active:hover {
     background-color: rgba(223, 247, 255, 1);
 }
+
+.item_active_stupid {
+    background-color: rgba(223, 247, 255, 0);
+}
+
+.item_active_stupid:hover {
+    background-color: rgba(223, 247, 255, 0);
+}
+
 
 .title {
     transition: .4s all;
@@ -43,8 +62,8 @@
 }
 
 .count {
-    height: 25px;
-    min-width: 25px;
+    height: 24px;
+    min-width: 24px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -59,4 +78,8 @@
 
 .count_active {
     background-color: #fff;
+}
+
+.count_active_stupid {
+    background-color: rgba(223, 247, 255, 1);
 }

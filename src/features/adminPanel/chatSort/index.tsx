@@ -25,9 +25,11 @@ const ChatSort = ({value, handleChange}: Props) => {
         <div className={s.box}>
 
             <div className={s.items}>
-                {data.map((el) => <ItemChoose key={el.id} onClick={() => handleChange(el.id)} active={value === el.id}
-                                              title={el.title} count={el.count}/>)}
-
+                {data.map((el, i) => <ItemChoose
+                    isFirst={i === 0}
+                    isLast={i === (data.length - 1)}
+                    isStupidMode={true} key={el.id} onClick={() => handleChange(el.id)} active={value === el.id}
+                    title={el.title} count={el.count}/>)}
             </div>
         </div>
     );

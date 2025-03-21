@@ -61,13 +61,19 @@ const TableContent = ({rows, headers}: any) => {
 
                             <TableCell align="center">
                                         <span className={s.cell}>
-                                            {row.date_pay}
+                                            {row.date_pay.split(' ')[0]}
+                                            &nbsp;
+                                            &nbsp;
+                                            {row.date_pay.split(' ')[1]}
                                         </span>
                             </TableCell>
 
                             <TableCell align="center">
                                         <span className={s.cell}>
-                                            {row.date_activated}
+                                            {row.date_activated.split(' ')[0]}
+                                            &nbsp;
+                                            &nbsp;
+                                            {row.date_activated.split(' ')[1]}
                                         </span>
                             </TableCell>
 

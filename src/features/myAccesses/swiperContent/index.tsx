@@ -56,7 +56,7 @@ const SwiperContent = ({rows}: any) => {
                             </div>
                             <NavLink to={'/control-cards'} className={s.link}>
                                 <NormalButton className={s.btn} onClick={() => {
-                                }} w={430}
+                                }} w={140}
                                               bc={'rgba(38, 211, 103, 1)'}>
                                     Управление
                                 </NormalButton>

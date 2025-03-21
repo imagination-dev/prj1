@@ -2,6 +2,7 @@
     border-radius: 20px;
     background-color: #fff;
     padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .items {
@@ -14,7 +15,7 @@
     font-size: 15px;
     line-height: 23px;
     color: rgba(101, 100, 108, 1);
-    margin: 30px 30px 6px 30px;
+    padding: 0px 30px 6px 30px;
 }
 
 @media screen and (max-width: 768px) {
