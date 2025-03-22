@@ -10,6 +10,7 @@ import {useMediaQuery} from "@mui/material";
 import TableContent from "./tableContent";
 import SwiperContent from "./swiperContent";
 import mir from '../../common/assets/cardsIcon/mir.png'
+import sberIcon from '../../common/assets/cardsIcon/sber.svg'
 import ModalConfirm from "./modalConfirm";
 import {useState} from "react";
 
@@ -19,18 +20,19 @@ function createData(
     date: string,
     status: number,
     card_icon?: string,
+    bank_icon?: any,
 ) {
-    return {product, method, date, status, card_icon, id: v4(), minWidth: 70};
+    return {product, method, date, status, card_icon, bank_icon, id: v4(), minWidth: 70};
 }
 
 const rows = [
-    createData('Каллиграфия', '220220***0869 | 10/2027', '23.10.2023 10:06', 1, mir),
+    createData('Каллиграфия', '220220***0869 | 10/2027', '23.10.2023 10:06', 1, mir, sberIcon),
     createData('Каллиграфия', null, '23.10.2023 10:06', 2),
     createData('Каллиграфия', null, '23.10.2023 10:06', 2),
 ];
 
 const headers = [
-    {title: "Продкут", icon: <Icon1/>, width: '170px'},
+    {title: "Продкут", icon: <Icon1/>, width: '170px', align: 'left'},
     {title: "Метод привязки", icon: <Icon2/>},
     {title: "Дата отвязки", icon: <Icon3/>},
     {title: "Статус привязки", icon: <Icon4/>, align: 'right'},
@@ -51,9 +53,9 @@ const ControlCards = () => {
 
             <div className={s.box}>
                 {isOpenModal && <ModalConfirm handleClose={handleCloseModal} open={isOpenModal}/>}
-
-                <TitleSupport title={title}/>
-
+                <div className={s.main_title}>
+                    <TitleSupport title={title} align={'left'}/>
+                </div>
                 {query768 ?
                     <SwiperContent rows={rows} handleOpenModal={handleOpenModal} headers={headers}/> :
                     <TableContent headers={headers} handleOpenModal={handleOpenModal} rows={rows}/>}

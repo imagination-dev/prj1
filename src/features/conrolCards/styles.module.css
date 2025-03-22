@@ -6,7 +6,7 @@
 .box {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: #fff;
     border-radius: 20px;
     padding: 30px;
@@ -35,6 +35,8 @@
 .btn {
     margin-left: auto;
     text-decoration: none;
+    height: 34px !important;
+    margin-right: 15px;
 }
 
 .link {
@@ -42,11 +44,28 @@
     color: inherit;
 }
 
+.icons_bank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18px;
+}
+
+.cell_bank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .wrapper {
         margin-top: 50px;
         padding: 0 0;
         overflow: hidden;
+    }
+
+    .main_title {
+        padding-left: 30px;
     }
 
     .box {

@@ -33,9 +33,11 @@ const SwiperContent = ({rows, handleOpenModal}: any) => {
                             <div className={s.line}>
                                 <p className={s.line_left}>Метод привязки</p>
                                 <p className={s.line_right}>
-                                    {el.card_icon && <img className={s.icon_card} src={el.card_icon} alt="card"/>}
-                                    {el.card_icon && <br/>}
-                                    {el.method ? el.method : 'Нет привязки'}
+                                    {el.card_icon && <div className={s.icons_swiper}>
+                                        <img className={s.icon_card_v2} src={el.bank_icon} alt="card"/>
+                                        <img className={s.icon_card} src={el.card_icon} alt="card"/>
+                                    </div>}
+                                    {el.method ? el.method.split('|')[0] : 'Нет привязки'}
                                 </p>
                             </div>
                             <div className={s.line}>

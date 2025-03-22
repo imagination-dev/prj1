@@ -4,7 +4,10 @@ import App from './app/App.tsx'
 import {BrowserRouter} from "react-router";
 import './common/styles/font.css'
 import {Bounce, ToastContainer} from "react-toastify";
-
+import "dayjs/locale/ru";
+// import dayjs from "dayjs";
+//
+// dayjs.locale("ru");
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

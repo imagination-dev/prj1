@@ -96,8 +96,22 @@
         color: rgba(42, 42, 44, 1);
     }
 
-    .icon_card{
+    .icon_card {
         height: 8px;
         width: 28px;
+    }
+
+    .icons_swiper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+        margin-bottom: 2px;
+        margin-top: -16px;
+    }
+
+    .icon_card_v2 {
+        width: 13px;
+        height: 13px;
     }
 }

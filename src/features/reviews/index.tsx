@@ -156,6 +156,7 @@ const Reviews = () => {
                         centeredSlides={true}
                         spaceBetween={query768 ? 20 : 70}
                         slidesPerView={query768 ? 1.18 : 1.5}
+                        // slidesPerView={query768 ? 1 : 1.5}
                         loop
                     >
 
@@ -164,7 +165,7 @@ const Reviews = () => {
 
                                 key={`${i} + ${el.name}`}
                             >
-                                <div className={s.item}>
+                                <div className={classNames(s.item, currentIndex !== i && s.item_un_active)}>
                                     <div className={s.item_left}>
                                         <div className={s.avatar}>
                                             <Avatar src={el.avatar} sx={{height: '45px', width: '45px'}}/>

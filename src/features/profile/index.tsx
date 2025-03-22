@@ -11,7 +11,8 @@ import {TextMaskCustom} from "../../common/ui-kit/numberInput";
 import DateInput from "../../common/ui-kit/dateInput";
 import dayjs from "dayjs";
 import {useNavigate} from "react-router";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {MobileContext} from "../../app/App.tsx";
 
 const sex = [
     {title: 'Женский', id: 1},
@@ -29,12 +30,15 @@ type ValuesType = {
 
 
 const Profile = () => {
+    const {mask} = useContext(MobileContext)
+
+    const [disabled, setDisabled] = useState(true)
+
     const navigate = useNavigate()
     const query768 = useMediaQuery('(max-width:768px)');
     const formik = useFormik({
         initialValues: {
             name: "",
-            lastName: '',
             mobile: '',
             email: '',
             sex: '',
@@ -49,15 +53,9 @@ const Profile = () => {
                 errors.name = 'Мин. длина 2 символа';
             }
 
-            if (!values.lastName) {
-                errors.lastName = 'Обязательное поле';
-            } else if (values.lastName.length < 2) {
-                errors.lastName = 'Мин. длина 2 символа';
-            }
-
             if (!values.mobile) {
                 errors.mobile = 'Обязательное поле';
-            } else if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(values.mobile)) {
+            } else if (values.mobile.length !== mask.length) {
                 errors.mobile = "Введите корректный номер";
             }
 
@@ -83,27 +81,12 @@ const Profile = () => {
             return errors;
         },
         onSubmit: () => {
+            setDisabled(true)
             // setOpenModal(true)
         }
     })
-    const [avatar, setAvatar] = useState<string | null>(null);
 
-    const handleAvatarClick = () => {
-        const input = document.createElement("input");
-        input.type = "file";
-        input.accept = "image/*";
-        input.onchange = (event: Event) => {
-            const file = (event.target as HTMLInputElement).files?.[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    setAvatar(reader.result as string);
-                };
-                reader.readAsDataURL(file);
-            }
-        };
-        input.click();
-    };
+
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.main}>
@@ -115,7 +98,7 @@ const Profile = () => {
                 <div className={classNames(s.box, s.box_right)}>
                     {query768 && <TitleSupport align={'center'} title={'Мой профиль'}/>}
 
-                    <Avatar onClick={handleAvatarClick} src={avatar || ''}
+                    <Avatar src={''}
                             sx={{
                                 cursor: 'pointer',
                                 width: !query768 ? '165px' : '135px', height: !query768 ? '165px' : '135px'
@@ -126,19 +109,15 @@ const Profile = () => {
 
                         <div className={s.inputs}>
                             <Input
+                                disabled={disabled}
                                 helperText={formik.touched.name ? formik.errors.name : ''}
                                 error={Boolean(formik.touched.name && formik.errors.name)}
                                 label={'Имя'} value={formik.values.name} onChange={formik.handleChange}
                                 onBlur={formik.handleBlur} name={'name'}/>
 
                             <Input
-                                helperText={formik.touched.lastName ? formik.errors.lastName : ''}
-                                error={Boolean(formik.touched.lastName && formik.errors.lastName)}
-                                label={'Фамилия'} value={formik.values.lastName} onChange={formik.handleChange}
-                                onBlur={formik.handleBlur} name={'lastName'}/>
-
-                            {/*<NumberInput/>*/}
-                            <Input
+                                type={'tel'}
+                                disabled={disabled}
                                 InputProps={{
                                     inputComponent: TextMaskCustom as any,
                                 }}
@@ -150,12 +129,14 @@ const Profile = () => {
                                 name={'mobile'}/>
 
                             <Input
+                                disabled={disabled}
                                 helperText={formik.touched.email ? formik.errors.email : ''}
                                 error={Boolean(formik.touched.email && formik.errors.email)}
                                 label={'E-mail'} type={'email'} value={formik.values.email}
                                 onChange={formik.handleChange} onBlur={formik.handleBlur} name={'email'}/>
 
                             <SelectItem onBlur={formik.handleBlur}
+                                        disabled={disabled}
                                         error={Boolean(formik.touched.sex && formik.errors.sex)}
                                         value={formik.values.sex}
                                         onChange={formik.handleChange}
@@ -163,7 +144,8 @@ const Profile = () => {
                                         name={'sex'}
                                         data={sex} placeholder={'Пол'}/>
                             <div className={s.date_input}>
-                                <DateInput helperText={formik.touched.birthday ? formik.errors.birthday : ''}
+                                <DateInput disabled={disabled}
+                                           helperText={formik.touched.birthday ? formik.errors.birthday : ''}
                                            error={Boolean(formik.touched.birthday && formik.errors.birthday)}
                                            label={'Дата рождения'} type={'birthday'} value={formik.values.birthday}
                                            onChange={(value) => {
@@ -172,9 +154,16 @@ const Profile = () => {
                             </div>
                         </div>
 
-                        <NormalButton w={130} className={s.btn} onClick={formik.handleSubmit}
+                        <NormalButton w={130} className={s.btn} onClick={(e: any) => {
+                            if (disabled) {
+                                setDisabled(false)
+                            } else {
+                                formik.handleSubmit(e)
+                            }
+
+                        }}
                                       bc={'rgba(251, 209, 103, 1)'}>
-                            Изменить
+                            {disabled ? 'Изменить' : 'Сохранить'}
                         </NormalButton>
 
                     </div>

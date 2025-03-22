@@ -1,19 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {IMaskInput} from "react-imask";
+import {MobileContext} from "../../../app/App.tsx";
 
 interface CustomProps {
     onChange: (event: { target: { name: string; value: string } }) => void;
     name: string;
+    mask: string;
 }
 
 export const TextMaskCustom = React.forwardRef<HTMLInputElement, CustomProps>(
     function TextMaskCustom(props, ref) {
-
+        const {mask} = useContext(MobileContext)
         const {onChange, ...other} = props;
+
+
         return (
             <IMaskInput
                 {...other}
-                mask="+7 (000) 000-00-00"
+                mask={mask}
                 definitions={{
                     "#": /[1-9]/,
                 }}

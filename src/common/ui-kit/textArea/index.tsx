@@ -36,23 +36,27 @@ const TextArea = ({
                 label={placeholder}
                 multiline
 
-                maxRows={4}
+                maxRows={1}
                 error={error}
                 onBlur={onBlur} name={name}
                 // variant="outlined"
                 variant="filled"
                 sx={{
+
                     // background: '#fff',
                     "& .MuiFormLabel-root": {
                         fontFamily: 'Gilroy-Regular,sans-serif',
                         fontWeight: 400,
                         fontSize: '16px',
+
                         color: !error ? "rgba(101, 100, 108, 1)" : "#d32f2f",
                     },
                     "& .MuiInputBase-input": {
-                        paddingBottom: '20px',
                         minHeight: "140px",
-                        resize: "vertical",
+                        maxHeight: "140px",
+                    },
+                    "& .MuiInputBase-root": {
+                        paddingBottom: '40px',
                     },
                 }}
                 value={value}

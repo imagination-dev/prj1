@@ -15,11 +15,13 @@ interface IProps {
     InputProps?: any
     ref?: any
     id?: any
+    disabled?: boolean
 }
 
 
 const Input = ({
                    label,
+                   disabled = false,
                    id = 0,
                    ref = null,
                    InputProps = {},
@@ -37,12 +39,14 @@ const Input = ({
             // e.preventDefault()
             e.stopPropagation()
         }}>
-            <TextField ref={ref} type={type} error={error}
+            <TextField ref={ref} type={type}
+                       error={error}
+                       disabled={disabled}
                        InputProps={{
                            ...InputProps,
                        }}
                        autoComplete="new-password"
-                       // size={'small'}
+                // size={'small'}
                        onBlur={onBlur} name={name}
                        sx={{
                            "& .MuiFormLabel-root": {

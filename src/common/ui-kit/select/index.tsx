@@ -5,6 +5,7 @@ import {ChangeEventHandler, useEffect, useRef} from "react";
 
 interface IProps {
     error?: boolean
+    disabled?: boolean
     helperText?: string
     value: string
     onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
@@ -18,6 +19,7 @@ const SelectItem = ({
                         onBlur,
                         placeholder,
                         error = false,
+                        disabled = false,
                         name,
                         helperText = '',
                         value,
@@ -50,6 +52,7 @@ const SelectItem = ({
         <div className={s.box}>
             <input className={s.unfocus} ref={inputRef} type="text"/>
             <FormControl
+                disabled={disabled}
                 size={'small'}
                 variant={'standard'} fullWidth sx={{
                 height: '48px',

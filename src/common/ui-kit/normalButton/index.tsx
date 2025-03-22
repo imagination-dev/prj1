@@ -4,7 +4,7 @@ import {classNames} from "../../utils/classNames.ts";
 
 interface IProps {
     children: JSX.Element | string
-    onClick: () => void
+    onClick: (e: any) => void
     bc: string
     w?: string | number
     className?: string

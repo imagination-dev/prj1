@@ -1,4 +1,4 @@
-import {Box, Modal} from "@mui/material";
+import {Box, Modal, useMediaQuery} from "@mui/material";
 import {style} from "../../../common/styles/modal.style.ts";
 import CloseModalButton from "../../../common/components/closeButtonModal";
 import s from "../../../common/modals/modalSucssess/styles.module.css";
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const ModalConfirm = ({open, handleClose}: Props) => {
+    const query768 = useMediaQuery('(max-width:768px)');
     return (
         <Modal
             open={open}
@@ -31,8 +32,8 @@ const ModalConfirm = ({open, handleClose}: Props) => {
                     <h3 className={s.title}>отписка</h3>
                     <p className={s.description}>Вы действительно хотите отписаться?</p>
                     <div className={s.btns}>
-                        <Button mw={126} className={s.btn} onClick={handleClose}>Да</Button>
-                        <Button mw={126} variant={2} className={s.btn} onClick={handleClose}>Нет</Button>
+                        <Button mw={query768 ? 186 : 126} className={s.btn} onClick={handleClose}>Нет</Button>
+                        <Button mw={query768 ? 186 : 126} variant={2} className={s.btn} onClick={handleClose}>Да</Button>
                     </div>
 
                 </div>

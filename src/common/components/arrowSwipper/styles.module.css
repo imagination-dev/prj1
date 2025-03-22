@@ -22,3 +22,22 @@
 .arrow:hover svg {
     fill: #fff !important;
 }
+
+
+@media screen and (max-width: 768px) {
+    .arrow:hover {
+        background-color: #fff;
+    }
+
+    .arrow:hover svg {
+        fill: rgb(0, 0, 0) !important;
+    }
+
+    .arrow:active {
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .arrow:active svg {
+        fill: #fff !important;
+    }
+}
