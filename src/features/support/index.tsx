@@ -19,7 +19,7 @@ const pathUnAuth = [
     {title: "Другой вопрос", path: "/question"},
 ]
 const Support = () => {
-    const isIphone = /iPhone|iPod/.test(navigator.userAgent)
+    // const isIphone = /iPhone|iPod/.test(navigator.userAgent)
     const {isAuth} = useContext(AuthContext)
 
     return (
