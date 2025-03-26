@@ -3,7 +3,6 @@ import CloseModalButton from "../../../common/components/closeButtonModal";
 import {Box, Modal, Rating} from "@mui/material";
 import {useState} from "react";
 import s from './styles.module.css'
-import {classNames} from "../../../common/utils/classNames.ts";
 
 interface Props {
     isOpen: boolean
@@ -32,7 +31,7 @@ const ModalStar = ({isOpen, rating = 0, handleClose, changeScore}: Props) => {
                 <CloseModalButton handleClose={handleClose}/>
                 <div className={s.rating}>
                     {!isConfirm ? <>
-                        <p className={classNames(s.title, s.title_hidden)}>Оцените</p>
+                        {/*<p className={classNames(s.title, s.title_hidden)}>Оцените</p>*/}
                         <Rating
                             sx={{
                                 fontSize: '36px',

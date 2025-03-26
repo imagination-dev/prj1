@@ -25,9 +25,9 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                         {headers.map((el: any, i: number) => <TableCell
                             key={i}
                             style={el.width ? {
-                                maxWidth: 170,
-                                minWidth: 170,
-                                width: 170,
+                                maxWidth: i === 0 ? 280 : 170,
+                                minWidth: i === 0 ? 280 : 170,
+                                width: i === 0 ? 280 : 170,
 
 
                             } : {
@@ -51,7 +51,8 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                             key={row.id}
                             sx={{
                                 '& .MuiTableCell-root': {
-                                    padding: '13px 16px'
+                                    padding: '13px 16px',
+                                    paddingLeft: '44px'
                                 },
 
                                 '&:last-child td, &:last-child th': {border: 0},
@@ -65,12 +66,9 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={classNames(s.cell, s.cell_bank)}>
                                             <div className={s.icons_bank}>
-    {row.bank_icon &&
-        <img className={s.card_icon} src={row.bank_icon} alt="card"/>}
-
                                                 {row.card_icon &&
                                                     <img className={s.card_icon} src={row.card_icon} alt="card"/>}
 
@@ -80,7 +78,7 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}>
                                             {row.date.split(' ')[0]}
                                             &nbsp;

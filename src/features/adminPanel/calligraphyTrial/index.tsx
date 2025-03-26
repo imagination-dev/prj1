@@ -4,6 +4,7 @@ import {v4} from "uuid";
 import {useEffect} from "react";
 
 const data = [
+    {title: 'Calligraphy Trial', count: null, id: v4()},
     {title: 'Скетчинг', count: 6, id: v4()},
     {title: 'Леттеринг', count: null, id: v4()},
     {title: 'Фешн-иллюстрация', count: null, id: v4()},
@@ -11,7 +12,7 @@ const data = [
     {title: 'Фешн-иллюстрация', count: 250, id: v4()},
     {title: 'Леттеринг', count: null, id: v4()},
     {title: 'Фешн-иллюстрация', count: null, id: v4()},
-    {title: 'Леттеринг', count: 25, id: v4()},
+    {title: 'Леттеринг', count: 1000, id: v4()},
     {title: 'Фешн-иллюстрация', count: 25, id: v4()},
 ]
 
@@ -28,7 +29,6 @@ const CalligraphyTrial = ({value, handleChange}: Props) => {
 
     return (
         <div className={s.box}>
-            <h3 className={s.title}>Calligraphy Trial</h3>
 
             <div className={s.items}>
                 {data.map((el) => <ItemChoose key={el.id} onClick={() => handleChange(el.id)} active={value === el.id}

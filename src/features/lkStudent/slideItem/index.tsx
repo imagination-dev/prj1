@@ -14,9 +14,10 @@ interface Props {
     progress?: number | null
     img: string
     active?: boolean
+    isActiveLast?: boolean
 }
 
-const SlideItem = ({title, active = false, type, img, progress = null}: Props) => {
+const SlideItem = ({title, isActiveLast = false, active = false, type, img, progress = null}: Props) => {
     const query768 = useMediaQuery('(max-width:768px)');
 
     const navigate = useNavigate()
@@ -26,7 +27,7 @@ const SlideItem = ({title, active = false, type, img, progress = null}: Props) =
     const handlenavigateAllCurses = () => navigate('/lk_student_courses')
 
     useEffect(() => {
-        if (!query768) return
+        if (!query768 || !active) return
         let interval = setInterval(() => {
             setCursorIsInside((prev) => !prev)
         }, 2000)
@@ -34,10 +35,10 @@ const SlideItem = ({title, active = false, type, img, progress = null}: Props) =
         return () => {
             clearInterval(interval)
         }
-    }, [query768])
+    }, [query768, active])
 
     return (
-        <div className={s.item} style={{
+        <div className={classNames(s.item, (active || isActiveLast) && s.item_opacity)} style={{
             backgroundImage: `url(${img})`,
             backgroundSize: 'cover',
             backgroundRepeat: "no-repeat",
@@ -46,18 +47,18 @@ const SlideItem = ({title, active = false, type, img, progress = null}: Props) =
             <div className={s.info_box}>
                 <h3 className={s.title}>{title}</h3>
                 <div
-                    className={classNames(s.btn, type === 'lock' && s.btn_lock, (cursorIsInside && active) && type === 'lock' && query768 && s.btn_bg)}
+                    className={classNames(s.btn, type === 'lock' && s.btn_lock, (cursorIsInside) && type === 'lock' && query768 && s.btn_bg)}
                     onClick={handlenavigateAllCurses}
                     onMouseEnter={() => setCursorIsInside(true)}
                     onMouseLeave={() => setCursorIsInside(false)}
                 >
                     <div className={s.icon_btn}>
                         {type === 'unlock' && <UnlockedIcon/>}
-                        {type === 'lock' && ((cursorIsInside && active) ? <LockedHoverIcon/> : <LockedIcon/>)}
+                        {type === 'lock' && ((cursorIsInside) ? <LockedHoverIcon/> : <LockedIcon/>)}
                     </div>
                     <p className={classNames(s.item_btn_title, type === 'lock' && s.item_btn_title_lock)}>
                         {type === 'unlock' && 'Начать учиться'}
-                        {type === 'lock' && ((cursorIsInside && active) ? 'Открыть доступ' : 'Доступ закрыт')}
+                        {type === 'lock' && ((cursorIsInside) ? 'Открыть доступ' : 'Доступ закрыт')}
                     </p>
                 </div>
             </div>

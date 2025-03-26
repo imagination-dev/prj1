@@ -29,13 +29,20 @@ const Chat = ({
     const [isScrolling, setIsScrolling] = useState(false);
     const scrollTimeoutRef = useRef<any>(null);
 
-    useEffect(() => {
+    const handleScrollToBottom = () => {
         if (boxChatRef.current) {
             boxChatRef.current.scrollTo({
                 top: boxChatRef.current.scrollHeight,
                 behavior: "smooth"
             });
         }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            handleScrollToBottom()
+        }, 100)
+
     }, [messages]);
 
     // const formatDate = (timestamp: number) => {
@@ -110,13 +117,14 @@ const Chat = ({
         };
     }, [messages]);
 
-    const sendMessage = (message: string, callback: any) => {
+    const sendMessage = (message: string, callback: any, media = null) => {
         const newMessage = {
             id: v4(),
             name: nameUser,
             text: message,
             sender: 'user',
-            timestamp: moment().unix() * 1000
+            timestamp: moment().unix() * 1000,
+            media: media
         }
         setMessages((prev: any) => [...prev, newMessage])
         callback()
@@ -174,6 +182,29 @@ const Chat = ({
                     {messages.reduce((acc: any, message: any, index: number) => {
                         const prevDate = index > 0 ? formatDateMessage(messages[index - 1].timestamp) : null;
                         const currentDate = formatDateMessage(message.timestamp);
+                        const handleGetAvatarSrc = () => {
+                            if (message?.media?.length) {
+                                const file: any = message?.media[0]; // Берем только один файл
+                                if (file && (file.type.startsWith("image/") || file.type === "application/pdf" || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
+
+
+                                    if (file.type.startsWith("image/")) {
+                                        const objectURL: string = URL.createObjectURL(file);
+
+                                        return objectURL;
+                                    } else {
+                                        const objectURL: string = URL.createObjectURL(file);
+                                        return {
+                                            url: objectURL,
+                                            name: file.name,
+                                            type: file.type.split('/').length !== 0 ? file.type.split('/')[1] : 'Файл не распознан'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        const avatarSrc = handleGetAvatarSrc()
 
                         if (prevDate !== currentDate) {
                             acc.push(<DateMessage key={`date-${message.id}`}
@@ -184,6 +215,7 @@ const Chat = ({
                         }
                         acc.push(<Message key={message.id} currentDate={currentDate} name={message.name}
                                           text={message.text}
+                                          avatarSrc={avatarSrc}
                                           sender={message.sender}/>);
 
                         return acc;

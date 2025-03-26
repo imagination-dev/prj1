@@ -112,4 +112,8 @@ textarea {
         background-color: initial;
         color: initial;
     }
+
+    * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    }
 }

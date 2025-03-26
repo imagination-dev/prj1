@@ -17,7 +17,7 @@ const NormalButton = ({children, isStaticBg = false, onClick, bc, w = '100%', cl
         <div onClick={onClick} className={classNames(s.btn, className)} data-hover={bc} style={{
             borderColor: bc,
             maxWidth: w,
-            backgroundColor: isStaticBg ? bc : '',
+                 backgroundColor: isStaticBg ? bc : '',
             // @ts-ignore
             '--hover-color': bc,
         }}>

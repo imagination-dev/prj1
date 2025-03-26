@@ -33,8 +33,8 @@ const rows = [
 
 const headers = [
     {title: "Продкут", icon: <Icon1/>, width: '170px', align: 'left'},
-    {title: "Метод привязки", icon: <Icon2/>},
-    {title: "Дата отвязки", icon: <Icon3/>},
+    {title: "Метод привязки", icon: <Icon2/>, align: 'left'},
+    {title: "Дата отвязки", icon: <Icon3/>, align: 'left'},
     {title: "Статус привязки", icon: <Icon4/>, align: 'right'},
 ]
 

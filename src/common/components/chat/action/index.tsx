@@ -31,7 +31,7 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
         }
     }
 
-    console.log(selectedFiles)
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]; // Берем только один файл
         if (file && (file.type.startsWith("image/") || file.type === "application/pdf" || file.type === "application/msword" || file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
@@ -39,6 +39,7 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
 
             if (file.type.startsWith("image/")) {
                 const objectURL = URL.createObjectURL(file);
+
                 setAvatarSrc(objectURL); // Показываем превью только для изображений
             } else {
                 setAvatarSrc(null); // Для документов превью не показываем
@@ -51,9 +52,9 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
             e.preventDefault(); // Prevent new line
         }
 
-        if (e.key === "Enter" && !e.shiftKey && value) {
+        if (e.key === "Enter" && !e.shiftKey && (value || selectedFiles.length !== 0)) {
             e.preventDefault(); // Предотвращаем перенос строки
-            sendMessage(value, clear);
+            sendMessage(value, clear, selectedFiles);
         }
     };
 
@@ -150,8 +151,9 @@ const Action = ({sendMessage, classNameAction, classNameActionBtns, classNameAct
 
                     </div>
 
-                    <div className={classNames(s.send_message, value && s.send_message_sussess)}
-                         onClick={() => value && sendMessage(value, clear)}>
+                    <div
+                        className={classNames(s.send_message, (value || selectedFiles.length !== 0) && s.send_message_sussess)}
+                        onClick={() => (value || selectedFiles.length !== 0) && sendMessage(value, clear, selectedFiles)}>
                         <SendIcon style={{marginRight: 8}}/>
                     </div>
 

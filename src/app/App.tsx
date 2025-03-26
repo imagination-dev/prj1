@@ -22,7 +22,7 @@ function App() {
         axios.get("https://ipapi.co/json/") // Запрос для определения страны
             .then((response: any) => {
                 if (response.data && response.data.country_code) {
-                    console.log(response.data.country_code)
+
                     setMask(masks[response.data.country_code.toUpperCase() || 'RU'])
                 }
             })

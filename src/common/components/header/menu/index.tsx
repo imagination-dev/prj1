@@ -63,19 +63,20 @@ const MenuHeader = ({open, isAdmin, logout, handleClose, anchorEl}: Interface) =
             transformOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
         >
-            <p onClick={() => !isAdmin && handleNavigate('/support')} className={s.menu_item}>
+            {!isAdmin && <p onClick={() => !isAdmin && handleNavigate('/support')} className={s.menu_item}>
                 <p className={s.menu_item_title} style={{position: 'relative', width: 'fit-content'}}>
                     Помощь
                     <CircleCount value={2} right={-25}/>
                 </p>
 
-            </p>
+            </p>}
 
-            <div className={s.line}/>
+            {!isAdmin && <div className={s.line}/>}
             {!isAdmin && <p onClick={() => handleNavigate('/profile')} className={s.menu_item}>
                 Настройки
             </p>}
-            <div className={s.line}/>
+            {!isAdmin &&
+                <div className={s.line}/>}
             <p onClick={logout} className={classNames(s.menu_item, s.menu_item_logout)} style={{
                 color: '#9f4444'
             }}>

@@ -21,7 +21,7 @@ const pathUnAuth = [
 const Support = () => {
     const isIphone = /iPhone|iPod/.test(navigator.userAgent)
     const {isAuth} = useContext(AuthContext)
-    console.log(isIphone)
+
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.box}>

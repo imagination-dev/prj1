@@ -47,7 +47,7 @@ const Chats = ({
                 }, 50)
                 setCount((prev) => prev + 1)
                 setShowLoading(true);
-                setTimeout(() => setShowLoading(false), 2000);
+                setTimeout(() => setShowLoading(false), 3000);
             }
         };
 

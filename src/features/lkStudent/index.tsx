@@ -43,7 +43,7 @@ const LkStudent = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const dots = Array.from({length: swiperData.length}, (_, b) => b)
-
+    console.log(currentIndex)
     return (
         <Wrapper className={s.wrapper_LkStudent}>
             <>
@@ -75,9 +75,12 @@ const LkStudent = () => {
                             spaceBetween={30}
                         >
                             {swiperData.map((el, i) => {
+                                const interval = currentIndex + 5
                                 return <SwiperSlide className={s.swiper_slide} key={`${i} + ${el.id}`}
                                 >
-                                    <SlideItem active={currentIndex === i} progress={el.progress} type={el.type}
+                                    <SlideItem active={currentIndex === i}
+                                               isActiveLast={interval >= swiperData.length ? (interval - swiperData.length) === i : interval === i}
+                                               progress={el.progress} type={el.type}
                                                title={el.title} img={el.img}/>
 
                                 </SwiperSlide>

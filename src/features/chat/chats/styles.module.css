@@ -34,6 +34,19 @@
     transform: translate(-50%, -50%);
 }
 
+@keyframes rotateReload {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.loading svg {
+    animation: rotateReload infinite 1s linear;
+}
+
 .title {
     padding: 30px 30px 16px 30px;
 

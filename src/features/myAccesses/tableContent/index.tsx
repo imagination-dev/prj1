@@ -24,7 +24,7 @@ const TableContent = ({rows, headers}: any) => {
                     <TableRow>
                         {headers.map((el: any, i: number) => <TableCell
                             key={i}
-                            style={{minWidth: 170}} align="center">
+                            style={{minWidth: 170}} align="left">
 
                             <div className={s.icon}>
                                 {el.icon}
@@ -41,25 +41,26 @@ const TableContent = ({rows, headers}: any) => {
                             key={row.id}
                             sx={{
                                 '& .MuiTableCell-root': {
-                                    padding: '13px 16px'
+                                    padding: '13px 16px',
+                                    paddingLeft: '44px'
                                 },
 
                                 '&:last-child td, &:last-child th': {border: 0},
                             }}
                         >
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}>
                                             {row.product}
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}>
                                             {row.tariff}
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}>
                                             {row.date_pay.split(' ')[0]}
                                             &nbsp;
@@ -68,7 +69,7 @@ const TableContent = ({rows, headers}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}>
                                             {row.date_activated.split(' ')[0]}
                                             &nbsp;
@@ -77,7 +78,7 @@ const TableContent = ({rows, headers}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="center">
+                            <TableCell align="left">
                                         <span className={s.cell}
                                               style={{
                                                   fontFamily: 'Gilroy-Black,sans-serif',

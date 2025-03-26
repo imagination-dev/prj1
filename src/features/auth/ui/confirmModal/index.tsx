@@ -46,7 +46,6 @@ const ConfirmModal = ({isOpen, handleClose, value}: IProps) => {
         const isValidCode = code.every((el) => el === '1')
         if (isValidCode) {
             login()
-            console.log('Navigating to /lk_student');
             navigate('/lk_student')
 
         } else {

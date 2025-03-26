@@ -18,7 +18,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-    letter-spacing: 0%;
     word-wrap: break-word;
     white-space: pre-wrap; /* Чтобы текст переносился при необходимости */
     overflow-wrap: break-word;
@@ -38,7 +37,6 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19.2px;
-    letter-spacing: 0%;
     color: rgba(0, 0, 0, 1);
 }
 
@@ -47,6 +45,46 @@
     flex-direction: column;
     gap: 10px;
     max-width: 70%;
+}
+
+.doc_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.doc_box_description {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.doc_title {
+    font-family: Gilroy, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #65646C;
+    text-decoration: none;
+}
+
+.doc_type {
+    font-family: Gilroy, sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 100%;
+    color: #65646C;
+    text-decoration: none;
+}
+
+.doc_name {
+    font-family: Gilroy, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #65646C;
+    text-decoration: none;
+    margin-top: 6px;
 }
 
 
