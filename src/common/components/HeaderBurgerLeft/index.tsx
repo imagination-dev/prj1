@@ -45,10 +45,7 @@ const HeaderBurgerLeft = ({isAdmin, openMenu, toggleDrawer, handleLogout}: any) 
                 {!isAdmin && <NavLink to={'profile'} className={s.nav_item}>Настройки</NavLink>}
                 <p className={classNames(s.nav_item, s.nav_item_logout)} onClick={handleLogout}>Выйти</p>
             </div>
-
-
         </Box>
-
     );
 
     return (

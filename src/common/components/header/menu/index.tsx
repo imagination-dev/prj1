@@ -68,7 +68,6 @@ const MenuHeader = ({open, isAdmin, logout, handleClose, anchorEl}: Interface) =
                     Помощь
                     <CircleCount value={2} right={-25}/>
                 </p>
-
             </p>}
 
             {!isAdmin && <div className={s.line}/>}

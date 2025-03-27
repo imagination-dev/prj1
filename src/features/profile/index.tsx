@@ -7,12 +7,12 @@ import TitleSupport from "../../common/ui-kit/titleSupport";
 import Input from "../../common/ui-kit/input";
 import {useFormik} from "formik";
 import SelectItem from "../../common/ui-kit/select";
-import {TextMaskCustom} from "../../common/ui-kit/numberInput";
 import DateInput from "../../common/ui-kit/dateInput";
 import dayjs from "dayjs";
 import {useNavigate} from "react-router";
-import {useContext, useState} from "react";
-import {MobileContext} from "../../app/App.tsx";
+import {useState} from "react";
+import InputNumber from "../../common/ui-kit/inputNumber";
+import parsePhoneNumberFromString from "libphonenumber-js";
 
 const sex = [
     {title: 'Женский', id: 1},
@@ -28,9 +28,20 @@ type ValuesType = {
     birthday: string,
 }
 
+const validatePhone = (value: string) => {
+    if (!value) return "Обязательное поле";
+
+    const phoneNumber = parsePhoneNumberFromString(value);
+    if (!phoneNumber || !phoneNumber.isValid()) {
+        return "Введите корректный номер";
+    }
+
+    return undefined;
+};
+
 
 const Profile = () => {
-    const {mask} = useContext(MobileContext)
+    // const {mask} = useContext(MobileContext)
 
     const [disabled, setDisabled] = useState(true)
 
@@ -53,10 +64,9 @@ const Profile = () => {
                 errors.name = 'Мин. длина 2 символа';
             }
 
-            if (!values.mobile) {
-                errors.mobile = 'Обязательное поле';
-            } else if (values.mobile.length !== mask.length) {
-                errors.mobile = "Введите корректный номер";
+            const phoneError = validatePhone(values.mobile);
+            if (phoneError) {
+                errors.mobile = phoneError;
             }
 
             if (!values.email) {
@@ -86,7 +96,6 @@ const Profile = () => {
         }
     })
 
-
     return (
         <Wrapper className={s.wrapper}>
             <div className={s.main}>
@@ -100,7 +109,6 @@ const Profile = () => {
 
                     <Avatar src={''}
                             sx={{
-                                cursor: 'pointer',
                                 width: !query768 ? '165px' : '135px', height: !query768 ? '165px' : '135px'
                             }}/>
 
@@ -115,18 +123,27 @@ const Profile = () => {
                                 label={'Имя'} value={formik.values.name} onChange={formik.handleChange}
                                 onBlur={formik.handleBlur} name={'name'}/>
 
-                            <Input
+                            <InputNumber
                                 type={'tel'}
                                 disabled={disabled}
-                                InputProps={{
-                                    inputComponent: TextMaskCustom as any,
-                                }}
                                 id={'1'}
                                 helperText={formik.touched.mobile ? formik.errors.mobile : ''}
                                 error={Boolean(formik.touched.mobile && formik.errors.mobile)}
                                 label={'Номер телефона'} value={formik.values.mobile} onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 name={'mobile'}/>
+                            {/*<Input*/}
+                            {/*    type={'tel'}*/}
+                            {/*    disabled={disabled}*/}
+                            {/*    InputProps={{*/}
+                            {/*        inputComponent: TextMaskCustom as any,*/}
+                            {/*    }}*/}
+                            {/*    id={'1'}*/}
+                            {/*    helperText={formik.touched.mobile ? formik.errors.mobile : ''}*/}
+                            {/*    error={Boolean(formik.touched.mobile && formik.errors.mobile)}*/}
+                            {/*    label={'Номер телефона'} value={formik.values.mobile} onChange={formik.handleChange}*/}
+                            {/*    onBlur={formik.handleBlur}*/}
+                            {/*    name={'mobile'}/>*/}
 
                             <Input
                                 disabled={disabled}

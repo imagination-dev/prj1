@@ -18,6 +18,9 @@
     margin-top: 30px;
     background-color: #fff;
     transition: .4s all;
+    /*position: sticky;*/
+    /*top: 20px;*/
+    z-index: 4;
 }
 
 .sticky {

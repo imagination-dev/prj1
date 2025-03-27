@@ -115,4 +115,8 @@
         width: 13px;
         height: 13px;
     }
+
+    .btn {
+        max-width: 100% !important;
+    }
 }

@@ -7,6 +7,11 @@
     padding: 30px;
 }
 
+.topic_icon {
+    position: relative;
+    top: -1px;
+}
+
 .topic {
     display: flex;
     align-items: flex-start;

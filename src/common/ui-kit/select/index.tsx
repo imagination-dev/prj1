@@ -1,7 +1,7 @@
 import s from './styles.module.css'
 import {FormControl, InputLabel, MenuItem} from "@mui/material";
 import Select from '@mui/material/Select';
-import {ChangeEventHandler, useEffect, useRef} from "react";
+import {ChangeEventHandler, useRef, useState} from "react";
 
 interface IProps {
     error?: boolean
@@ -28,30 +28,29 @@ const SelectItem = ({
                     }: IProps) => {
     // const [selectedValue, setSelectedValue] = useState('');
     const inputRef = useRef<any>(null)
-
-    const unfocus = () => {
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
         setTimeout(() => {
+            console.log(inputRef.current)
             inputRef.current.focus()
         }, 0)
-    }
+        setOpen(false);
+    };
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
 
     const handleChange = (event: any) => {
         onChange(event);
     };
 
-    useEffect(() => {
-        document.body.addEventListener('click', unfocus)
-
-        return () => {
-            document.body.removeEventListener('click', unfocus)
-        }
-    }, []);
-
-
     return (
         <div className={s.box}>
             <input className={s.unfocus} ref={inputRef} type="text"/>
             <FormControl
+
                 disabled={disabled}
                 size={'small'}
                 variant={'standard'} fullWidth sx={{
@@ -69,6 +68,9 @@ const SelectItem = ({
             }}>
                 <InputLabel id="demo-simple-select-label">{placeholder}</InputLabel>
                 <Select
+                    open={open}
+                    onClose={handleClose}
+                    onOpen={handleOpen}
                     MenuProps={{
                         anchorOrigin: {
                             vertical: "bottom",

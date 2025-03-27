@@ -20,7 +20,7 @@ const NavigateProgram = ({children, currentIndex, lengthItems, swiperRef}: Props
 
                 <div className={s.navigate_buttons}>
                     <div
-                        style={{justifyContent: 'flex-start', paddingLeft: '10px'}}
+
                         onClick={() => currentIndex === 1 ? undefined : swiperRef?.current?.slidePrev()}
                         className={classNames(s.btn_nav, currentIndex === 1 && s.btn_nav_disabled)}>
                         <div className={classNames(s.arrow, currentIndex === 1 && s.arrow_disabled)}>
@@ -30,13 +30,14 @@ const NavigateProgram = ({children, currentIndex, lengthItems, swiperRef}: Props
                                 color: currentIndex === 1 ? 'rgba(196, 196, 196, 1)' : 'rgba(0, 0, 0, 1)'
                             }}/>
                         </div>
-                        {currentIndex === 1 ? 'Назад' : `Тема #${currentIndex - 1}`}
+                        Назад
+                        {/*{currentIndex === 1 ? 'Назад' : `Тема #${currentIndex - 1}`}*/}
                     </div>
                     <div
-                        style={{justifyContent: 'flex-end', paddingRight: '9px'}}
                         className={classNames(s.btn_nav, currentIndex + 1 > lengthItems && s.btn_nav_disabled)}
                         onClick={() => currentIndex + 1 > lengthItems ? undefined : swiperRef.current?.slideNext()}>
-                        {currentIndex + 1 > lengthItems ? 'Вперед' : `Тема #${currentIndex + 1}`}
+                        {/*{currentIndex + 1 > lengthItems ? 'Вперед' : `Тема #${currentIndex + 1}`}*/}
+                        Вперед
 
                         <div className={classNames(s.arrow, currentIndex + 1 > lengthItems && s.arrow_disabled)}>
                             <ArrowForwardIcon sx={{

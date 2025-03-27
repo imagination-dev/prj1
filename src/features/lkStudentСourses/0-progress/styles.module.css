@@ -15,12 +15,27 @@
     gap: 10px;
 }
 
+.icon {
+    position: absolute;
+    top: 0px;
+    left: -28px;
+}
+
 .box_top_item {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    position: relative;
+    margin-left: 28px;
+}
+
+.box_top_item_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    justify-content: center;
 }
 
 .title {
@@ -33,6 +48,7 @@
     color: rgba(101, 100, 108, 1);
     display: flex;
     gap: 10px;
+    position: relative;
 }
 
 .sub_title {
@@ -50,7 +66,7 @@
 }
 
 .sub_title_v2 {
-    margin-left: 18px;
+    /*margin-left: 18px;*/
 }
 
 .box_bottom {
@@ -118,24 +134,22 @@
         gap: 5px;
     }
 
-    .sub_title, .edit_icon {
-        text-align: left;
-    }
-
-    .sub_title_v2 {
-        margin-left: 0px;
-    }
 
     .br {
         display: block;
     }
 
-    .box_top_item_2 {
-        flex-direction: column;
-        align-items: flex-start;
+
+    .box_top_item_right {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 7px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
 
-    .sub_title_mobile {
-        padding-left: 30px;
+    .title {
+        white-space: nowrap;
     }
 }

@@ -1,7 +1,7 @@
 import s from './styles.module.css'
 import Wrapper from "../../common/components/wrapper";
 import TitleSupport from "../../common/ui-kit/titleSupport";
-import Icon1 from '../../common/assets/controlCardsTable/icon_1.svg?react'
+// import Icon1 from '../../common/assets/controlCardsTable/icon_1.svg?react'
 import Icon2 from '../../common/assets/controlCardsTable/icon_2.svg?react'
 import Icon3 from '../../common/assets/controlCardsTable/icon_3.svg?react'
 import Icon4 from '../../common/assets/controlCardsTable/icon_4.svg?react'
@@ -32,10 +32,10 @@ const rows = [
 ];
 
 const headers = [
-    {title: "Продкут", icon: <Icon1/>, width: '170px', align: 'left'},
-    {title: "Метод привязки", icon: <Icon2/>, align: 'left'},
-    {title: "Дата отвязки", icon: <Icon3/>, align: 'left'},
-    {title: "Статус привязки", icon: <Icon4/>, align: 'right'},
+    // {title: "Продукт", icon: <Icon1/>, width: '170px', align: 'center'},
+    {title: "Метод привязки", icon: <Icon2/>, align: 'center'},
+    {title: "Дата отвязки", icon: <Icon3/>, align: 'center'},
+    {title: "Статус привязки", icon: <Icon4/>, align: 'center'},
 ]
 
 const ControlCards = () => {
@@ -54,7 +54,7 @@ const ControlCards = () => {
             <div className={s.box}>
                 {isOpenModal && <ModalConfirm handleClose={handleCloseModal} open={isOpenModal}/>}
                 <div className={s.main_title}>
-                    <TitleSupport title={title} align={'left'}/>
+                    <TitleSupport title={title} align={'center'}/>
                 </div>
                 {query768 ?
                     <SwiperContent rows={rows} handleOpenModal={handleOpenModal} headers={headers}/> :

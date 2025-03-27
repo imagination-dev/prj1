@@ -21,6 +21,7 @@ export const TextMaskCustom = React.forwardRef<HTMLInputElement, CustomProps>(
                 definitions={{
                     "#": /[1-9]/,
                 }}
+
                 inputRef={ref} // Важно передавать ref
                 onAccept={(value: any) => onChange({target: {name: props.name, value}})}
                 // overwrite

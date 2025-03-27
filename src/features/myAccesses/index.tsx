@@ -29,7 +29,7 @@ const rows = [
 ];
 
 const headers = [
-    {title: "Продкут", icon: <Icon1/>},
+    {title: "Продукт", icon: <Icon1/>},
     {title: "Тариф", icon: <Icon2/>},
     {title: "Дата оплаты", icon: <Icon3/>},
     {title: "Дата активации", icon: <Icon4/>},

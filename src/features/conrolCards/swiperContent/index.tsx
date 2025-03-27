@@ -26,10 +26,10 @@ const SwiperContent = ({rows, handleOpenModal}: any) => {
                         key={el.id + i}
                     >
                         <div className={s.item}>
-                            <div className={s.line}>
-                                <p className={s.line_left}>Продкут</p>
-                                <p className={s.line_right}>{el.product}</p>
-                            </div>
+                            {/*<div className={s.line}>*/}
+                            {/*    <p className={s.line_left}>Продукт</p>*/}
+                            {/*    <p className={s.line_right}>{el.product}</p>*/}
+                            {/*</div>*/}
                             <div className={s.line}>
                                 <p className={s.line_left}>Метод привязки</p>
                                 <p className={s.line_right}>

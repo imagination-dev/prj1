@@ -4,8 +4,8 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import s from './styles.module.css'
 import {ChangeEventHandler} from "react";
 import {ruRU} from '@mui/x-date-pickers/locales';
-
-
+import {InputAdornment, useMediaQuery} from "@mui/material";
+import EventIcon from '@mui/icons-material/Event';
 interface IProps {
     label: string
     error?: boolean
@@ -29,6 +29,7 @@ const DateInput = ({
                        value,
                        onChange
                    }: IProps) => {
+    const query768 = useMediaQuery('(max-width:768px)');
     return (
         <div className={s.container} onClick={(e) => {
             e.stopPropagation()
@@ -50,16 +51,27 @@ const DateInput = ({
                                         color: !error ? "rgba(101, 100, 108, 1)" : "#d32f2f",
 
                                     },
+                                    "& .Mui-disabled": {
+                                        color: 'rgba(0, 0, 0, 0.38)',
+                                    },
                                 }}
                                 value={value}
                                 onChange={onChange}
                                 label={label}
+
                                 slotProps={{
                                     textField: {
                                         onBlur: onBlur,
                                         error: error,
                                         variant: 'standard',
-                                        // size: 'small'
+                                        InputProps: query768 ? {
+                                            endAdornment: (
+                                                <InputAdornment position="end">
+                                                    <EventIcon
+                                                        sx={{color: disabled ? 'rgba(0, 0, 0, 0.38)' : 'rgba(101, 100, 108, 1)'}}/>
+                                                </InputAdornment>
+                                            )
+                                        } : {}
                                     },
                                 }} format={'DD.MM.YYYY'}/>
                 </DemoContainer>

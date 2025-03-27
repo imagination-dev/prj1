@@ -53,8 +53,11 @@ const Input = ({
                                fontFamily: 'Gilroy-Regular,sans-serif',
                                fontWeight: 400,
                                fontSize: '16px',
-                               color: !error ? "rgba(101, 100, 108, 1)" : "#d32f2f",
 
+                           },
+
+                           "& .Mui-disabled input:-webkit-autofill": {
+                               "-webkit-text-fill-color": "rgba(0, 0, 0, 0.38) !important",
                            },
                        }}
                        value={value}

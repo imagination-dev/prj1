@@ -25,6 +25,11 @@
     /*border: 1px solid red;*/
     width: 100%;
     padding: 10px 0;
+    -webkit-touch-callout: none;
+}
+
+.nav_item:active {
+    text-decoration: underline;
 }
 
 .nav_item p {
@@ -33,5 +38,10 @@
 }
 
 .nav_item_logout {
-    color: #9f4444;
+    color: #9f4444
+}
+
+.nav_item_logout:active {
+    text-decoration: none;
+    color: #e82626
 }

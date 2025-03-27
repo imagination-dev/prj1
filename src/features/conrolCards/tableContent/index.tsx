@@ -24,17 +24,11 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                     <TableRow>
                         {headers.map((el: any, i: number) => <TableCell
                             key={i}
-                            style={el.width ? {
-                                maxWidth: i === 0 ? 280 : 170,
-                                minWidth: i === 0 ? 280 : 170,
-                                width: i === 0 ? 280 : 170,
-
-
-                            } : {
+                            style={{
                                 minWidth: 170,
                             }}
-                            align={el.align ? el.align : 'center'}>
-                            <div style={{paddingLeft: i === 0 ? '20px' : 0}}>
+                            align={'center'}>
+                            <div className={s.wrapper_header}>
                                 <div className={s.icon}>
                                     {el.icon}
                                 </div>
@@ -47,26 +41,26 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                 <TableBody>
                     {rows.map((row: any) => (
                         <TableRow
-                            style={{minWidth: row.minWidth}}
+                            style={{
+                                minWidth: row.minWidth,
+                            }}
                             key={row.id}
                             sx={{
                                 '& .MuiTableCell-root': {
                                     padding: '13px 16px',
-                                    paddingLeft: '44px'
+                                    // paddingLeft: '44px'
                                 },
 
                                 '&:last-child td, &:last-child th': {border: 0},
                             }}
                         >
-                            <TableCell align="left">
-                                        <span className={s.cell} style={{
-                                            paddingLeft: '20px'
-                                        }}>
-                                            {row.product}
-                                        </span>
-                            </TableCell>
+                            {/*<TableCell align="center">*/}
+                            {/*            <span className={s.cell}>*/}
+                            {/*                {row.product}*/}
+                            {/*            </span>*/}
+                            {/*</TableCell>*/}
 
-                            <TableCell align="left">
+                            <TableCell align="center">
                                         <span className={classNames(s.cell, s.cell_bank)}>
                                             <div className={s.icons_bank}>
                                                 {row.card_icon &&
@@ -78,7 +72,7 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="left">
+                            <TableCell align="center">
                                         <span className={s.cell}>
                                             {row.date.split(' ')[0]}
                                             &nbsp;
@@ -87,7 +81,7 @@ const TableContent = ({rows, headers, handleOpenModal}: any) => {
                                         </span>
                             </TableCell>
 
-                            <TableCell align="right">
+                            <TableCell align="center">
                                 <NormalButton onClick={row.status === 1 ? handleOpenModal : undefined} className={s.btn}
                                               w={110}
                                               bc={row.status === 2 ? 'rgba(38, 211, 103, 1)' : 'rgba(0, 0, 0, 1)'}>
